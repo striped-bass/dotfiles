@@ -2,7 +2,7 @@
   all: unset; }
 
 * {
-  font-family: sans-serif; }
+  font-family: Arial, sans-serif; }
 
 .nier-toggle-on {
   opacity: 1;
@@ -813,12 +813,12 @@
 .nier-settings-2-container,
 .nier-settings-3-container,
 .nier-settings-4-container {
-  min-width: calc(2560px / 4); }
+  min-width: calc(2880px / 4); }
 
 @keyframes container_enter {
   0% {
-    margin-right: 2560px;
-    margin-left: calc(-1 * 2560px); }
+    margin-right: 2880px;
+    margin-left: calc(-1 * 2880px); }
   100% {
     margin-right: 0px;
     margin-left: 0px; } }
@@ -840,26 +840,26 @@
   transition: margin 0.2s cubic-bezier(0.15, 0.79, 0, 1), opacity 1s ease; }
 
 .nier-settings-1-container.closing {
-  margin-right: calc(2560px / 4);
-  margin-left: calc(-1 * 2560px / 4);
+  margin-right: calc(2880px / 4);
+  margin-left: calc(-1 * 2880px / 4);
   opacity: 0;
   transition: margin 0.2s cubic-bezier(0.15, 0.79, 0, 1), opacity 0.2s ease; }
 
 .nier-settings-2-container.closing {
-  margin-right: calc(2560px/ 4);
-  margin-left: calc(-1 * 2560px/ 4);
+  margin-right: calc(2880px/ 4);
+  margin-left: calc(-1 * 2880px/ 4);
   opacity: 0;
   transition: margin 0.4s cubic-bezier(0.15, 0.79, 0, 1), opacity 0.4s ease; }
 
 .nier-settings-3-container.closing {
-  margin-right: calc(2560px / 4);
-  margin-left: calc(-1 * 2560px / 4);
+  margin-right: calc(2880px / 4);
+  margin-left: calc(-1 * 2880px / 4);
   opacity: 0;
   transition: margin 0.6s cubic-bezier(0.15, 0.79, 0, 1), opacity 0.6s ease; }
 
 .nier-settings-4-container.closing {
-  margin-right: calc(2560px / 4);
-  margin-left: calc(-1 * 2560px / 4);
+  margin-right: calc(2880px / 4);
+  margin-left: calc(-1 * 2880px / 4);
   opacity: 0;
   transition: margin 0.8s cubic-bezier(0.15, 0.79, 0, 1), opacity 0.8s ease; }
 
