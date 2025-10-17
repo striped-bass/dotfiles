@@ -9,33 +9,6 @@ import { SCREEN_WIDTH, arradd, arrremove, assetsDir } from "../util.js";
 
 const { execAsync } = Utils;
 
-const int_to_string = ({ i, jap = true }) => {
-  switch (i) {
-    case 1:
-      return jap ? "いち" : "ONE";
-    case 2:
-      return jap ? "に" : "TWO";
-    case 3:
-      return jap ? "さん" : "THREE";
-    case 4:
-      return jap ? "よん" : "FOUR";
-    case 5:
-      return jap ? "ご" : "FIVE";
-    case 6:
-      return jap ? "ろく" : "SIX";
-    case 7:
-      return jap ? "なな" : "SEVEN";
-    case 8:
-      return jap ? "はち" : "EIGHT";
-    case 9:
-      return jap ? "きゅう" : "NINE";
-    case 10:
-      return jap ? "じゅう" : "TEN";
-    default:
-      return `${i}`;
-  }
-};
-
 let HOVERING = false;
 let REALLY_HOVERING = false;
 export const Workspaces = () =>
@@ -50,7 +23,7 @@ export const Workspaces = () =>
           "workspace-button-container",
           `workspace-button-${i}`,
         ],
-        label: `${int_to_string({ i, jap: false }).toUpperCase()}`,
+        label: `${i.toString()}`,
         onClicked: () => {
           execAsync(`hyprctl dispatch workspace ${i}`);
         },
