@@ -56,9 +56,9 @@ A rice inspired by `NieR:Automata` ui
       - hyprtheme
          > soon
 
-    - ### Move `hyprpaper.conf` to expected location
+    - ### Create symlink to `hyprpaper.conf`
       > ```
-      > mv ~/.config/hypr/themes/yorha/hyprpaper.conf ~/.config/hypr
+      > ln -s ~/.config/hypr/themes/yorha/hyprpaper.conf ~/.config/hypr
       > ```
 
 
