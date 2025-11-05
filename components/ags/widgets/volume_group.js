@@ -29,14 +29,14 @@ let volume_slider = ({ volume_ratio = 0, type = "speaker", stream = null, useAss
           if (
             Math.round(
               stream ? stream.volume || 0 : Audio[type].volume * 100
-            ) == Math.round(volume_ratio.value * 100)
+            ) == Math.round(volume_ratio.valueOf * 100)
           ) {
             return;
           }
           if (stream) {
-            stream.volume = volume_ratio.value;
+            stream.volume = volume_ratio.valueOf;
           } else {
-            Audio[type].volume = volume_ratio.value;
+            Audio[type].volume = volume_ratio.valueOf;
           }
         },
       ],
@@ -50,19 +50,19 @@ export const VolumeGroup = ({
   passAssetsDir = assetsDir
 }) => {
   return [
-    Label({ hpack: "start", label: "VOLUME", classNames: ["heading"] ,css:`margin-top: ${settings_title_top}px;margin-bottom: ${settings_title_bottom}px;`}),
+    // Label({ hpack: "start", label: "VOLUME", classNames: ["heading"] ,css:`margin-bottom: ${settings_title_bottom}px;`}),
     volume_slider({useAssetsDir: passAssetsDir, type: "Speaker", volume_ratio: volume_ratio }),
     volume_slider({useAssetsDir: passAssetsDir, type: "Microphone", volume_ratio: mic_volume_ratio }),
     NierButton({
       useAssetsDir: passAssetsDir,
-      container_style: "padding-top: 40px;",
+      // container_style: "padding-top: 40px;",
       label: "Applications",
-      font_size: 30,
+      font_size: button_label_2,
       vpack: "end",
       handleClick: async (self, event) => {
         await go_to(
           [
-            Label({ hpack: "start", label: "APPS", classNames: ["heading"]  ,css:`margin-top: ${settings_title_top}px;margin-bottom: ${settings_title_bottom}px;` }),
+            // Label({ hpack: "start", label: "APPS", classNames: ["heading"]  ,css:`margin-top: ${settings_title_top}px;margin-bottom: ${settings_title_bottom}px;` }),
             ...Array.from(Audio.apps).map((stream) => {
               console.log(stream);
               return volume_slider({
@@ -77,7 +77,7 @@ export const VolumeGroup = ({
         );
       },
     }),
-    Label({ hpack: "start", label: "OUTPUT", classNames: ["heading"], css:`margin-top: ${settings_title_top}px;margin-bottom: ${settings_title_bottom}px;` }),
+    // Label({ hpack: "start", label: "OUTPUT", classNames: ["heading"], css:`margin-top: ${settings_title_top}px;margin-bottom: ${settings_title_bottom}px;` }),
     ...Array.from(Audio.speakers).map((stream) => {
       console.log(stream);
       return volume_slider({
@@ -87,7 +87,7 @@ export const VolumeGroup = ({
       });
     }),
 
-    Label({ hpack: "start", label: "INPUT", classNames: ["heading"], css:`margin-top: ${settings_title_top}px;margin-bottom: ${settings_title_bottom}px;` }),
+    // Label({ hpack: "start", label: "INPUT", classNames: ["heading"], css:`margin-top: ${settings_title_top}px;margin-bottom: ${settings_title_bottom}px;` }),
     ...Array.from(Audio.microphones).map((stream) => {
       console.log(stream);
       return volume_slider({

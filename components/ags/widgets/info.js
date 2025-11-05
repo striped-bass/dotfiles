@@ -11,40 +11,40 @@ import { assetsDir,dark } from "../util.js";
 const { Box, Label, Icon, Button } = Widget;
 const { execAsync } = Utils;
 
-function capitalize_first_letter(val) {
+const capitalize_first_letter = (val) => {
   return String(val).charAt(0).toUpperCase() + String(val).slice(1);
 }
 
-const SysTray = () =>
-  Box({
-    hpack: "end",
-    hexpand: true,
-    classNames: ["sys-tray"],
-    connections: [
-      [
-        SystemTray,
-        (self) => {
-          self.children = SystemTray.items.map((item) =>
-            Button({
-              classNames: ["sys-tray-item"],
+// const SysTray = () =>
+//   Box({
+//     hpack: "end",
+//     hexpand: true,
+//     classNames: ["sys-tray"],
+//     connections: [
+//       [
+//         SystemTray,
+//         (self) => {
+//           self.children = SystemTray.items.map((item) =>
+//             Button({
+//               classNames: ["sys-tray-item"],
 
-              child: Icon({ binds: [["icon", item, "icon"]], size: 32 }),
-              onPrimaryClick: (_, event) => item.activate(event),
-              onSecondaryClick: (_, event) => item.openMenu(event),
-              binds: [["tooltip-markup", item, "tooltip-markup"]],
-            })
-          );
-        },
-      ],
-    ],
-  });
+//               child: Icon({ binds: [["icon", item, "icon"]], size: 32 }),
+//               onPrimaryClick: (_, event) => item.activate(event),
+//               onSecondaryClick: (_, event) => item.openMenu(event),
+//               binds: [["tooltip-markup", item, "tooltip-markup"]],
+//             })
+//           );
+//         },
+//       ],
+//     ],
+//   });
 
 export const Info = ({
   useAssetsDir = assetsDir,
   parentDir = App.configDir
 }) =>
   Box({
-    vpack: "end",
+    vpack: "start",
     vexpand: true,
     classNames: ["info"],
     css: `margin-bottom: 30px;`,

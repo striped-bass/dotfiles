@@ -12,10 +12,10 @@ export const PowerGroup = ({
   
 }) => {
   return [
-    Label({ hpack: "start", label: "POWER", classNames: ["heading"], css:`margin-top: ${settings_title_top}px;margin-bottom: ${settings_title_bottom}px;` }),
+    // Label({ hpack: "start", label: "POWER", classNames: ["heading"], css:`margin-top: ${settings_title_top}px;margin-bottom: ${settings_title_bottom}px;` }),
     NierButton({
       useAssetsDir: passAssetsDir,
-      label: "Shutdown", 
+      label: "Shutdown",
       font_size: button_label_2,
     //   handleClick: async (self,event)  => {
     //     go_to(
@@ -56,7 +56,6 @@ export const PowerGroup = ({
         useAssetsDir: passAssetsDir,
         label: "Reboot",
         font_size: button_label_2,
-        vpack: "end",
         handleClick: () => {
           exec(
             `bash -c "reboot"`

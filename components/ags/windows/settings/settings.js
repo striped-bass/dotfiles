@@ -1,6 +1,6 @@
 import { Widget, App, Utils } from "../../imports.js";
 import { NierButtonGroup, NierButton } from "../../nier/buttons.js";
-import { settings_title_bottom, settings_title_top } from "../../scaling.js";
+import { settings_title_bottom, settings_title_top, button_label_2 } from "../../scaling.js";
 import { SCREEN_WIDTH, SCREEN_HEIGHT, arradd, arrremove, get_cursor, css} from "../../util.js";
 import { BluetoothGroup } from "../../widgets/bluetooth_group.js";
 import { Info } from "../../widgets/info.js";
@@ -115,26 +115,27 @@ const NierSettingPane = (
     hpack: "start",
     vpack: "start",
     classNames: ["nier-settings-container"],
-    css: `min-width: ${SCREEN_WIDTH}px;min-height: ${SCREEN_HEIGHT}px;background-position: ${SCREEN_WIDTH*.5-960/2}px ${SCREEN_HEIGHT/2-720/2}px;background: url("${parentAssetsDir()}/glory-ghost.png") no-repeat center;`, // 960x720 is the image(glory-brown-ghost.png) res
-
+    // css: `min-width: ${SCREEN_WIDTH}px;min-height: ${SCREEN_HEIGHT}px;background-position: ${SCREEN_WIDTH*.5-960/2}px ${SCREEN_HEIGHT/2-720/2}px;background: url("${parentAssetsDir()}/glory-ghost.png") no-repeat center;`, // 960x720 is the image(glory-brown-ghost.png) res
+    css: `margin-top: ${settings_title_top}px;`,
     setup: (self) =>
       Utils.timeout(1, () => {
         dark.connect("changed",() => {
-          self.css = `min-width: ${SCREEN_WIDTH}px;min-height: ${SCREEN_HEIGHT}px;background-position: ${SCREEN_WIDTH*.5-960/2}px ${SCREEN_HEIGHT/2-720/2}px;background: url("${parentAssetsDir()}/glory-ghost.png") no-repeat center;`; // 960x720 is the image(glory-brown-ghost.png) res
+          // self.css = `min-width: ${SCREEN_WIDTH}px;min-height: ${SCREEN_HEIGHT}px;background-position: ${SCREEN_WIDTH*.5-960/2}px ${SCREEN_HEIGHT/2-720/2}px;background: url("${parentAssetsDir()}/glory-ghost.png") no-repeat center;`; // 960x720 is the image(glory-brown-ghost.png) res
+          self.css = `margin-top: ${settings_title_top}px;`;
         });
 
-        execAsync(`ags -b bg_settings -q`).then(() => {
-          Utils.timeout(10, () => {
-            execAsync(`ags -b bg_settings -c ${parentConfigDir}/windows/settingsbg/settingsbg.js`)   
-          })
-        })   
+        // execAsync(`ags -b bg_settings -q`).then(() => {
+        //   Utils.timeout(10, () => {
+        //     execAsync(`ags -b bg_settings -c ${parentConfigDir}/windows/settingsbg/settingsbg.js`)   
+        //   })
+        // })   
 
         let page4 = NierButtonGroup({
           hexpand: false,
           vexpand: false,
           hpack: "start",
           vpack: "start",
-          css: `min-width: ${SCREEN_WIDTH / 4}px;min-height: ${SCREEN_HEIGHT}px`,
+          // css: `min-width: ${SCREEN_WIDTH / 4}px;min-height: ${SCREEN_HEIGHT}px`,
           containerClassNames: ["nier-settings-4-container", "closing"],
           classNames: ["nier-settings-1"],
 
@@ -154,7 +155,7 @@ const NierSettingPane = (
           vexpand: false,
           hpack: "start",
           vpack: "start",
-          css: `min-width: ${SCREEN_WIDTH / 4}px;min-height: ${SCREEN_HEIGHT}px`,
+          css: `min-height: ${settings_title_top * 3 * (5 / 8)}px;margin-top: ${settings_title_top}px;`,
           containerClassNames: ["nier-settings-3-container", "closing"],
           classNames: ["nier-settings-1"],
 
@@ -166,7 +167,7 @@ const NierSettingPane = (
           vexpand: false,
           hpack: "start",
           vpack: "start",
-          css: `min-width: ${SCREEN_WIDTH / 4}px;min-height: ${SCREEN_HEIGHT}px`,
+          css: `min-height: ${settings_title_top * 5 * (5 / 8)}px;margin-top: ${settings_title_top}px;`,
           containerClassNames: ["nier-settings-2-container", "closing"],
           classNames: ["nier-settings-1"],
 
@@ -226,12 +227,16 @@ const NierSettingPane = (
         };
 
         let page1 = NierButtonGroup({
-          css: `min-width: ${SCREEN_WIDTH / 4}px;min-height: ${SCREEN_HEIGHT}px;`, // also expands other panes so the bottom part dont glicth out
+          // css: `min-width: ${SCREEN_WIDTH / 4}px;min-height: ${SCREEN_HEIGHT}px;`, // also expands other panes so the bottom part dont glicth out
+          hexpand: false,
+          vexpand: false,
+          hpack: "start",
+          vpack: "start",
           containerClassNames: ["nier-settings-1-container"],
           classNames: ["nier-settings-1"],
           connections:[
             [dark, (self) => {
-              self.css = `min-width: ${SCREEN_WIDTH / 4}px;min-height: ${SCREEN_HEIGHT}px;background: url("${dark.value?themedir + '/wallpapers/nier_dark.png':themedir + '/wallpapers/nier_light.png'}")`; // also expands other panes so the bottom part dont glicth out
+              // self.css = `min-width: ${SCREEN_WIDTH / 4}px;`;
             },"changed"]
           ],
 
@@ -239,12 +244,12 @@ const NierSettingPane = (
             Label({
               hpack: "start",
               label: "SYSTEM",
-              css:`margin-top: ${settings_title_top}px;margin-bottom: ${settings_title_bottom}px;`,
+              css:`margin-bottom: ${settings_title_bottom}px;`,
               classNames: ["heading"],
             }),
             NierButton({
               useAssetsDir: parentAssetsDir,
-              font_size: 30,
+              font_size: button_label_2,
               label: "Sound",
               handleClick: async (self, event) => {
                 page1_selected = ensure_only_selected(self, page1_selected);
@@ -255,7 +260,7 @@ const NierSettingPane = (
             }),
             NierButton({
               useAssetsDir: parentAssetsDir,
-              font_size: 30,
+              font_size: button_label_2,
               label: "Wi-Fi",
               handleClick: async (self, event) => {
                 await go_page2(wifi_page(), self).catch((e) => {
@@ -265,7 +270,7 @@ const NierSettingPane = (
             }),
             NierButton({
               useAssetsDir: parentAssetsDir,
-              font_size: 30,
+              font_size: button_label_2,
               label: "Bluetooth",
               handleClick: async (self, event) => {
                 await go_page2(bluetooth_page(go_page3), self).catch(
@@ -277,7 +282,7 @@ const NierSettingPane = (
             }),
             NierButton({
               useAssetsDir: parentAssetsDir,
-              font_size: 30,
+              font_size: button_label_2,
               label: "Power",
               handleClick: async (self, event) => {
                 await go_page2(power_page(), self).catch((e) => {
@@ -288,11 +293,11 @@ const NierSettingPane = (
             Label({
               css:`margin-top: ${settings_title_top}px;margin-bottom: ${settings_title_bottom}px;`,
               hpack: "start",
-              label: "APPS",
+              label: "APPLICATIONS",
               classNames: ["heading"],
             }),
             AppLauncher({assetsDir:parentAssetsDir}),
-            Info({useAssetsDir:parentAssetsDir,parentDir:parentConfigDir}),
+            // Info({useAssetsDir:parentAssetsDir,parentDir:parentConfigDir}),
           ],
         });
         self.pages = [page1, page2, page3, page4];
@@ -333,20 +338,20 @@ const NierSettingPane = (
                   "closing"
                 );
               });
-              print("closingbg")
-              execAsync(`ags -b bg_settings -r App.closeWindow("bg_settings")`).catch(print).then(print)
-              Utils.timeout(1100, () => {
-                execAsync(`ags -b bg_settings -q`).catch(print).then(print)
-              })              
-              self.classNames = arrremove(self.classNames, "opening");
-              self.classNames = arradd(self.classNames, "closing");
-            } else {
-              print("openingbg")
-              execAsync(`ags -b bg_settings -q`).then(() => {
-                Utils.timeout(100, () => {
-                  execAsync(`ags -b bg_settings -c ${parentConfigDir}/windows/settingsbg/settingsbg.js`)   
-                })
-              })   
+            //   print("closingbg")
+            //   execAsync(`ags -b bg_settings -r App.closeWindow("bg_settings")`).catch(print).then(print)
+            //   Utils.timeout(1100, () => {
+            //     execAsync(`ags -b bg_settings -q`).catch(print).then(print)
+            //   })              
+            //   self.classNames = arrremove(self.classNames, "opening");
+            //   self.classNames = arradd(self.classNames, "closing");
+            // } else {
+            //   print("openingbg")
+            //   execAsync(`ags -b bg_settings -q`).then(() => {
+            //     Utils.timeout(100, () => {
+            //       execAsync(`ags -b bg_settings -c ${parentConfigDir}/windows/settingsbg/settingsbg.js`)   
+            //     })
+            //   })   
               
               self.classNames = arradd(self.classNames, "closing");
                 Utils.timeout(500, () => {
@@ -370,7 +375,7 @@ const NierSettingPane = (
     classNames: ["settings"],
     margin: [0, 0, 0, 0],
     anchor: ["top", "left", "bottom"],
-    exclusivity: "ignore",
+    exclusivity: "exclusive",
     layer: "overlay",
     visible: true,
     keymode: "exclusive",

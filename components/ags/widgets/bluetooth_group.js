@@ -12,7 +12,7 @@ export const BluetoothGroup = ({
   passAssetsDir = assetsDir
 }) => {
   return [
-    Label({ hpack: "start", label: "BLUETOOTH", classNames: ["heading"], css:`margin-top: ${settings_title_top}px;margin-bottom: ${settings_title_bottom}px;` }),
+    // Label({ hpack: "start", label: "BLUETOOTH", classNames: ["heading"], css:`margin-top: ${settings_title_top}px;margin-bottom: ${settings_title_bottom}px;` }),
     NierDropDownButton({
       useAssetsDir: passAssetsDir,
       font_size: button_label_2,
@@ -36,11 +36,11 @@ export const BluetoothGroup = ({
       handleClick: async (self, event) => {
         go_to(
           [
-            Label({
-              hpack: "start",
-              label: "DEVICES",
-              classNames: ["heading"],
-            }),
+            // Label({
+            //   hpack: "start",
+            //   label: "DEVICES",
+            //   classNames: ["heading"],
+            // }),
             ...Array.from(Bluetooth.devices).map((device) => {
               let device_options = Variable(["Connected", "Disconnected"], {});
               let device_current = Variable(

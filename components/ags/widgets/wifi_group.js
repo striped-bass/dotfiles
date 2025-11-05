@@ -13,7 +13,7 @@ export const WifiGroup = ({
   passAssetsDir = assetsDir
 }) => {
   return [
-    Label({ hpack: "start", label: "WIFI", classNames: ["heading"], css:`margin-top: ${settings_title_top}px;margin-bottom: ${settings_title_bottom}px;`}),
+    // Label({ hpack: "start", label: "WIFI", classNames: ["heading"], css:`margin-top: ${settings_title_top}px;margin-bottom: ${settings_title_bottom}px;`}),
     NierDropDownButton({
       useAssetsDir: passAssetsDir,
       font_size: button_label_2,
