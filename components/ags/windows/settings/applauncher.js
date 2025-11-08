@@ -8,7 +8,6 @@ import {
 import { NierButton, NierButtonGroup } from "../../nier/buttons.js";
 
 import {
-  SCREEN_HEIGHT,
   arradd,
   arrremove,
 } from "../../util.js";
@@ -75,7 +74,6 @@ export const AppLauncher = ({
         hexpand: true,
         hpack: "fill",
         classNames: ["app-launcher-scroll"],
-        css: `min-height: ${Math.round(SCREEN_HEIGHT/3)}px;`,
 
         child: Box({
           vertical: true,

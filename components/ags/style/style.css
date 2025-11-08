@@ -634,6 +634,16 @@
     border-top: 0px;
     border-bottom: 0px; } }
 
+.top {
+  margin-top: 10px;
+  min-width: 2880px; }
+  .top .yorha-left .time {
+    color: #48463d;
+    font-size: 1.7rem; }
+  .top .yorha-left .battery-percent {
+    color: #48463d;
+    font-size: 1.7rem; }
+
 .under-workspaces {
   margin-top: -6px; }
 
@@ -742,6 +752,8 @@
   margin-bottom: 100px; }
   .app-launcher .nier-long-button-group-ruler {
     all: unset; }
+  .app-launcher .app-launcher-scroll {
+    min-height: calc(1920px / 3); }
 
 .nier-button .app-launcher-icon {
   margin-left: 20px;
@@ -752,16 +764,6 @@
   margin-left: 20px;
   margin-right: 20px;
   opacity: 1; }
-
-.info {
-  margin-bottom: 10px; }
-
-.time {
-  font-size: 1.7rem;
-  color: #48463d; }
-
-.sys-tray {
-  background: #48463d; }
 
 @keyframes selected {
   0% {

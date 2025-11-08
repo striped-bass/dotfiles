@@ -3,16 +3,17 @@ import {
   App,
   Widget,
   Utils,
+  Battery
 } from "./imports.js";
 
 
 import { arradd, arrremove, css, scss, assetsDir, dark, themedir,SCREEN_WIDTH, SCREEN_HEIGHT} from "./util.js";
 import { Workspaces } from "./widgets/workspace.js";
 import { NierBorder } from "./widgets/nier_border.js";
-import { button_pointer_size, top_icon_size, top_spacing, workspace_height, workspace_width } from "./scaling.js";
+import { top_icon_size, top_spacing, workspace_height, workspace_width } from "./scaling.js";
 
 const { exec, execAsync } = Utils;
-const { Box, Window, Button, Icon, Scrollable } = Widget;
+const { Box, Window, Button, Icon, Scrollable, Label } = Widget;
 
 
 Utils.writeFile(`$screen_width:${SCREEN_WIDTH}px;$screen_height:${SCREEN_HEIGHT}px;`,`${App.configDir}/style/data.scss`).then(() => {
@@ -31,17 +32,55 @@ const top = () =>
     vertical: true,
     hexpand: false,
     classNames: ["top"],
-    css: `min-width: ${SCREEN_WIDTH}px;`,
     children: [
       Box({
         spacing: top_spacing,
         hpack: "fill",
+        classNames: ["yorha-left"],
         // css: `min-width: ${SCREEN_WIDTH/2}px;`,
         children: [
           Scrollable({
             css: `min-width: ${workspace_width}px;min-height: ${workspace_height}px;`,
+            classNames: ["workspaces-scroll"],
             child:Workspaces({}),
           }),
+          
+          Label({
+            hpack: "end",
+            hexpand: true,
+            classNames: ["time"],
+            label: "00:00",
+            connections: [
+              [
+                1000,
+                (self) =>
+                  execAsync(["date", "+%I:%M"])
+                    .then((date) => (self.label = date))
+                    .catch(console.error),
+              ],
+            ],
+          }),
+
+          Label({
+            hpack: "end",
+            hexpand: true,
+            classNames: ["battery-percent"],
+            binds: [
+              'label',
+              Battery,
+              'percent',
+              percent => `${percent}%`,
+            ],
+            
+            connections: [
+                [
+                  Battery,
+                  (self) => self['label'] = `${Battery['percent']}%`,
+                  'notify::percent',
+                ],
+            ],
+          }),
+
           Button({
             hpack: "end",
             hexpand: true,
@@ -94,10 +133,7 @@ const Bar = ({ monitor } = {}) => {
     anchor: ["top", "left", "right"],
     exclusivity: "ignore",
     layer: "bottom",
-    child: Box({
-      css: "margin-top: 10px;",
-      children: [top()],
-    }),
+    child: top(),
   });
 };
 

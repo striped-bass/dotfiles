@@ -1,3 +1,21 @@
+@import "../color";
+@import "../data";
+
+.top {
+  margin-top: 10px;
+  min-width: $screen_width;
+  .yorha-left {
+    .time {
+      color: $brown;
+      font-size: 1.7rem;
+    }
+    .battery-percent {
+      color: $brown;
+      font-size: 1.7rem;
+    }
+  }
+}
+
 .under-workspaces {
   margin-top: -6px;
 }
