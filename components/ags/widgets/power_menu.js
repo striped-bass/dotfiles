@@ -62,5 +62,15 @@ export const PowerGroup = ({
           )
       }
     }),
+    NierButton({
+        useAssetsDir: passAssetsDir,
+        label: "Logout",
+        font_size: button_label_2,
+        handleClick: () => {
+          exec(
+            `hyprctl dispatch exit`
+          )
+      }
+    }),
   ];
 };
