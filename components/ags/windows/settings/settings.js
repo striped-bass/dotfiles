@@ -3,23 +3,24 @@ import { NierButtonGroup, NierButton } from "../../nier/buttons.js";
 import { settings_title_bottom, settings_title_top, button_label_2 } from "../../scaling.js";
 import { SCREEN_WIDTH, SCREEN_HEIGHT, arradd, arrremove, get_cursor, css} from "../../util.js";
 import { BluetoothGroup } from "../../widgets/bluetooth_group.js";
-import { Info } from "../../widgets/info.js";
-
+import { AppearanceGroup } from "../../widgets/appearance_group.js";
 import { VolumeGroup } from "../../widgets/volume_group.js";
 import { WifiGroup } from "../../widgets/wifi_group.js";
 import { AppLauncher } from "./applauncher.js";
 import { PowerGroup } from "../../widgets/power_menu.js";
 
-
 const { Window, Label, EventBox, Box, Overlay, Scrollable } = Widget;
-const { execAsync } = Utils;
 
 const { Gdk } = imports.gi;
 
 const parentConfigDir = App.configDir.split("/").slice(0,-2).join("/");
 
 const parentAssetsDir = () => `${parentConfigDir}/assets/${dark.value ? "dark" : "light"}`;
-const themedir = parentConfigDir.split("/").slice(0, -2).join("/");
+
+const appearance_page = (
+  go_to = (button) => {}) => {
+    return AppearanceGroup({go_to,passAssetsDir:parentAssetsDir,passConfigDir:parentConfigDir});
+};
 
 const volume_page = (
   go_to = (buttons, parent_button) => {
@@ -29,8 +30,9 @@ const volume_page = (
   return VolumeGroup({go_to,passAssetsDir:parentAssetsDir});
 };
 
-const wifi_page = (go_to = (button) => {}) => {
-  return WifiGroup({go_to,passAssetsDir:parentAssetsDir});
+const wifi_page = (
+  go_to = (button) => {}) => {
+    return WifiGroup({go_to,passAssetsDir:parentAssetsDir});
 };
 
 const bluetooth_page = (
@@ -41,8 +43,9 @@ const bluetooth_page = (
   return BluetoothGroup({go_to,passAssetsDir:parentAssetsDir});
 };
 
-const power_page = (go_to = (button) => {}) => {
-  return PowerGroup({go_to,passAssetsDir:parentAssetsDir});
+const power_page = (
+  go_to = (button) => {}) => {
+    return PowerGroup({go_to,passAssetsDir:parentAssetsDir});
 };
 
 const ensure_only_selected = (button, page_button) => {
@@ -115,12 +118,10 @@ const NierSettingPane = (
     hpack: "start",
     vpack: "start",
     classNames: ["nier-settings-container"],
-    // css: `min-width: ${SCREEN_WIDTH}px;min-height: ${SCREEN_HEIGHT}px;background-position: ${SCREEN_WIDTH*.5-960/2}px ${SCREEN_HEIGHT/2-720/2}px;background: url("${parentAssetsDir()}/glory-ghost.png") no-repeat center;`, // 960x720 is the image(glory-brown-ghost.png) res
     css: `margin-top: ${settings_title_top}px;`,
     setup: (self) =>
       Utils.timeout(1, () => {
         dark.connect("changed",() => {
-          // self.css = `min-width: ${SCREEN_WIDTH}px;min-height: ${SCREEN_HEIGHT}px;background-position: ${SCREEN_WIDTH*.5-960/2}px ${SCREEN_HEIGHT/2-720/2}px;background: url("${parentAssetsDir()}/glory-ghost.png") no-repeat center;`; // 960x720 is the image(glory-brown-ghost.png) res
           self.css = `margin-top: ${settings_title_top}px;`;
         });
 
@@ -135,7 +136,6 @@ const NierSettingPane = (
           vexpand: false,
           hpack: "start",
           vpack: "start",
-          // css: `min-width: ${SCREEN_WIDTH / 4}px;min-height: ${SCREEN_HEIGHT}px`,
           containerClassNames: ["nier-settings-4-container", "closing"],
           classNames: ["nier-settings-1"],
 
@@ -227,7 +227,6 @@ const NierSettingPane = (
         };
 
         let page1 = NierButtonGroup({
-          // css: `min-width: ${SCREEN_WIDTH / 4}px;min-height: ${SCREEN_HEIGHT}px;`, // also expands other panes so the bottom part dont glicth out
           hexpand: false,
           vexpand: false,
           hpack: "start",
@@ -236,7 +235,6 @@ const NierSettingPane = (
           classNames: ["nier-settings-1"],
           connections:[
             [dark, (self) => {
-              // self.css = `min-width: ${SCREEN_WIDTH / 4}px;`;
             },"changed"]
           ],
 
@@ -247,6 +245,19 @@ const NierSettingPane = (
               css:`margin-bottom: ${settings_title_bottom}px;`,
               classNames: ["heading"],
             }),
+            
+            NierButton({
+              useAssetsDir: parentAssetsDir,
+              font_size: button_label_2,
+              label: "Appearance",
+              handleClick: async (self, event) => {
+                page1_selected = ensure_only_selected(self, page1_selected);
+                await go_page2(appearance_page(go_page3), self).catch((e) => {
+                  console.log(e);
+                });
+              },
+            }),
+            
             NierButton({
               useAssetsDir: parentAssetsDir,
               font_size: button_label_2,
@@ -297,7 +308,6 @@ const NierSettingPane = (
               classNames: ["heading"],
             }),
             AppLauncher({assetsDir:parentAssetsDir}),
-            // Info({useAssetsDir:parentAssetsDir,parentDir:parentConfigDir}),
           ],
         });
         self.pages = [page1, page2, page3, page4];
@@ -327,7 +337,6 @@ const NierSettingPane = (
           if (windowName ==  "settings") {
             print("visibility",visible)
             let containers = Array.from(self.pages).map((child) => {
-              // print(child.child)
               return child.child;
             });
 
