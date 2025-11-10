@@ -27,14 +27,14 @@ let volume_slider = ({ volume_ratio = 0, type = "speaker", stream = null, useAss
           if (
             Math.round(
               stream ? stream.volume || 0 : Audio[type].volume * 100
-            ) == Math.round(volume_ratio.valueOf * 100)
+            ) == Math.round(volume_ratio.value * 100)
           ) {
             return;
           }
           if (stream) {
-            stream.volume = volume_ratio.valueOf;
+            stream.volume = volume_ratio.value;
           } else {
-            Audio[type].volume = volume_ratio.valueOf;
+            Audio[type].volume = volume_ratio.value;
           }
         },
       ],
