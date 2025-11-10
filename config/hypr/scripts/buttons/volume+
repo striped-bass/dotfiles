@@ -5,5 +5,5 @@ if ! [ -x "$(command -v pamixer)" ]; then
   exit 1
 fi
 
-pamixer -i 5
+pamixer -i 10
 notify-send "$(pamixer --get-volume)"
