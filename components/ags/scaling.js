@@ -1,4 +1,5 @@
 export const scale = 1;
+// export const scale = 0.5;  // hidpi
 
 export const settings_title_top = 120*scale;
 export const settings_title_bottom = 50*scale;
@@ -17,6 +18,7 @@ export const button_label_1 = 20*scale;
 export const button_max_chars = 20*scale;
 export const button_slider_width = 20*scale;
 export const button_slider_padding = 20*scale;
+export const heading_size = 5*scale;
 
 export const workspace_width = (workspace_workspaces*button_width)+(workspace_workspaces+1)*(50*scale);
 export const workspace_height = 65*scale;
