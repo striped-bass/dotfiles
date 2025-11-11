@@ -4,12 +4,13 @@
 @import "nier/button";
 @import "nier/dropdown";
 @import "nier/heading";
+@import "../colors";
 
 .settings-button {
   background: linear-gradient(
     90deg,
-    #cd664d 50%,
-    rgba(hsl(12, 56%, 55%), 0.5) 50%
+    $accent 50%,
+    rgba($accent, 0.5) 50%
   );
   background-size: 200%;
   background-position: -100%;
@@ -26,7 +27,7 @@
 }
 
 .yorha-right.hover {
-  background: #cd664d;
+  background: $accent;
   margin-left: -15px;
   transition: margin 0.2s cubic-bezier(0.15, 0.79, 0, 1),
     background 0.2s cubic-bezier(0.15, 0.79, 0, 1);
