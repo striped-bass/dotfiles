@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+if ! [ -x "$(command -v pamixer)" ]; then
+  notify-send "pamixer not found"
+  exit 1
+fi
+
+pamixer --toggle-mute
+muted="$(pamixer --get-mute)"
+if $muted; then
+  notify-send "Mute"
+else
+  notify-send "Unmute"
+fi
