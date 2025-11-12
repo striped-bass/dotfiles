@@ -1,5 +1,5 @@
 import { Widget } from "../imports.js"
-import { button_pointer_size, nier_border_size } from "../scaling.js";
+import { nier_border_size } from "../scaling.js";
 
 import { SCREEN_WIDTH, get_cursor, assetsDir, SCREEN_HEIGHT } from "../util.js"
 
