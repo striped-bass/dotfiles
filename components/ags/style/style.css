@@ -760,6 +760,9 @@
   margin-right: 20px;
   opacity: 0.5; }
 
+.nier-button .app-launcher-label {
+  font-size: 1rem; }
+
 .nier-button-hover .app-launcher-icon {
   margin-left: 20px;
   margin-right: 20px;

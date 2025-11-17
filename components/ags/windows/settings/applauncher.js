@@ -100,7 +100,6 @@ export const AppLauncher = ({
                               }),
                               Label({
                                 classNames: ["app-launcher-label"],
-                                css: `font-size: ${font_size}px;`,
                                 wrap: true,
                                 label: label,
                                 setup: (self) =>
