@@ -1,11 +1,12 @@
 @import "../color";
 @import "../data";
+@import "../scaling";
 
 .app-launcher-search {
   margin-left: 35px;
   margin-right: 60px;
   margin-bottom: 20px;
-  font-size: 2rem;
+  font-size: $small_font_size;
   color: $brown;
   background-color: $highlight;
   padding: 6px;
