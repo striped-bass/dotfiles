@@ -88,9 +88,8 @@ export const AppLauncher = ({
                     buttons.children = allApps.value.map((app) => {
                       return NierButton({
                         useAssetsDir: assetsDir,
-                        font_size: 25,
                         label: app.get_display_name(),
-                        labelOveride: (label, font_size, max_label_chars) =>
+                        labelOveride: (label, max_label_chars) =>
                           Box({
                             children: [
                               Icon({
@@ -147,9 +146,8 @@ export const AppLauncher = ({
                   buttons.children = allApps.value.map((app) => {
                     return NierButton({
                       useAssetsDir: assetsDir,
-                      font_size: 40,
                       label: app.get_display_name(),
-                      labelOveride: (label, font_size, max_label_chars) =>
+                      labelOveride: (label, max_label_chars) =>
                         Box({
                           children: [
                             Icon({
