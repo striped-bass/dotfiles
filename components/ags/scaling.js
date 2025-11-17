@@ -1,5 +1,5 @@
-export const scale = 1;
-// export const scale = 0.5;  // hidpi
+// export const scale = 1;
+export const scale = 0.5;  // hidpi
 
 export const settings_title_top = 120*scale;
 export const settings_title_bottom = 50*scale;
