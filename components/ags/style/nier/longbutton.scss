@@ -1,4 +1,5 @@
 @import "../color";
+@import "../scaling";
 
 $accent_border: 3px;
 $accent_border_dist: 4px;
@@ -39,7 +40,7 @@ $button_spacing_horizontal: 5px;
 
 // the actual button looking thing ( is actually a label :0 )
 .nier-long-button label {
-  font-size: 2rem;
+  font-size: $long_button_font_size;
   font-family: FOT-Rodin Pro M, sans-serif;
   background: linear-gradient(
     90deg,
