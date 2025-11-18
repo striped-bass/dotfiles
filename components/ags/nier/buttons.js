@@ -1,5 +1,5 @@
 import { Widget, Utils } from "../imports.js";
-import { button_label_1,button_max_chars, button_pointer_size, button_width } from "../scaling.js";
+import { button_label_2,button_max_chars, button_pointer_size, button_width } from "../scaling.js";
 import { arradd, arrremove, assetsDir } from "../util.js";
 const { Button, Label, Overlay, EventBox, Box, Scrollable, Icon, CenterBox } =
   Widget;
@@ -13,7 +13,7 @@ export const NierButton = ({
   children = [],
   label_no_box =  false,
   size = button_pointer_size,
-  font_size = button_label_1,
+  font_size = button_label_2,
   homogeneous_button = true,
   passedParent = null,
   select_on_click = false,
