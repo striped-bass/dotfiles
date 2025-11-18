@@ -1,5 +1,5 @@
 import { Widget, Variable } from "../imports.js";
-import { button_label_1, button_label_2, button_slider_padding, button_slider_width } from "../scaling.js";
+import { button_label_2, button_slider_padding, button_slider_width } from "../scaling.js";
 import { arradd, arrremove, assetsDir } from "../util.js";
 import { NierButton } from "./buttons.js";
 const { Box } = Widget;
@@ -50,7 +50,6 @@ export const NierSliderButton = ({
   isDragging = false,
   hovering = false,
   size = button_label_2,
-  font_size = button_label_1,
   useAssetsDir = assetsDir,
   ...props
 }) =>
@@ -61,7 +60,6 @@ export const NierSliderButton = ({
     containerClassNames: [],
     containerConnections: [],
     size,
-    font_size,
     // homogeneous_button: false,
     classNames: ["nier-slider-button", ...classNames],
     ...props,

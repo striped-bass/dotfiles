@@ -1,6 +1,6 @@
 import { Widget, App, Utils } from "../../imports.js";
 import { NierButtonGroup, NierButton } from "../../nier/buttons.js";
-import { settings_title_bottom, settings_title_top, button_label_2 } from "../../scaling.js";
+import { settings_title_bottom, settings_title_top } from "../../scaling.js";
 import { SCREEN_WIDTH, SCREEN_HEIGHT, arradd, arrremove, get_cursor, css} from "../../util.js";
 import { BluetoothGroup } from "../../widgets/bluetooth_group.js";
 import { AppearanceGroup } from "../../widgets/appearance_group.js";
@@ -248,7 +248,6 @@ const NierSettingPane = (
             
             NierButton({
               useAssetsDir: parentAssetsDir,
-              font_size: button_label_2,
               label: "Appearance",
               handleClick: async (self, event) => {
                 page1_selected = ensure_only_selected(self, page1_selected);
@@ -260,7 +259,6 @@ const NierSettingPane = (
             
             NierButton({
               useAssetsDir: parentAssetsDir,
-              font_size: button_label_2,
               label: "Sound",
               handleClick: async (self, event) => {
                 page1_selected = ensure_only_selected(self, page1_selected);
@@ -271,7 +269,6 @@ const NierSettingPane = (
             }),
             NierButton({
               useAssetsDir: parentAssetsDir,
-              font_size: button_label_2,
               label: "Wi-Fi",
               handleClick: async (self, event) => {
                 await go_page2(wifi_page(), self).catch((e) => {
@@ -281,7 +278,6 @@ const NierSettingPane = (
             }),
             NierButton({
               useAssetsDir: parentAssetsDir,
-              font_size: button_label_2,
               label: "Bluetooth",
               handleClick: async (self, event) => {
                 await go_page2(bluetooth_page(go_page3), self).catch(
@@ -293,7 +289,6 @@ const NierSettingPane = (
             }),
             NierButton({
               useAssetsDir: parentAssetsDir,
-              font_size: button_label_2,
               label: "Power",
               handleClick: async (self, event) => {
                 await go_page2(power_page(), self).catch((e) => {

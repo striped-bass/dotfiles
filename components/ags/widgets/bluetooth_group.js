@@ -1,7 +1,6 @@
 import { Bluetooth, Variable } from "../imports.js";
 import { NierButton } from "../nier/buttons.js";
 import { NierDropDownButton } from "../nier/dropdown.js";
-import { button_label_2 } from "../scaling.js";
 import { SCREEN_WIDTH } from "../util.js";
 
 export const BluetoothGroup = ({
@@ -12,7 +11,6 @@ export const BluetoothGroup = ({
   return [
     NierDropDownButton({
       useAssetsDir: passAssetsDir,
-      font_size: button_label_2,
       label: "Enabled",
       current: enabled,
       options: Variable(["Yes", "No"], {}),
@@ -28,7 +26,6 @@ export const BluetoothGroup = ({
     }),
     NierButton({
       useAssetsDir: passAssetsDir,
-      font_size: button_label_2,
       label: "Devices",
       handleClick: async (self, event) => {
         go_to(
