@@ -1,13 +1,5 @@
 @import "../color.scss";
-
-$accent_border: 3px;
-$accent_border_dist: 3px;
-$button_dist_from_ruler: 14px;
-$button_spacing_vertical: 10px;
-$button_spacing_horizontal: 5px;
-
-$border_size: 3px;
-$border_dist: 3px;
+@import "../scaling.scss";
 
 // top-down borders
 .nier-slider-button-top,

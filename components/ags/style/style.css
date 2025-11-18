@@ -154,12 +154,12 @@
 
 .nier-slider-button-top-hover {
   background: #48463d;
-  min-height: 3px;
+  min-height: 4px;
   margin-bottom: 3px; }
 
 .nier-slider-button-bottom-hover {
   background: #48463d;
-  min-height: 3px;
+  min-height: 4px;
   margin-top: 3px; }
 
 .nier-slider-button-box {
@@ -188,8 +188,8 @@
     padding: 8px 8px 7px; }
 
 .nier-slider-button-hover {
-  padding-top: calc(0px - 3px - 3px);
-  padding-bottom: calc(0px - 3px - 3px);
+  padding-top: calc(0px - 3px - 4px);
+  padding-bottom: calc(0px - 3px - 4px);
   background-position: -100%;
   transition: background 1s cubic-bezier(0.15, 0.79, 0, 1); }
   .nier-slider-button-hover label {

@@ -1,12 +1,6 @@
 @import "../color";
 @import "../scaling";
 
-$accent_border: 3px;
-$accent_border_dist: 4px;
-$button_dist_from_ruler: 14px;
-$button_spacing_vertical: 10px;
-$button_spacing_horizontal: 5px;
-
 @mixin long-button-hover {
   border-top: $brown $accent_border solid;
   border-bottom: $brown $accent_border solid;

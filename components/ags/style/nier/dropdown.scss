@@ -1,8 +1,6 @@
 @import "../color";
 @import "./button";
-
-$border_size: 4px;
-$border_dist: 3px;
+@import "../scaling";
 
 .nier-option-header {
   margin: 0px;
