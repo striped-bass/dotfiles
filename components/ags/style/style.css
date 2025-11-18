@@ -14,7 +14,6 @@
 
 .nier-long-button label {
   font-size: 1rem;
-  font-family: FOT-Rodin Pro M, sans-serif;
   background: linear-gradient(90deg, rgba(72, 70, 61, 0.25) 0%, rgba(72, 70, 61, 0.25) 50%, #48463d 50%, #48463d 100%);
   background-size: 200%;
   color: #48463d;
@@ -47,7 +46,6 @@
     padding-top: calc(8px - 4px);
     padding-bottom: calc(7px - 4px);
     background-position: -100%;
-    font-family: FOT-Rodin Pro B, sans-serif;
     color: #c2bda6; }
   .nier-long-button-hover label {
     transition: background 1s cubic-bezier(0.15, 0.79, 0, 1); }
@@ -519,7 +517,6 @@
 
 .nier-long-button label {
   font-size: 1rem;
-  font-family: FOT-Rodin Pro M, sans-serif;
   background: linear-gradient(90deg, rgba(72, 70, 61, 0.25) 0%, rgba(72, 70, 61, 0.25) 50%, #48463d 50%, #48463d 100%);
   background-size: 200%;
   color: #48463d;
@@ -552,7 +549,6 @@
     padding-top: calc(8px - 4px);
     padding-bottom: calc(7px - 4px);
     background-position: -100%;
-    font-family: FOT-Rodin Pro B, sans-serif;
     color: #c2bda6; }
   .nier-long-button-hover label {
     transition: background 1s cubic-bezier(0.15, 0.79, 0, 1); }
@@ -585,7 +581,6 @@
     padding-top: calc(8px - 4px);
     padding-bottom: calc(7px - 4px);
     background-position: -100%;
-    font-family: FOT-Rodin Pro B, sans-serif;
     color: #c2bda6; }
   .workspace-button-container.active-no-hover .nier-long-button label {
     transition: background 0.3s cubic-bezier(0.15, 0.79, 0, 1);

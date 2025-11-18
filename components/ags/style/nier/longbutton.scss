@@ -10,7 +10,6 @@
     padding-top: calc(8px - #{$accent_border_dist});
     padding-bottom: calc(7px - #{$accent_border_dist});
     background-position: -100%;
-    font-family: FOT-Rodin Pro B, sans-serif;
     color: $tan;
   }
 }
@@ -35,7 +34,6 @@
 // the actual button looking thing ( is actually a label :0 )
 .nier-long-button label {
   font-size: $small_font_size;
-  font-family: FOT-Rodin Pro M, sans-serif;
   background: linear-gradient(
     90deg,
     rgba($brown, 0.25) 0%,
