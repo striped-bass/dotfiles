@@ -1,6 +1,5 @@
 import { Utils } from "../imports.js";
 import { NierButton } from "../nier/buttons.js";
-import { button_label_2 } from "../scaling.js";
 import { dark } from "../util.js";
 
 const { execAsync } = Utils;
@@ -17,7 +16,6 @@ export const AppearanceGroup = ({
     NierButton({
       useAssetsDir: passAssetsDir,
       label: capitalize_first_letter(dark.value?"dark":"light"),
-      font_size: button_label_2,
       handleClick: async (self,event) => {
         execAsync(`ags -b settings -r App.closeWindow("settings")`)
         execAsync(`ags -b bg_settings -r App.closeWindow("bg_settings")`).catch(print).then(print)
