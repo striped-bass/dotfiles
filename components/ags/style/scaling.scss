@@ -1,5 +1,5 @@
-// $scale: 1;
-$scale: 0.5; //hidpi
+$scale: 1;
+// $scale: 0.5; //hidpi
 
 $large_font_size: 5rem * $scale;
 $small_font_size: 2rem * $scale;
@@ -11,3 +11,6 @@ $accent_border_dist: 4px;
 $button_spacing_vertical: 10px;
 $button_spacing_horizontal: 5px;
 $button_dist_from_ruler: 14px;
+
+$settings_title_top: 120px * $scale;
+$settings_title_bottom: 50px * $scale;

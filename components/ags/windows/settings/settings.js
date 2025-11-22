@@ -1,6 +1,5 @@
 import { Widget, App, Utils } from "../../imports.js";
 import { NierButtonGroup, NierButton } from "../../nier/buttons.js";
-import { settings_title_bottom, settings_title_top } from "../../scaling.js";
 import { SCREEN_WIDTH, SCREEN_HEIGHT, arradd, arrremove, get_cursor, css} from "../../util.js";
 import { BluetoothGroup } from "../../widgets/bluetooth_group.js";
 import { AppearanceGroup } from "../../widgets/appearance_group.js";
@@ -118,11 +117,9 @@ const NierSettingPane = (
     hpack: "start",
     vpack: "start",
     classNames: ["nier-settings-container"],
-    css: `margin-top: ${settings_title_top}px;`,
     setup: (self) =>
       Utils.timeout(1, () => {
         dark.connect("changed",() => {
-          self.css = `margin-top: ${settings_title_top}px;`;
         });
 
         // execAsync(`ags -b bg_settings -q`).then(() => {
@@ -144,7 +141,7 @@ const NierSettingPane = (
               useAssetsDir: parentAssetsDir,
               label: "4",
               handleClick: async (button, event) => {
-                App.toggleWindow("settings");
+                App.toggleWindwhatow("settings");
               },
             }),
           ],
@@ -155,10 +152,8 @@ const NierSettingPane = (
           vexpand: false,
           hpack: "start",
           vpack: "start",
-          css: `min-height: ${settings_title_top * 3 * (5 / 8)}px;margin-top: ${settings_title_top}px;`,
           containerClassNames: ["nier-settings-3-container", "closing"],
           classNames: ["nier-settings-1"],
-
           buttons: [],
         });
 
@@ -167,10 +162,8 @@ const NierSettingPane = (
           vexpand: false,
           hpack: "start",
           vpack: "start",
-          css: `min-height: ${settings_title_top * 5 * (5 / 8)}px;margin-top: ${settings_title_top}px;`,
           containerClassNames: ["nier-settings-2-container", "closing"],
           classNames: ["nier-settings-1"],
-
           buttons: [],
         });
 
@@ -242,8 +235,7 @@ const NierSettingPane = (
             Label({
               hpack: "start",
               label: "SYSTEM",
-              css:`margin-bottom: ${settings_title_bottom}px;`,
-              classNames: ["heading"],
+              classNames: ["system-heading"],
             }),
             
             NierButton({
@@ -297,10 +289,9 @@ const NierSettingPane = (
               },
             }),
             Label({
-              css:`margin-top: ${settings_title_top}px;margin-bottom: ${settings_title_bottom}px;`,
               hpack: "start",
               label: "APPLICATIONS",
-              classNames: ["heading"],
+              classNames: ["applications-heading"],
             }),
             AppLauncher({assetsDir:parentAssetsDir}),
           ],
