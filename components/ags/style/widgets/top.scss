@@ -1,5 +1,6 @@
 @import "../color";
 @import "../data";
+@import "../scaling";
 
 .top {
   margin-top: 10px;
@@ -7,11 +8,11 @@
   .yorha-left {
     .time {
       color: $brown;
-      font-size: 1.7rem;
+      font-size: $small_font_size;
     }
     .battery-percent {
       color: $brown;
-      font-size: 1.7rem;
+      font-size: $small_font_size;
     }
   }
 }
