@@ -37,7 +37,6 @@ const top = () =>
         spacing: top_spacing,
         hpack: "fill",
         classNames: ["yorha-left"],
-        // css: `min-width: ${SCREEN_WIDTH/2}px;`,
         children: [
           Scrollable({
             css: `min-width: ${workspace_width}px;min-height: ${workspace_height}px;`,
