@@ -277,6 +277,7 @@ export const NierLongButton = ({
   containerConnections = [],
   label = "",
   label_prefix = "⬛",
+  size = button_pointer_size,
   passedOnHoverLost = async (self) => {},
   passedOnHover = async (self) => {},
   ...props
@@ -287,7 +288,7 @@ export const NierLongButton = ({
     children: [
       Icon({
         icon: assetsDir() + "/nier-pointer.svg",
-        size: 35,
+        size: size,
         classNames: [
           "nier-long-button-hover-icon",
           "nier-long-button-hover-icon-hidden",
