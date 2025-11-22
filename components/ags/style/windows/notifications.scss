@@ -32,7 +32,6 @@
     opacity: 0;
 }
 
-
 .notify-card-hider {
     background:linear-gradient(
             90deg,
@@ -96,8 +95,6 @@
     }
 }
 
-
-
 .notify-card-content {
     min-height: 100px;
     min-width: 500px;
@@ -112,5 +109,13 @@
     .notify-card-body {
         font-size: 1.2rem;
         color: $darkBrown;
+        min-width: 100px;
     }
+}
+
+.notifications-holder {
+    margin-top: 150px;
+    min-width:10px;
+    min-height:10px;
+    border: 0px black solid;
 }

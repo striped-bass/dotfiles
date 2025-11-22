@@ -921,4 +921,11 @@
     color: #48463d; }
   .notify-card-content .notify-card-body {
     font-size: 1.2rem;
-    color: #45433a; }
+    color: #45433a;
+    min-width: 100px; }
+
+.notifications-holder {
+  margin-top: 150px;
+  min-width: 10px;
+  min-height: 10px;
+  border: 0px black solid; }

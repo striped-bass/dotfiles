@@ -2,8 +2,9 @@ import App from 'resource:///com/github/Aylur/ags/app.js';
 import Widget from 'resource:///com/github/Aylur/ags/widget.js';
 import Variable from 'resource:///com/github/Aylur/ags/variable.js';
 import * as Utils from 'resource:///com/github/Aylur/ags/utils.js';
-
 import Notifications from 'resource:///com/github/Aylur/ags/service/notifications.js';
+import Pango from 'gi://Pango';
+import { NierButton, NierButtonGroup } from "../../nier/buttons.js";
 
 const css = App.configDir + "/style/style.css";
 
@@ -11,10 +12,6 @@ const { Box, Window, EventBox, Label, Overlay, Icon } = Widget;
 
 const parentConfigDir = App.configDir.split("/").slice(0,-2).join("/");
 const parentAssetsDir = () => `${parentConfigDir}/assets/${dark.value ? "dark" : "light"}`;
-
-import Pango from 'gi://Pango';
-
-import { NierButton, NierButtonGroup } from "../../nier/buttons.js";
 
 const dark = Variable(false, {})
 globalThis.dark = dark;
@@ -75,7 +72,6 @@ const card = ({
                         vpack: "center",
                         justification: "left",
                         max_width_chars: 24,
-                        css: `min-width: 100px;`,
                         wrap: true,
                         wrap_mode: Pango.WrapMode.WORD_CHAR,
                         label: content,
@@ -231,10 +227,8 @@ const card = ({
     ]
 })
 
-
 const holder = ({
 }) => Box({
-    css: `margin-top: 150px;min-width:10px;min-height:10px;border: 0px black solid;`,
     vertical: true,
     classNames: ["notifications-holder"],
     children: [
@@ -258,9 +252,7 @@ const holder = ({
             }
         }, "notified"],
     ]
-    
 })
-
 
 const notify = () => Window({
     name: "player",
@@ -273,8 +265,6 @@ const notify = () => Window({
     visible: true,
     child: holder({})
 });
-
-
 
 export default {
     style: css,
