@@ -17,7 +17,7 @@ function arradd(arr, value) {
 }
 
 async function get_cursor() {
-  return Hyprland.sendMessage("cursorpos").then((res) => {
+  return Hyprland.messageAsync("cursorpos").then((res) => {
     return res.split(",").map((n) => Number(n));
   });
 }
