@@ -17,7 +17,7 @@ const { Window, EventBox, Box, Overlay,Scrollable } = Widget;
 const {exec} = Utils;
 
 async function get_cursor() {
-  return Hyprland.sendMessage("cursorpos").then((res) => {
+  return Hyprland.messageAsync("cursorpos").then((res) => {
     return res.split(",").map((n) => Number(n));
   });
 }
@@ -334,7 +334,7 @@ const NierGeom = ({
             anchor_y1.setValue(anchor_y2.value);
             anchor_x2.setValue(tmp1);
             anchor_y2.setValue(tmp2);
-            Hyprland.sendMessage(`dispatch movecursor ${round(tmp1)} ${round(tmp2)}`);
+            Hyprland.messageAsync(`dispatch movecursor ${round(tmp1)} ${round(tmp2)}`);
           }
       }catch(e){print(e)}});}),
     child: EventBox({
