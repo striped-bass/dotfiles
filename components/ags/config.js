@@ -6,6 +6,7 @@ import {
   Battery
 } from "./imports.js";
 
+App.addIcons(`${App.configDir}/assets`);
 
 import { arradd, arrremove, css, scss, assetsDir, dark, themedir,SCREEN_WIDTH, SCREEN_HEIGHT} from "./util.js";
 import { Workspaces } from "./widgets/workspace.js";
@@ -191,8 +192,6 @@ export default {
   style: css,
   windows: [
     Bar(),
-    // Bar({ monitor: 1}),
     BottomBar(),
   ],
 };
-

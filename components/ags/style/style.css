@@ -634,10 +634,18 @@
     font-size: 2rem; }
 
 .under-workspaces {
-  margin-top: -6px; }
+  margin-top: -2px;
+  min-width: 100px;
+  min-height: 37px; }
+  .under-workspaces .nier-border-box .nier-border-icon {
+    color: #48463d; }
 
 .bottombar {
-  margin-bottom: 65px; }
+  margin-bottom: 65px;
+  min-width: 100px;
+  min-height: 37px; }
+  .bottombar .nier-border-box .nier-border-icon {
+    color: #48463d; }
 
 .nowplaying-hider {
   background: #48463d;

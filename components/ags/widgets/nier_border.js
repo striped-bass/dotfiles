@@ -1,11 +1,10 @@
 import { Widget } from "../imports.js"
 import { nier_border_size } from "../scaling.js";
 
-import { SCREEN_WIDTH, get_cursor, assetsDir, SCREEN_HEIGHT } from "../util.js"
+import { SCREEN_WIDTH, get_cursor, SCREEN_HEIGHT } from "../util.js"
 
-const { Box, Icon,Scrollable } = Widget
-
-const { round,abs } = Math
+const { Box, Icon, Scrollable } = Widget
+const { round, abs } = Math
 
 export const NierBorder = ({
     icon_width = nier_border_size,
@@ -14,12 +13,11 @@ export const NierBorder = ({
     ...props
 }) => Scrollable({
     ...props,
-    // hexpand: false,
-    css: `min-width: ${100}px;min-height: ${round(icon_width/3)}px;`,
-    // hscroll: "always",
     child:Box({
+        classNames: ["nier-border-box"],
         children: Array.from({length: SCREEN_WIDTH/icon_width + 1},(_,i) => Icon({
-            icon: assetsDir() + "/nier-border-full.svg",
+            classNames: ["nier-border-icon"],
+            icon: `nier-border-full-symbolic`,
             size: icon_width,
         })),
         connections: [
@@ -38,15 +36,15 @@ export const NierBorder = ({
                             // print("child index",child_index)
                             self.children.forEach((child,j) => {
                                 if (abs(j-child_index) <= 1) {
-                                    if (child.icon == assetsDir() + "/nier-border-full.svg") {
+                                    if (child.icon == `nier-border-full-symbolic`) {
                                         return;
                                     }
-                                    child.icon = assetsDir() + "/nier-border-full.svg";
+                                    child.icon = `nier-border-full-symbolic`;
                                 } else {
-                                    if (child.icon == assetsDir() + "/nier-border.svg") {
+                                    if (child.icon == `nier-border-symbolic`) {
                                         return;
                                     }
-                                    child.icon = assetsDir() + "/nier-border.svg";
+                                    child.icon = `nier-border-symbolic`;
                                 }
                             })
                     })
@@ -57,4 +55,4 @@ export const NierBorder = ({
             ]
         ]
     })
-});
+})
