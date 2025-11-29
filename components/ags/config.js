@@ -188,10 +188,10 @@ const BottomBar = ({ monitor } = {}) =>
     }),
   });
 
-export default {
+App.config({
   style: css,
   windows: [
     Bar(),
     BottomBar(),
   ],
-};
+});
