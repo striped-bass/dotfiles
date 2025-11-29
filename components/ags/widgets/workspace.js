@@ -103,8 +103,7 @@ export const Workspaces = () =>
                 );
                 self.classNames = arrremove(self.classNames, "active");
                 self.classNames = arrremove(self.classNames, "active-no-hover");
-                self.children[0].icon =
-                assetsDir() + "/nier-pointer.svg";
+                self.children[0].icon = `nier-pointer-symbolic`;
               } else {
                 if (
                   !self.children[1].classNames.includes(
