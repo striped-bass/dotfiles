@@ -322,7 +322,6 @@ export const NierLongButton = ({
             ];
           });
         },
-        css: `min-width: ${button_width}px;`,
         classNames: ["nier-long-button", ...classNames],
         ...props,
       }),

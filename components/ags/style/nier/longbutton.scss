@@ -67,6 +67,7 @@
 // top and bottom borders
 .nier-long-button {
   @include long-button;
+  min-width: $button_width;
   transition: border 0.3s ease-in-out;
 }
 .nier-long-button-hover {

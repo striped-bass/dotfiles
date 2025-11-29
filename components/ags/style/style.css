@@ -35,6 +35,7 @@
   border-top: transparent 3px solid;
   border-bottom: transparent 3px solid;
   min-width: 190px;
+  min-width: 190px;
   transition: border 0.3s ease-in-out; }
 
 .nier-long-button-hover {
@@ -530,6 +531,7 @@
   border: none;
   border-top: transparent 3px solid;
   border-bottom: transparent 3px solid;
+  min-width: 190px;
   min-width: 190px;
   transition: border 0.3s ease-in-out; }
 
