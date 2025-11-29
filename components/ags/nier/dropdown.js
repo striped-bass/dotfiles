@@ -1,6 +1,7 @@
 import { Widget, Variable, Utils } from "../imports.js";
 import { arradd, arrremove, assetsDir } from "../util.js";
 import { NierButton } from "./buttons.js";
+import { button_pointer_size } from "../scaling.js";
 const { Gdk } = imports.gi;
 const { Window, Label, EventBox, Box, Icon } = Widget;
 
@@ -79,6 +80,7 @@ export const NierDropDownButton = ({
 export const NierSelectMenu = ({
   coord_x = 0,
   coord_y = 0,
+  size = button_pointer_size,
   spacing = 20,
   button = null,
   current,
@@ -148,7 +150,7 @@ export const NierSelectMenu = ({
               ...Array.from(options.value, (option) => {
                 return NierOptionItem({
                   label: option,
-                  // size,
+                  size,
                   spacing,
                   button,
                   current,
@@ -165,6 +167,7 @@ export const NierSelectMenu = ({
 
 export const NierOptionItem = ({
   label = "",
+  size = button_pointer_size,
   spacing = 20,
   button,
   current,
@@ -229,6 +232,7 @@ export const NierOptionItem = ({
       }),
       Icon({
         icon: useAssetsDir() + "/nier-pointer-rev.svg",
+        size: size,
         classNames: ["nier-button-hover-icon", "nier-button-hover-icon-hidden"],
       }),
     ],

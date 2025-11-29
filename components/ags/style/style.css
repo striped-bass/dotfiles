@@ -444,7 +444,6 @@
     min-width: 200px; }
 
 .nier-option-container.nier-option-selected .nier-button label {
-  font-family: FOT-Rodin Pro B, sans-serif;
   background: linear-gradient(90deg, #d2cec0 0%, #d2cec0 50%, #48463d 50%, #48463d 100%);
   background-size: 200%;
   min-width: 200px;
