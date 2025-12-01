@@ -139,6 +139,7 @@ const Bar = ({ monitor } = {}) => {
 
 execAsync(`ags -b player -c ${App.configDir}/windows/player/player.js`);
 execAsync(`ags -b settings -c ${App.configDir}/windows/settings/settings.js`);
+
 dark.connect("changed", () => {
   print("dark changed",dark.value);
   let colors_css_path = `${App.configDir}/style/color.scss`;
@@ -188,10 +189,138 @@ const BottomBar = ({ monitor } = {}) =>
     }),
   });
 
+const CircleTopOuter = ({ monitor } = {}) =>
+  Window({
+    name: "circle-top-outer",
+    monitor,
+    margin: [0, 0],
+    anchor: ["top", "left"],
+    exclusivity: "ignore",
+    layer: "background",
+    child: Icon({
+      icon: `circle-symbolic`,
+      size: SCREEN_HEIGHT,
+      className: "circle-top",
+    }),
+  });
+
+const CircleTopInner = ({ monitor } = {}) =>
+  Window({
+    name: "circle-top-inner",
+    monitor,
+    margin: [0, 0],
+    anchor: ["top", "left"],
+    exclusivity: "ignore",
+    layer: "background",
+    child: Icon({
+      icon: `circle-symbolic`,
+      size: SCREEN_HEIGHT * 0.99,
+      className: "circle-top",
+    }),
+  });
+
+const CircleBottomOuter = ({ monitor } = {}) =>
+  Window({
+    name: "circle-bottom-outer",
+    monitor,
+    margin: [0, 0],
+    anchor: ["bottom", "right"],
+    exclusivity: "ignore",
+    layer: "background",
+    child: Icon({
+      icon: `circle-symbolic`,
+      size: SCREEN_HEIGHT,
+      className: "circle-bottom",
+    }),
+  });
+
+const CircleBottomInner = ({ monitor } = {}) =>
+  Window({
+    name: "circle-bottom-inner",
+    monitor,
+    margin: [0, 0],
+    anchor: ["bottom", "right"],
+    exclusivity: "ignore",
+    layer: "background",
+    child: Icon({
+      icon: `circle-symbolic`,
+      size: SCREEN_HEIGHT * 0.99,
+      className: "circle-bottom",
+    }),
+  });
+
+const SingleLineTop = ({ monitor } = {}) =>
+  Window({
+    name: "single-line-top",
+    monitor,
+    margin: [0, 0],
+    anchor: ["top", "left"],
+    exclusivity: "ignore",
+    layer: "background",
+    child: Icon({
+      icon: `single-line-symbolic`,
+      size: SCREEN_WIDTH/2 * 1.1 * 1.1,
+      className: "single-line",
+    }),
+  });
+
+const SingleLineBottom = ({ monitor } = {}) =>
+  Window({
+    name: "single-line-bottom",
+    monitor,
+    margin: [0, 0],
+    anchor: ["bottom", "right"],
+    exclusivity: "ignore",
+    layer: "background",
+    child: Icon({
+      icon: `single-line-symbolic`,
+      size: SCREEN_WIDTH/2 * 1.1,
+      className: "single-line",
+    }),
+  });
+
+const DualLineTop = ({ monitor } = {}) =>
+  Window({
+    name: "dual-line-top",
+    monitor,
+    margin: [0, 0],
+    anchor: ["top", "left"],
+    exclusivity: "ignore",
+    layer: "background",
+    child: Icon({
+      icon: `dual-line-top-symbolic`,
+      size: SCREEN_WIDTH/2 * 1.1,
+      className: "dual-line",
+    }),
+  });
+
+const DualLineBottom = ({ monitor } = {}) =>
+  Window({
+    name: "dual-line-bottom",
+    monitor,
+    margin: [0, 0],
+    anchor: ["bottom", "right"],
+    exclusivity: "ignore",
+    layer: "background",
+    child: Icon({
+      icon: `dual-line-bottom-symbolic`,
+      size: SCREEN_WIDTH/2,
+      className: "dual-line",
+    }),
+  });
+
 App.config({
   style: css,
   windows: [
     Bar(),
     BottomBar(),
+    CircleTopOuter(),
+    CircleTopInner(),
+    CircleBottomOuter(),
+    CircleBottomInner(),
+    SingleLineTop(),
+    SingleLineBottom(),
+    DualLineTop(),
+    DualLineBottom(),
   ],
 });

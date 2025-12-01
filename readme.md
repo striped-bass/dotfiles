@@ -26,7 +26,7 @@ A rice inspired by `NieR:Automata` ui
     - ### Dependancies
         #### Arch
         > ```sh
-        > paru -S hyprland-git foot grim hyprpaper fish theme.sh sassc starship cava imagemagick gnome-bluetooth wl-clipboard libdbusmenu-gtk3 gnome-bluetooth-3.0 xorg-xrandr cpio cmake git meson gcc
+        > paru -S hyprland-git foot grim fish theme.sh sassc starship cava imagemagick gnome-bluetooth wl-clipboard libdbusmenu-gtk3 gnome-bluetooth-3.0 xorg-xrandr cpio cmake git meson gcc
         > ```
         #### STTT
         > install from https://github.com/flick0/sttt
@@ -57,12 +57,6 @@ A rice inspired by `NieR:Automata` ui
       
       - hyprtheme
          > soon
-
-    - ### Create symlink to `hyprpaper.conf`
-      > ```
-      > ln -s ~/.config/hypr/themes/yorha/hyprpaper.conf ~/.config/hypr
-      > ```
-
 
 - ## ~~Install Script~~ (outdated, will fix soon)
     ```sh

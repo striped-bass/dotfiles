@@ -649,6 +649,22 @@
   .bottombar .nier-border-box .nier-border-icon {
     color: #48463d; }
 
+.circle-top {
+  color: #48463d;
+  margin-top: -960px;
+  margin-left: -960px; }
+
+.circle-bottom {
+  color: #48463d;
+  margin-bottom: -960px;
+  margin-right: -960px; }
+
+.single-line {
+  color: #48463d; }
+
+.dual-line {
+  color: #48463d; }
+
 .nowplaying-hider {
   background: #48463d;
   min-width: 1px; }
