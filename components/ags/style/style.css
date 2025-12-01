@@ -233,6 +233,7 @@
     padding-top: 0px;
     padding-bottom: 0px;
     padding-right: 20px;
+    box-shadow: 7px 7px 3px rgba(72, 70, 61, 0.25);
     background-position: -100%;
     transition: padding 0.1s ease-out, margin 0.1s ease-out; }
     .nier-button-box-selected .nier-button label {
@@ -297,6 +298,7 @@
   margin-bottom: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
+  box-shadow: 7px 7px 3px rgba(72, 70, 61, 0.25);
   background-position: -100%;
   transition: background 1s cubic-bezier(0.15, 0.79, 0, 1); }
   .nier-button-hover label {
@@ -352,6 +354,7 @@
     padding-top: 0px;
     padding-bottom: 0px;
     padding-right: 20px;
+    box-shadow: 7px 7px 3px rgba(72, 70, 61, 0.25);
     background-position: -100%;
     transition: padding 0.1s ease-out, margin 0.1s ease-out; }
     .nier-button-box-selected .nier-button label {
@@ -416,6 +419,7 @@
   margin-bottom: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
+  box-shadow: 7px 7px 3px rgba(72, 70, 61, 0.25);
   background-position: -100%;
   transition: background 1s cubic-bezier(0.15, 0.79, 0, 1); }
   .nier-button-hover label {
