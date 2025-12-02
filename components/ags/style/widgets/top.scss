@@ -51,11 +51,13 @@
 
 .circle-bottom-outer {
   color: $brown;
+  -gtk-icon-transform: rotate(180deg);
   animation: sway_bottom 3s ease alternate infinite;
 }
 
 .circle-bottom-inner {
   color: $brown;
+  -gtk-icon-transform: rotate(180deg);
   animation: sway_bottom 4s ease alternate infinite;
 }
 
@@ -70,6 +72,7 @@
 
 .dual-line-bottom {
   color: $brown;
+  -gtk-icon-transform: rotate(90deg) scaleX(-1);
   // animation: sway_bottom 5s ease alternate infinite;
 }
 

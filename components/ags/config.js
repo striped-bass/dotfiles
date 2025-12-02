@@ -195,7 +195,7 @@ const CircleTopOuter = ({ monitor } = {}) =>
     exclusivity: "ignore",
     layer: "background",
     child: Icon({
-      icon: `circle-top-symbolic`,
+      icon: `circle-symbolic`,
       size: SCREEN_HEIGHT / 2,
       className: "circle-top-outer",
     }),
@@ -210,7 +210,7 @@ const CircleTopInner = ({ monitor } = {}) =>
     exclusivity: "ignore",
     layer: "background",
     child: Icon({
-      icon: `circle-top-symbolic`,
+      icon: `circle-symbolic`,
       size: SCREEN_HEIGHT / 2 * 0.97,
       className: "circle-top-inner",
     }),
@@ -225,7 +225,7 @@ const CircleBottomOuter = ({ monitor } = {}) =>
     exclusivity: "ignore",
     layer: "background",
     child: Icon({
-      icon: `circle-bottom-symbolic`,
+      icon: `circle-symbolic`,
       size: SCREEN_HEIGHT / 2,
       className: "circle-bottom-outer",
     }),
@@ -240,7 +240,7 @@ const CircleBottomInner = ({ monitor } = {}) =>
     exclusivity: "ignore",
     layer: "background",
     child: Icon({
-      icon: `circle-bottom-symbolic`,
+      icon: `circle-symbolic`,
       size: SCREEN_HEIGHT / 2 * 0.97,
       className: "circle-bottom-inner",
     }),
@@ -285,7 +285,7 @@ const DualLineTop = ({ monitor } = {}) =>
     exclusivity: "ignore",
     layer: "background",
     child: Icon({
-      icon: `dual-line-top-symbolic`,
+      icon: `dual-line-symbolic`,
       size: SCREEN_WIDTH/2 * 1.1,
       className: "dual-line-top",
     }),
@@ -300,7 +300,7 @@ const DualLineBottom = ({ monitor } = {}) =>
     exclusivity: "ignore",
     layer: "background",
     child: Icon({
-      icon: `dual-line-bottom-symbolic`,
+      icon: `dual-line-symbolic`,
       size: SCREEN_WIDTH/2,
       className: "dual-line-bottom",
     }),

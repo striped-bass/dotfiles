@@ -663,10 +663,12 @@
 
 .circle-bottom-outer {
   color: #48463d;
+  -gtk-icon-transform: rotate(180deg);
   animation: sway_bottom 3s ease alternate infinite; }
 
 .circle-bottom-inner {
   color: #48463d;
+  -gtk-icon-transform: rotate(180deg);
   animation: sway_bottom 4s ease alternate infinite; }
 
 .single-line {
@@ -676,7 +678,8 @@
   color: #48463d; }
 
 .dual-line-bottom {
-  color: #48463d; }
+  color: #48463d;
+  -gtk-icon-transform: rotate(90deg) scaleX(-1); }
 
 @keyframes sway_top {
   0% {
