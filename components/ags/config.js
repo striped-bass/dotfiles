@@ -27,6 +27,42 @@ globalThis.WHICH = WHICH;
 
 let top_bar_height = 0;
 
+execAsync(`ags -b player -c ${App.configDir}/windows/player/player.js`);
+execAsync(`ags -b settings -c ${App.configDir}/windows/settings/settings.js`);
+
+dark.connect("changed", () => {
+  print("dark changed",dark.value);
+  let colors_css_path = `${App.configDir}/style/color.scss`;
+  let colors_css = Utils.readFile(`${App.configDir}/style/color-${dark.value?'dark':'light'}.scss`)
+  Utils.writeFile(colors_css,colors_css_path).then(() => {
+    exec(`sassc ${scss} ${css}`);
+    App.resetCss();
+    App.applyCss(css);
+    print("done")
+  })
+  .catch((e) => {
+    print("error",e);
+  });
+
+  execAsync(`ags -b player -r dark.value=${dark.value}`).then(print);
+  execAsync(`ags -b notify -r dark.value=${dark.value}`).then(print);
+  execAsync(`ags -b settings -r dark.value=${dark.value}`).then(print);
+
+  let hyprconf = Utils.readFile(`${themedir}/theme.conf`);
+  if (dark.value) {
+    hyprconf = hyprconf.replaceAll("nier_light","nier_dark");
+  } else {
+    hyprconf = hyprconf.replaceAll("nier_dark","nier_light");
+  }
+  Utils.writeFile(hyprconf,`${themedir}/theme.conf`).then(()=>{
+    print("reloaded hypr")
+  }).catch((e) => print("error",e));
+  Utils.timeout(1000,() => {
+    execAsync(`hyprctl keyword monitor ,addreserved,${top_bar_height},${top_bar_height},0,0`).then(print).catch(print);
+  })
+}) 
+
+execAsync(["bash","-c",`pkill dunst;ags -b notify -c ${App.configDir}/windows/notifications/notifications.js`])
 
 const top = () =>
   Box({
@@ -136,44 +172,6 @@ const Bar = ({ monitor } = {}) => {
     child: top(),
   });
 };
-
-execAsync(`ags -b player -c ${App.configDir}/windows/player/player.js`);
-execAsync(`ags -b settings -c ${App.configDir}/windows/settings/settings.js`);
-
-dark.connect("changed", () => {
-  print("dark changed",dark.value);
-  let colors_css_path = `${App.configDir}/style/color.scss`;
-  let colors_css = Utils.readFile(`${App.configDir}/style/color-${dark.value?'dark':'light'}.scss`)
-  Utils.writeFile(colors_css,colors_css_path).then(() => {
-    exec(`sassc ${scss} ${css}`);
-    App.resetCss();
-    App.applyCss(css);
-    print("done")
-  })
-  .catch((e) => {
-    print("error",e);
-  });
-
-  execAsync(`ags -b player -r dark.value=${dark.value}`).then(print);
-  execAsync(`ags -b notify -r dark.value=${dark.value}`).then(print);
-  execAsync(`ags -b settings -r dark.value=${dark.value}`).then(print);
-
-  let hyprconf = Utils.readFile(`${themedir}/theme.conf`);
-  if (dark.value) {
-    hyprconf = hyprconf.replaceAll("nier_light","nier_dark");
-  } else {
-    hyprconf = hyprconf.replaceAll("nier_dark","nier_light");
-  }
-  Utils.writeFile(hyprconf,`${themedir}/theme.conf`).then(()=>{
-    print("reloaded hypr")
-  }).catch((e) => print("error",e));
-  Utils.timeout(1000,() => {
-    execAsync(`hyprctl keyword monitor ,addreserved,${top_bar_height},${top_bar_height},0,0`).then(print).catch(print);
-  })
-}) 
-
-execAsync(["bash","-c",`pkill dunst;ags -b notify -c ${App.configDir}/windows/notifications/notifications.js`])
-
 
 const BottomBar = ({ monitor } = {}) =>
   Window({
