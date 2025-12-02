@@ -653,17 +653,46 @@
   .bottombar .nier-border-box .nier-border-icon {
     color: #48463d; }
 
-.circle-top {
-  color: #48463d; }
+.circle-top-outer {
+  color: #48463d;
+  animation: sway_top 3s ease alternate infinite; }
 
-.circle-bottom {
-  color: #48463d; }
+.circle-top-inner {
+  color: #48463d;
+  animation: sway_top 4s ease alternate infinite; }
+
+.circle-bottom-outer {
+  color: #48463d;
+  animation: sway_bottom 3s ease alternate infinite; }
+
+.circle-bottom-inner {
+  color: #48463d;
+  animation: sway_bottom 4s ease alternate infinite; }
 
 .single-line {
   color: #48463d; }
 
-.dual-line {
+.dual-line-top {
   color: #48463d; }
+
+.dual-line-bottom {
+  color: #48463d; }
+
+@keyframes sway_top {
+  0% {
+    margin-top: 0px;
+    margin-left: 0px; }
+  100% {
+    margin-top: -10px;
+    margin-left: -10px; } }
+
+@keyframes sway_bottom {
+  0% {
+    margin-bottom: 0px;
+    margin-right: 0px; }
+  100% {
+    margin-bottom: -10px;
+    margin-right: -10px; } }
 
 .nowplaying-hider {
   background: #48463d;

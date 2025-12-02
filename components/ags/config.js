@@ -197,7 +197,7 @@ const CircleTopOuter = ({ monitor } = {}) =>
     child: Icon({
       icon: `circle-top-symbolic`,
       size: SCREEN_HEIGHT / 2,
-      className: "circle-top",
+      className: "circle-top-outer",
     }),
   });
 
@@ -212,7 +212,7 @@ const CircleTopInner = ({ monitor } = {}) =>
     child: Icon({
       icon: `circle-top-symbolic`,
       size: SCREEN_HEIGHT / 2 * 0.97,
-      className: "circle-top",
+      className: "circle-top-inner",
     }),
   });
 
@@ -227,7 +227,7 @@ const CircleBottomOuter = ({ monitor } = {}) =>
     child: Icon({
       icon: `circle-bottom-symbolic`,
       size: SCREEN_HEIGHT / 2,
-      className: "circle-bottom",
+      className: "circle-bottom-outer",
     }),
   });
 
@@ -242,7 +242,7 @@ const CircleBottomInner = ({ monitor } = {}) =>
     child: Icon({
       icon: `circle-bottom-symbolic`,
       size: SCREEN_HEIGHT / 2 * 0.97,
-      className: "circle-bottom",
+      className: "circle-bottom-inner",
     }),
   });
 
@@ -287,7 +287,7 @@ const DualLineTop = ({ monitor } = {}) =>
     child: Icon({
       icon: `dual-line-top-symbolic`,
       size: SCREEN_WIDTH/2 * 1.1,
-      className: "dual-line",
+      className: "dual-line-top",
     }),
   });
 
@@ -302,7 +302,7 @@ const DualLineBottom = ({ monitor } = {}) =>
     child: Icon({
       icon: `dual-line-bottom-symbolic`,
       size: SCREEN_WIDTH/2,
-      className: "dual-line",
+      className: "dual-line-bottom",
     }),
   });
 
