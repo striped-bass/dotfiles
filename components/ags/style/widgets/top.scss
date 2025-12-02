@@ -51,13 +51,11 @@
 
 .circle-bottom-outer {
   color: $brown;
-  -gtk-icon-transform: rotate(180deg);
   animation: sway_bottom 3s ease alternate infinite;
 }
 
 .circle-bottom-inner {
   color: $brown;
-  -gtk-icon-transform: rotate(180deg);
   animation: sway_bottom 4s ease alternate infinite;
 }
 
@@ -78,22 +76,18 @@
 
 @keyframes sway_top {
   0% {
-    margin-top: 0px;
-    margin-left: 0px;
+    -gtk-icon-transform: translate(0);
   }
   100% {
-    margin-top: -10px;
-    margin-left: -10px;
+    -gtk-icon-transform: translate(-10px,-10px);
   }
 }
 
 @keyframes sway_bottom {
   0% {
-    margin-bottom: 0px;
-    margin-right: 0px;
+    -gtk-icon-transform: rotate(180deg) translate(0);
   }
   100% {
-    margin-bottom: -10px;
-    margin-right: -10px;
+    -gtk-icon-transform: rotate(180deg) translate(-10px,-10px);
   }
 }
