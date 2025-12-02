@@ -198,8 +198,8 @@ const CircleTopOuter = ({ monitor } = {}) =>
     exclusivity: "ignore",
     layer: "background",
     child: Icon({
-      icon: `circle-symbolic`,
-      size: SCREEN_HEIGHT,
+      icon: `circle-top-symbolic`,
+      size: SCREEN_HEIGHT / 2,
       className: "circle-top",
     }),
   });
@@ -213,8 +213,8 @@ const CircleTopInner = ({ monitor } = {}) =>
     exclusivity: "ignore",
     layer: "background",
     child: Icon({
-      icon: `circle-symbolic`,
-      size: SCREEN_HEIGHT * 0.99,
+      icon: `circle-top-symbolic`,
+      size: SCREEN_HEIGHT / 2 * 0.97,
       className: "circle-top",
     }),
   });
@@ -228,8 +228,8 @@ const CircleBottomOuter = ({ monitor } = {}) =>
     exclusivity: "ignore",
     layer: "background",
     child: Icon({
-      icon: `circle-symbolic`,
-      size: SCREEN_HEIGHT,
+      icon: `circle-bottom-symbolic`,
+      size: SCREEN_HEIGHT / 2,
       className: "circle-bottom",
     }),
   });
@@ -243,8 +243,8 @@ const CircleBottomInner = ({ monitor } = {}) =>
     exclusivity: "ignore",
     layer: "background",
     child: Icon({
-      icon: `circle-symbolic`,
-      size: SCREEN_HEIGHT * 0.99,
+      icon: `circle-bottom-symbolic`,
+      size: SCREEN_HEIGHT / 2 * 0.97,
       className: "circle-bottom",
     }),
   });

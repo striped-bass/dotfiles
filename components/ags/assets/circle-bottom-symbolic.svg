@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="Layer_1"
+   data-name="Layer 1"
+   width="253.65"
+   height="253.65"
+   viewBox="0 0 253.65 253.65"
+   version="1.1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1">
+    <style
+       id="style1">
+      .cls-1 {
+        fill: #48463d;
+        fill-opacity: 0.25;
+      }
+    </style>
+  </defs>
+  <path
+     id="path1"
+     class="cls-1"
+     d="M 1.3,253.65 C 1.3,113.65 113.65,1.3 253.65,1.3 V 0 H 252.35 C 113.65,0 0,113.65 0,252.35 0,253.65 0,253.65 0,253.65 Z" />
+</svg>
