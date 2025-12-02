@@ -160,10 +160,9 @@ const top = () =>
     }),
   });
 
-const Bar = ({ monitor } = {}) => {
+const TopBar = ({ monitor } = {}) => {
   return Window({
-    name: `bar`,
-    classNames: ["bar"],
+    name: `topbar`,
     monitor,
     margin: [0, 0],
     anchor: ["top", "left", "right"],
@@ -310,7 +309,7 @@ const DualLineBottom = ({ monitor } = {}) =>
 App.config({
   style: css,
   windows: [
-    Bar(),
+    TopBar(),
     BottomBar(),
     CircleTopOuter(),
     CircleTopInner(),
