@@ -182,7 +182,6 @@ const BottomBar = ({ monitor } = {}) =>
     layer: "bottom",
     child: NierBorder({
       classNames: ["bottombar"],
-      y_axis: true,
     }),
   });
 
