@@ -41,22 +41,22 @@
 
 .circle-top-outer {
   color: $brown;
-  animation: sway_top 3s ease alternate infinite;
+  animation: slide_top 3s ease alternate infinite;
 }
 
 .circle-top-inner {
   color: $brown;
-  animation: sway_top 4s ease alternate infinite;
+  animation: slide_top 4s ease alternate infinite;
 }
 
 .circle-bottom-outer {
   color: $brown;
-  animation: sway_bottom 3s ease alternate infinite;
+  animation: slide_bottom 3s ease alternate infinite;
 }
 
 .circle-bottom-inner {
   color: $brown;
-  animation: sway_bottom 4s ease alternate infinite;
+  animation: slide_bottom 4s ease alternate infinite;
 }
 
 .single-line {
@@ -74,7 +74,7 @@
   // animation: sway_bottom 5s ease alternate infinite;
 }
 
-@keyframes sway_top {
+@keyframes slide_top {
   0% {
     -gtk-icon-transform: translate(0);
   }
@@ -83,7 +83,7 @@
   }
 }
 
-@keyframes sway_bottom {
+@keyframes slide_bottom {
   0% {
     -gtk-icon-transform: rotate(180deg) translate(0);
   }

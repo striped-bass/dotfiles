@@ -655,19 +655,19 @@
 
 .circle-top-outer {
   color: #48463d;
-  animation: sway_top 3s ease alternate infinite; }
+  animation: slide_top 3s ease alternate infinite; }
 
 .circle-top-inner {
   color: #48463d;
-  animation: sway_top 4s ease alternate infinite; }
+  animation: slide_top 4s ease alternate infinite; }
 
 .circle-bottom-outer {
   color: #48463d;
-  animation: sway_bottom 3s ease alternate infinite; }
+  animation: slide_bottom 3s ease alternate infinite; }
 
 .circle-bottom-inner {
   color: #48463d;
-  animation: sway_bottom 4s ease alternate infinite; }
+  animation: slide_bottom 4s ease alternate infinite; }
 
 .single-line {
   color: #48463d; }
@@ -679,13 +679,13 @@
   color: #48463d;
   -gtk-icon-transform: rotate(90deg) scaleX(-1); }
 
-@keyframes sway_top {
+@keyframes slide_top {
   0% {
     -gtk-icon-transform: translate(0); }
   100% {
     -gtk-icon-transform: translate(-10px, -10px); } }
 
-@keyframes sway_bottom {
+@keyframes slide_bottom {
   0% {
     -gtk-icon-transform: rotate(180deg) translate(0); }
   100% {
