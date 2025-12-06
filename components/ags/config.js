@@ -141,10 +141,6 @@ const top = () =>
               execAsync(`ags -b settings -t settings`)
             },
           }),
-          Box({
-            hpack: "start",
-            classNames: ["yorha-right"],
-          }),
         ],
       }),
       NierBorder({
