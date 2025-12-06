@@ -493,6 +493,68 @@
   background-position: 0%;
   transition: background-position 0.2s cubic-bezier(0.15, 0.79, 0, 1); }
 
+.top {
+  margin-top: 10px;
+  min-width: 2880px; }
+  .top .yorha-left .time {
+    color: #48463d;
+    font-size: 2rem; }
+  .top .yorha-left .battery-percent {
+    color: #48463d;
+    font-size: 2rem; }
+
+.under-workspaces {
+  margin-top: -2px;
+  min-width: 100px;
+  min-height: 37px; }
+  .under-workspaces .nier-border-box .nier-border-icon {
+    color: #48463d; }
+
+.bottombar {
+  margin-bottom: 65px;
+  min-width: 100px;
+  min-height: 37px; }
+  .bottombar .nier-border-box .nier-border-icon {
+    color: #48463d; }
+
+.circle-top-outer {
+  color: #48463d;
+  animation: slide_top 3s ease alternate infinite; }
+
+.circle-top-inner {
+  color: #48463d;
+  animation: slide_top 4s ease alternate infinite; }
+
+.circle-bottom-outer {
+  color: #48463d;
+  animation: slide_bottom 3s ease alternate infinite; }
+
+.circle-bottom-inner {
+  color: #48463d;
+  animation: slide_bottom 4s ease alternate infinite; }
+
+.single-line {
+  color: #48463d; }
+
+.dual-line-top {
+  color: #48463d; }
+
+.dual-line-bottom {
+  color: #48463d;
+  -gtk-icon-transform: rotate(90deg) scaleX(-1); }
+
+@keyframes slide_top {
+  0% {
+    -gtk-icon-transform: translate(0); }
+  100% {
+    -gtk-icon-transform: translate(-10px, -10px); } }
+
+@keyframes slide_bottom {
+  0% {
+    -gtk-icon-transform: rotate(180deg) translate(0); }
+  100% {
+    -gtk-icon-transform: rotate(180deg) translate(-10px, -10px); } }
+
 .nier-toggle-on {
   opacity: 1;
   transition: opacity 0.3s ease-in-out; }
@@ -616,68 +678,6 @@
     padding-bottom: 0px;
     border-top: 0px;
     border-bottom: 0px; } }
-
-.top {
-  margin-top: 10px;
-  min-width: 2880px; }
-  .top .yorha-left .time {
-    color: #48463d;
-    font-size: 2rem; }
-  .top .yorha-left .battery-percent {
-    color: #48463d;
-    font-size: 2rem; }
-
-.under-workspaces {
-  margin-top: -2px;
-  min-width: 100px;
-  min-height: 37px; }
-  .under-workspaces .nier-border-box .nier-border-icon {
-    color: #48463d; }
-
-.bottombar {
-  margin-bottom: 65px;
-  min-width: 100px;
-  min-height: 37px; }
-  .bottombar .nier-border-box .nier-border-icon {
-    color: #48463d; }
-
-.circle-top-outer {
-  color: #48463d;
-  animation: slide_top 3s ease alternate infinite; }
-
-.circle-top-inner {
-  color: #48463d;
-  animation: slide_top 4s ease alternate infinite; }
-
-.circle-bottom-outer {
-  color: #48463d;
-  animation: slide_bottom 3s ease alternate infinite; }
-
-.circle-bottom-inner {
-  color: #48463d;
-  animation: slide_bottom 4s ease alternate infinite; }
-
-.single-line {
-  color: #48463d; }
-
-.dual-line-top {
-  color: #48463d; }
-
-.dual-line-bottom {
-  color: #48463d;
-  -gtk-icon-transform: rotate(90deg) scaleX(-1); }
-
-@keyframes slide_top {
-  0% {
-    -gtk-icon-transform: translate(0); }
-  100% {
-    -gtk-icon-transform: translate(-10px, -10px); } }
-
-@keyframes slide_bottom {
-  0% {
-    -gtk-icon-transform: rotate(180deg) translate(0); }
-  100% {
-    -gtk-icon-transform: rotate(180deg) translate(-10px, -10px); } }
 
 .nowplaying-hider {
   background: #48463d;

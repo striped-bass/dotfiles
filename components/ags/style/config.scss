@@ -1,6 +1,6 @@
-@import "../color";
-@import "../data";
-@import "../scaling";
+@import "color";
+@import "data";
+@import "scaling";
 
 .top {
   margin-top: 10px;
@@ -14,6 +14,11 @@
       color: $brown;
       font-size: $small_font_size;
     }
+    // .settings-button {
+    //   .yorha {
+    //     color: $brown;
+    //   }
+    // }
   }
 }
 
