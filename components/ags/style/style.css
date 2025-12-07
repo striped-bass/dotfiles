@@ -502,6 +502,8 @@
   .top .yorha-left .battery-percent {
     color: #48463d;
     font-size: 2rem; }
+  .top .yorha-left .settings-button .yorha {
+    color: #48463d; }
 
 .under-workspaces {
   margin-top: -2px;

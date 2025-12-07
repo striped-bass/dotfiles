@@ -4,7 +4,7 @@ export const scale = 1;
 export const workspace_workspaces = 10;
 
 export const top_spacing = 20*scale;
-export const top_icon_size = 40*scale;
+export const top_icon_size = 50*scale;
 
 export const nier_border_size = 110*scale;
 

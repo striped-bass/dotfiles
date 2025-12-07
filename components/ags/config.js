@@ -120,10 +120,11 @@ const top = () =>
           Button({
             hpack: "end",
             hexpand: true,
-            classNames: ["settings-button"],
+            className: "settings-button",
             child: Icon({
               size: top_icon_size,
-              icon: assetsDir() + "/yorha.png",
+              icon: `yorha-symbolic`,
+              className: "yorha",
             }),
             setup: (button) => {
               button.connect("enter-notify-event" , (self) => {
