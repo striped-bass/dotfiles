@@ -137,7 +137,7 @@ export const NierSelectMenu = ({
                         }),
                       }),
                       Icon({
-                        icon: useAssetsDir() + "/nier-pointer-rev.svg",
+                        icon: useAssetsDir() + "/nier-pointer.svg",
                         size: size,
                         css: "opacity: 0;",
                         classNames: ["nier-button-hover-icon"],
@@ -231,9 +231,10 @@ export const NierOptionItem = ({
         }),
       }),
       Icon({
-        icon: useAssetsDir() + "/nier-pointer-rev.svg",
+        icon: useAssetsDir() + "/nier-pointer.svg",
         size: size,
         classNames: ["nier-button-hover-icon", "nier-button-hover-icon-hidden"],
+        css: `-gtk-icon-transform: rotate(180deg);`,
       }),
     ],
   });
