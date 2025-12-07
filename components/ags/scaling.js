@@ -1,7 +1,7 @@
 export const scale = 1;
 // export const scale = 0.5;  // hidpi
 
-export const workspace_workspaces = 10;
+export const workspace_count = 10;
 
 export const top_spacing = 20*scale;
 export const top_icon_size = 50*scale;

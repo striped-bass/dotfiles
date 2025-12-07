@@ -19,6 +19,6 @@ $settings_title_bottom: 50px * $scale;
 
 $nier_border_size: 110px * $scale;
 
-$workspace_workspaces: 10;
-$workspace_width: ($workspace_workspaces * $button_width) + ($workspace_workspaces + 1) * (50px * $scale);
+$workspace_count: 10;
+$workspace_width: ($workspace_count * $button_width) + ($workspace_count + 1) * (50px * $scale);
 $workspace_height: 65px * $scale;
