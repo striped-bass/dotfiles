@@ -139,7 +139,6 @@ export const NierSliderButton = ({
 
 export const NierInertSlider = ({
   boxes = button_slider_width,
-  slider_padding = button_slider_padding,
   connections = [],
 }) =>
   Box({
@@ -147,7 +146,6 @@ export const NierInertSlider = ({
     homogeneous: false,
     hpack: "end",
     vpack: "center",
-    css: `padding-right: ${slider_padding}px;padding-left: 0px;`,
     children: [
       ...Array.from({ length: boxes }, (_, i) => i).map((i) => {
         return Box({
