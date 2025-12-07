@@ -1,5 +1,5 @@
 import { Widget, Variable } from "../imports.js";
-import { button_slider_padding, button_slider_width } from "../scaling.js";
+import { button_slider_padding, button_slider_segment_count } from "../scaling.js";
 import { arradd, arrremove, assetsDir } from "../util.js";
 import { NierButton } from "./buttons.js";
 const { Box } = Widget;
@@ -44,7 +44,7 @@ export const NierSliderButton = ({
   containerConnections = [],
   connections = [],
   ratio = Variable(0, {}),
-  boxes = button_slider_width,
+  boxes = button_slider_segment_count,
   slider_padding = button_slider_padding,
   onValueChange = async (self, value) => {},
   isDragging = false,
@@ -138,7 +138,7 @@ export const NierSliderButton = ({
   });
 
 export const NierInertSlider = ({
-  boxes = button_slider_width,
+  boxes = button_slider_segment_count,
   connections = [],
 }) =>
   Box({

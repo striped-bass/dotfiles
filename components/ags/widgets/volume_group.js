@@ -1,14 +1,12 @@
 import { Audio, Variable } from "../imports.js";
 import { NierButton } from "../nier/buttons.js";
 import { NierSliderButton } from "../nier/slider.js";
-import { button_slider_width } from "../scaling.js";
 import { assetsDir } from "../util.js";
 
 let volume_slider = ({ volume_ratio = 0, type = "speaker", stream = null, useAssetsDir }) =>
   NierSliderButton({
     useAssetsDir,
     label: stream ? stream.description : type,
-    boxes: button_slider_width,
     ratio: volume_ratio,
     connections: [
       [
