@@ -496,6 +496,9 @@
 .top {
   margin-top: 10px;
   min-width: 2880px; }
+  .top .yorha-left .workspaces-scroll {
+    min-width: 2450px;
+    min-height: 65px; }
   .top .yorha-left .time {
     color: #48463d;
     font-size: 2rem; }
