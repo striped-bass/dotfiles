@@ -39,8 +39,6 @@ await Utils.execAsync("ags -r dark.value").then((res) => {
 
 let colors = dark?[218/255, 212/255, 187/255]:[87/255, 84/255, 74/255];
 
-const parentConfigDir = App.configDir.split("/").slice(0,-2).join("/");
-
 const {Gtk} = imports.gi;
 
 const draw_triangle = (context, center_x,center_y, width, height, color, inverted, leftratio,rightratio,yratio) => {
@@ -87,10 +85,6 @@ const draw_triangle = (context, center_x,center_y, width, height, color, inverte
     ];
   } 
 
-  
-
-  
-
   context.moveTo(...leftpoint);
   context.lineTo(...rightpoint);
   context.lineTo(...ypoint);
@@ -99,14 +93,11 @@ const draw_triangle = (context, center_x,center_y, width, height, color, inverte
 }
 
 const NierGeom = ({
-  DESTRUCTION = false,
-
   cell_width = 512,
   cell_height = round(sqrt(cell_width*cell_width-(cell_width/2)*(cell_width/2))),
 
   cell_grid_1 = new Gtk.DrawingArea(),
   wait_for_draw_1 = false,
-  wait_for_complete_draw_1 = false,
   draw_t_1 = 0,
   draw_duration_1 = 1000,
   final_draw_1 = true,
@@ -117,9 +108,6 @@ const NierGeom = ({
 
   opacity_step = 10,
   vertex_step = 10,
-
-  first_update = 0,
-  entered = false,
 }) =>
   Window({
     name: "bg_settings",
@@ -132,7 +120,6 @@ const NierGeom = ({
     setup: (self) =>
       Utils.timeout(1, () => {
         cell_grid_1.connect("draw", (self, context) => {
-          // print("drawing")
           let stable = true;
           for (let i = 0; i < rows*cols; i++) {
               let x = i%cols;
@@ -167,7 +154,6 @@ const NierGeom = ({
           }
           wait_for_draw_1 = false;
           if (final_draw_1 && !stable){
-              // print("stabling")
               cell_grid_1.queue_draw();
           } else if (final_draw_1 && stable) {
             wait_for_complete_draw_1 = false;
@@ -307,7 +293,6 @@ const NierGeom = ({
               if (time_ratio > 1) {
                 break
               }
-              // draw_t_1++;
               draw_t_1 = Date.now();
               await new Promise((r) => setTimeout(r, max(0,1000/fps - (draw_t_1-frame_start))));
             }
@@ -317,7 +302,6 @@ const NierGeom = ({
         }catch(e){print(e)}})
         }),
         overlays: [
-          
         ]
       }),
     }),
