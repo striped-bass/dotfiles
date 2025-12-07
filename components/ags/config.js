@@ -8,10 +8,10 @@ import {
 
 App.addIcons(`${App.configDir}/assets`);
 
-import { arradd, arrremove, css, scss, assetsDir, dark, themedir,SCREEN_WIDTH, SCREEN_HEIGHT} from "./util.js";
+import { arradd, arrremove, css, scss, dark, themedir,SCREEN_WIDTH, SCREEN_HEIGHT} from "./util.js";
 import { Workspaces } from "./widgets/workspace.js";
 import { NierBorder } from "./widgets/nier_border.js";
-import { top_icon_size, top_spacing, workspace_height, workspace_width } from "./scaling.js";
+import { top_icon_size, top_spacing } from "./scaling.js";
 
 const { exec, execAsync } = Utils;
 const { Box, Window, Button, Icon, Scrollable, Label } = Widget;
@@ -76,7 +76,6 @@ const top = () =>
         classNames: ["yorha-left"],
         children: [
           Scrollable({
-            css: `min-width: ${workspace_width}px;min-height: ${workspace_height}px;`,
             classNames: ["workspaces-scroll"],
             child:Workspaces({}),
           }),

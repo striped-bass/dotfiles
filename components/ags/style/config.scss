@@ -6,6 +6,10 @@
   margin-top: 10px;
   min-width: $screen_width;
   .yorha-left {
+    .workspaces-scroll {
+      min-width: $workspace_width;
+      min-height: $workspace_height;
+    }
     .time {
       color: $brown;
       font-size: $small_font_size;
