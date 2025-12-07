@@ -31,7 +31,7 @@ const SCREEN_HEIGHT = Number(
   );
 
 const rand_int = (a,b) => round(random()*(b-a)+a);
-const dist_from_center = (x,y,center_x,center_y,width,height) => {
+const dist_from_center = (x,y,center_x,center_y) => {
   let x_offset = abs(x-center_x)/2;
   let y_offset = abs(y-center_y);
 
@@ -264,7 +264,7 @@ const NierGeom = ({
                 if (s_override) {
                   return
                 }
-                let dist = dist_from_center(x,y,center_x,center_y,cols,rows)
+                let dist = dist_from_center(x,y,center_x,center_y)
                 if (time_ratio>1?1:dist < max_dist*time_ratio*(rand_int(50,100)/100)) {
                   inited = true;
                   c_opacity = 0.6
@@ -314,7 +314,7 @@ const NierGeom = ({
                     let x = i%cols;
                     let y = (i-x)/cols;
                     let [c_opacity,t_opacity, c_left,t_left ,c_right,t_right ,c_y,t_y,inited,s_override] = cells_2[i]
-                    let dist = dist_from_center(x,y,center_x,center_y,cols,rows)
+                    let dist = dist_from_center(x,y,center_x,center_y)
                     if (time_ratio>1?1:dist > max_dist*(1-time_ratio)*(rand_int(50,100)/100)) {
                     inited = true;
                     c_opacity = 1
@@ -369,7 +369,7 @@ const NierGeom = ({
                         let x = i%cols;
                         let y = (i-x)/cols;
                         let [c_opacity,t_opacity, c_left,t_left ,c_right,t_right ,c_y,t_y,inited,s_override] = cells_2[i]
-                        let dist = dist_from_center(x,y,center_x,center_y,cols,rows)
+                        let dist = dist_from_center(x,y,center_x,center_y)
                         if (time_ratio>1?1:dist < max_dist*(time_ratio)*(rand_int(50,100)/100)) {
                             inited = true;
                             c_opacity = 0.6

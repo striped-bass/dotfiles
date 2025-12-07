@@ -24,7 +24,7 @@ const SCREEN_HEIGHT = Number(
   );
 
 const rand_int = (a,b) => round(random()*(b-a)+a);
-const dist_from_center = (x,y,center_x,center_y,width,height) => {
+const dist_from_center = (x,y,center_x,center_y) => {
   let x_offset = abs(x-center_x)/2;
   let y_offset = abs(y-center_y);
 
@@ -212,7 +212,7 @@ const NierGeom = ({
                       entered = true;
                       return
                     }
-                    let dist = dist_from_center(x,y,center_x,center_y,cols,rows)
+                    let dist = dist_from_center(x,y,center_x,center_y)
                     if (time_ratio>1?1:dist < max_dist*time_ratio*(rand_int(0,100)/100)) {
                       if (inited == true) {
                         inited = false;
@@ -277,7 +277,7 @@ const NierGeom = ({
                   entered = true;
                   return
                 }
-                let dist = dist_from_center(x,y,center_x,center_y,cols,rows)
+                let dist = dist_from_center(x,y,center_x,center_y)
                 if (time_ratio>1?1:dist < max_dist*time_ratio*(rand_int(50,100)/100)) {
                   if (inited == false) {
                     inited = true;
