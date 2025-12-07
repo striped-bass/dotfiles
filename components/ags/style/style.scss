@@ -8,10 +8,5 @@
 
 @import "nier";
 @import "config";
-
-@import "widgets/workspace.scss";
-@import "widgets/imagematrix.scss";
-@import "widgets/applauncher.scss";
-
-@import "windows/settings.scss";
-@import "windows/notifications.scss";
+@import "widgets";
+@import "windows";

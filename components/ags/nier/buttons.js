@@ -1,5 +1,5 @@
 import { Widget, Utils } from "../imports.js";
-import { button_max_chars, button_pointer_size, button_width } from "../scaling.js";
+import { button_max_chars, button_pointer_size } from "../scaling.js";
 import { arradd, arrremove, assetsDir } from "../util.js";
 const { Button, Label, Overlay, EventBox, Box, Scrollable, Icon, CenterBox } =
   Widget;
@@ -187,7 +187,6 @@ export const NierButton = ({
             }),
             centerWidget: Box({
               homogeneous: homogeneous_button,
-              css: `min-width: ${button_width}px;`,
               classNames: ["nier-button", ...classNames],
               children: [
                 labelOveride(label, max_label_chars),
