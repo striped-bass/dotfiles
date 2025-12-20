@@ -6,7 +6,10 @@
   font-family: FOT-Rodin Pro M, Roboto, sans-serif;
 }
 
-@import "nier";
 @import "config";
-@import "widgets";
-@import "windows";
+@import "nier";
+@import "widgets/applauncher.scss";
+@import "widgets/imagematrix.scss";
+@import "widgets/workspace.scss";
+@import "windows/notifications.scss";
+@import "windows/settings.scss";
