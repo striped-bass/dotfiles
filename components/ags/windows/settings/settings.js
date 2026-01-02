@@ -141,7 +141,7 @@ const NierSettingPane = (
               useAssetsDir: parentAssetsDir,
               label: "4",
               handleClick: async (button, event) => {
-                App.toggleWindwhatow("settings");
+                App.toggleWindow("settings");
               },
             }),
           ],
