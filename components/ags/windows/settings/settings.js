@@ -370,7 +370,7 @@ const NierSettingPane = (
     classNames: ["settings"],
     margin: [0, 0, 0, 0],
     anchor: ["top", "left", "bottom"],
-    exclusivity: "exclusive",
+    // exclusivity: "exclusive", // Now causes Hyprland crash - first observed when updating to Hyprland 0.52
     layer: "overlay",
     visible: true,
     keymode: "exclusive",
