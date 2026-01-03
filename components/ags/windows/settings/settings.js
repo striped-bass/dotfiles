@@ -5,7 +5,7 @@ import { BluetoothGroup } from "../../widgets/bluetooth_group.js";
 import { AppearanceGroup } from "../../widgets/appearance_group.js";
 import { VolumeGroup } from "../../widgets/volume_group.js";
 import { WifiGroup } from "../../widgets/wifi_group.js";
-import { AppLauncher } from "./applauncher.js";
+// import { AppLauncher } from "./applauncher.js";
 import { PowerGroup } from "../../widgets/power_menu.js";
 
 const { Window, Label, EventBox, Box, Overlay, Scrollable } = Widget;
@@ -205,19 +205,19 @@ const NierSettingPane = (
 
           current_page = 2;
         };
-        let go_page4 = async (buttons, parent_button) => {
-          page3_selected = ensure_only_selected(
-            parent_button,
-            page3_selected
-          );
-          page4.child.children[1].children = buttons;
-          page4.child.classNames = arrremove(
-            page4.child.classNames,
-            "closing"
-          );
+        // let go_page4 = async (buttons, parent_button) => {
+        //   page3_selected = ensure_only_selected(
+        //     parent_button,
+        //     page3_selected
+        //   );
+        //   page4.child.children[1].children = buttons;
+        //   page4.child.classNames = arrremove(
+        //     page4.child.classNames,
+        //     "closing"
+        //   );
 
-          current_page = 3;
-        };
+        //   current_page = 3;
+        // };
 
         let page1 = NierButtonGroup({
           hexpand: false,
