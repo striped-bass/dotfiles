@@ -288,12 +288,12 @@ const NierSettingPane = (
                 });
               },
             }),
-            Label({
-              hpack: "start",
-              label: "APPLICATIONS",
-              classNames: ["applications-heading"],
-            }),
-            AppLauncher({assetsDir:parentAssetsDir}),
+            // Label({
+            //   hpack: "start",
+            //   label: "APPLICATIONS",
+            //   classNames: ["applications-heading"],
+            // }),
+            // AppLauncher({assetsDir:parentAssetsDir}),
           ],
         });
         self.pages = [page1, page2, page3, page4];
@@ -370,7 +370,7 @@ const NierSettingPane = (
     classNames: ["settings"],
     margin: [0, 0, 0, 0],
     anchor: ["top", "left", "bottom"],
-    // exclusivity: "exclusive", // Now causes Hyprland crash - first observed when updating to Hyprland 0.52
+    // exclusivity: "exclusive", // Now causes Hyprland crash - first observed when updating to Hyprland 0.53
     layer: "overlay",
     visible: true,
     keymode: "exclusive",
