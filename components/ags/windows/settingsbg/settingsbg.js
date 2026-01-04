@@ -96,15 +96,16 @@ const NierGeom = ({
   cell_width = 512,
   cell_height = round(sqrt(cell_width*cell_width-(cell_width/2)*(cell_width/2))),
 
-  cell_grid_1 = new Gtk.DrawingArea(),
-  wait_for_draw_1 = false,
-  draw_t_1 = 0,
-  draw_duration_1 = 1000,
-  final_draw_1 = true,
+  cell_grid = new Gtk.DrawingArea(),
+  wait_for_draw = false,
+  wait_for_complete_draw = false,
+  draw_t = 0,
+  draw_duration = 1000,
+  final_draw = true,
   gap = 0,
   rows = round(SCREEN_HEIGHT/cell_height) + 1,
   cols = round(SCREEN_WIDTH*2/cell_width) + 1,
-  cells_1 = Array.from({ length: rows*cols }, (_, i) => {return [0,0 ,0,0 ,0,0 ,0,0, 0,0]}),
+  cells = Array.from({ length: rows*cols }, (_, i) => {return [0,0 ,0,0 ,0,0 ,0,0, 0,0]}),
 
   opacity_step = 10,
   vertex_step = 10,
@@ -119,12 +120,12 @@ const NierGeom = ({
     focusable: false,
     setup: (self) =>
       Utils.timeout(1, () => {
-        cell_grid_1.connect("draw", (self, context) => {
+        cell_grid.connect("draw", (self, context) => {
           let stable = true;
           for (let i = 0; i < rows*cols; i++) {
               let x = i%cols;
               let y = (i-x)/cols;
-              let [c_opacity,t_opacity, c_left,t_left ,c_right,t_right ,c_y,t_y,inited,s_override] = cells_1[i]
+              let [c_opacity,t_opacity, c_left,t_left ,c_right,t_right ,c_y,t_y,inited,s_override] = cells[i]
               if (s_override == true) {
                 continue
               }
@@ -150,13 +151,13 @@ const NierGeom = ({
 
               draw_triangle(context, x*cell_width/2, y*cell_height, cell_width - gap, cell_height - gap/2, [...colors,c_opacity], (x%2==0?y%2==1:y%2==0),c_left,c_right,c_y);
 
-              cells_1[i] = [c_opacity,t_opacity, c_left,t_left ,c_right,t_right ,c_y,t_y,inited,s_override]
+              cells[i] = [c_opacity,t_opacity, c_left,t_left ,c_right,t_right ,c_y,t_y,inited,s_override]
           }
-          wait_for_draw_1 = false;
-          if (final_draw_1 && !stable){
-              cell_grid_1.queue_draw();
-          } else if (final_draw_1 && stable) {
-            wait_for_complete_draw_1 = false;
+          wait_for_draw = false;
+          if (final_draw && !stable){
+              cell_grid.queue_draw();
+          } else if (final_draw && stable) {
+            wait_for_complete_draw = false;
           }
         })
     }),
@@ -175,11 +176,11 @@ const NierGeom = ({
                 ////////////////////////////////////////////////////////////////////////////////////////////////////////
     
                 let start = Date.now();
-                draw_duration_1 = 1000;
+                draw_duration = 1000;
                 let fps = 30;
       
-                draw_t_1 = start
-                final_draw_1 = false;
+                draw_t = start
+                final_draw = false;
                 opacity_step = 2;
                 vertex_step = 2;
       
@@ -189,11 +190,11 @@ const NierGeom = ({
                 
                 while (true) {
                   let frame_start = Date.now();
-                  let time_ratio = (draw_t_1 - start)/draw_duration_1;
+                  let time_ratio = (draw_t - start)/draw_duration;
                   for (let i = 0; i< rows*cols; i++){
                     let x = i%cols;
                     let y = (i-x)/cols;
-                    let [c_opacity,t_opacity, c_left,t_left ,c_right,t_right ,c_y,t_y,inited,s_override] = cells_1[i]
+                    let [c_opacity,t_opacity, c_left,t_left ,c_right,t_right ,c_y,t_y,inited,s_override] = cells[i]
                     if (s_override) {
                       entered = true;
                       return
@@ -206,20 +207,20 @@ const NierGeom = ({
                       }
                       t_opacity = 0
                     }
-                    cells_1[i] = [c_opacity,t_opacity, c_left,t_left ,c_right,t_right ,c_y,t_y,inited,s_override];
+                    cells[i] = [c_opacity,t_opacity, c_left,t_left ,c_right,t_right ,c_y,t_y,inited,s_override];
                   }
-                  final_draw_1 = true;
-                  wait_for_complete_draw_1 = true;
-                  wait_for_draw_1 = true;
-                  cell_grid_1.queue_draw();
-                  while (wait_for_draw_1) {
+                  final_draw = true;
+                  wait_for_complete_draw = true;
+                  wait_for_draw = true;
+                  cell_grid.queue_draw();
+                  while (wait_for_draw) {
                     await new Promise((r) => setTimeout(r, 1));
                   }
                   if (time_ratio > 1) {
                     break
                   }
-                  draw_t_1 = Date.now();
-                  await new Promise((r) => setTimeout(r, max(0,1000/fps - (draw_t_1-frame_start))));
+                  draw_t = Date.now();
+                  await new Promise((r) => setTimeout(r, max(0,1000/fps - (draw_t-frame_start))));
                 }
                 ////////////////////////////////////////////////////////////////////////////////////////////////////////
               }catch(e){print(e)}})
@@ -233,7 +234,7 @@ const NierGeom = ({
       classNames: ["nier-geom-container"],
       child: Overlay({
         child: Scrollable({
-          child:cell_grid_1,
+          child:cell_grid,
           setup: (self) => Utils.timeout(1, async () => {try{
             globalThis.App = App;
             ////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -241,11 +242,11 @@ const NierGeom = ({
             ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
             let start = Date.now();
-            draw_duration_1 = 1000;
+            draw_duration = 1000;
             let fps = 30;
   
-            draw_t_1 = start
-            final_draw_1 = false;
+            draw_t = start
+            final_draw = false;
             vertex_step = 2;
   
             let [center_x,center_y] = [0,rand_int(rows/4,3*rows/4)];
@@ -254,11 +255,11 @@ const NierGeom = ({
             
             while (true) {
               let frame_start = Date.now();
-              let time_ratio = (draw_t_1 - start)/draw_duration_1;
+              let time_ratio = (draw_t - start)/draw_duration;
               for (let i = 0; i< rows*cols; i++){
                 let x = i%cols;
                 let y = (i-x)/cols;
-                let [c_opacity,t_opacity, c_left,t_left ,c_right,t_right ,c_y,t_y,inited,s_override] = cells_1[i]
+                let [c_opacity,t_opacity, c_left,t_left ,c_right,t_right ,c_y,t_y,inited,s_override] = cells[i]
                 if (s_override) {
                   entered = true;
                   return
@@ -281,20 +282,20 @@ const NierGeom = ({
                     [c_left,t_left,c_y,t_y] = [1,1,1,1]
                   }
                 }
-                cells_1[i] = [c_opacity,t_opacity, c_left,t_left ,c_right,t_right ,c_y,t_y,inited,s_override];
+                cells[i] = [c_opacity,t_opacity, c_left,t_left ,c_right,t_right ,c_y,t_y,inited,s_override];
               }
-              final_draw_1 = true;
-              wait_for_complete_draw_1 = true;
-              wait_for_draw_1 = true;
-              cell_grid_1.queue_draw();
-              while (wait_for_draw_1) {
+              final_draw = true;
+              wait_for_complete_draw = true;
+              wait_for_draw = true;
+              cell_grid.queue_draw();
+              while (wait_for_draw) {
                 await new Promise((r) => setTimeout(r, 1));
               }
               if (time_ratio > 1) {
                 break
               }
-              draw_t_1 = Date.now();
-              await new Promise((r) => setTimeout(r, max(0,1000/fps - (draw_t_1-frame_start))));
+              draw_t = Date.now();
+              await new Promise((r) => setTimeout(r, max(0,1000/fps - (draw_t-frame_start))));
             }
             ////////////////////////////////////////////////////////////////////////////////////////////////////////
   
