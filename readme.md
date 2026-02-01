@@ -26,7 +26,7 @@ A rice inspired by `NieR:Automata` ui
     - ### Dependancies
         #### Arch
         > ```sh
-        > paru -S hyprland-git foot grim fish theme.sh sassc starship ttf-ibmplex-mono-nerd cava imagemagick gnome-bluetooth wl-clipboard libdbusmenu-gtk3 gnome-bluetooth-3.0 xorg-xrandr cpio cmake git meson gcc hyprlauncher
+        > paru -S hyprland foot grim fish theme.sh sassc starship ttf-ibmplex-mono-nerd cava imagemagick gnome-bluetooth wl-clipboard libdbusmenu-gtk3 gnome-bluetooth-3.0 xorg-xrandr cpio cmake git meson gcc hyprlauncher
         > ```
         #### STTT
         > install from https://github.com/flick0/sttt
