@@ -50,12 +50,25 @@ dark.connect("changed", () => {
 
   let hyprconf = Utils.readFile(`${themedir}/theme.conf`);
   if (dark.value) {
-    hyprconf = hyprconf.replaceAll("nier_light","nier_dark");
+    hyprconf = hyprconf.replaceAll("light","dark");
   } else {
-    hyprconf = hyprconf.replaceAll("nier_dark","nier_light");
+    hyprconf = hyprconf.replaceAll("dark","light");
   }
   Utils.writeFile(hyprconf,`${themedir}/theme.conf`).then(()=>{
     print("reloaded hypr")
+  }).catch((e) => print("error",e));
+  Utils.timeout(1000,() => {
+    execAsync(`hyprctl keyword monitor ,addreserved,${top_bar_height},${top_bar_height},0,0`).then(print).catch(print);
+  })
+
+  let hyprlockconf = Utils.readFile(`${themedir}/hyprlock.conf`);
+  if (dark.value) {
+    hyprlockconf = hyprlockconf.replaceAll("light","dark");
+  } else {
+    hyprlockconf = hyprlockconf.replaceAll("dark","light");
+  }
+  Utils.writeFile(hyprlockconf,`${themedir}/hyprlock.conf`).then(()=>{
+    print("reloaded hyprlock")
   }).catch((e) => print("error",e));
   Utils.timeout(1000,() => {
     execAsync(`hyprctl keyword monitor ,addreserved,${top_bar_height},${top_bar_height},0,0`).then(print).catch(print);
