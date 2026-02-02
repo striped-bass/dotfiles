@@ -5,7 +5,6 @@ import { BluetoothGroup } from "../../widgets/bluetooth_group.js";
 import { AppearanceGroup } from "../../widgets/appearance_group.js";
 import { VolumeGroup } from "../../widgets/volume_group.js";
 import { WifiGroup } from "../../widgets/wifi_group.js";
-// import { AppLauncher } from "./applauncher.js";
 import { PowerGroup } from "../../widgets/power_menu.js";
 
 const { Window, Label, EventBox, Box, Overlay, Scrollable } = Widget;
@@ -122,12 +121,6 @@ const NierSettingPane = (
         dark.connect("changed",() => {
         });
 
-        // execAsync(`ags -b bg_settings -q`).then(() => {
-        //   Utils.timeout(10, () => {
-        //     execAsync(`ags -b bg_settings -c ${parentConfigDir}/windows/settingsbg/settingsbg.js`)   
-        //   })
-        // })   
-
         let page4 = NierButtonGroup({
           hexpand: false,
           vexpand: false,
@@ -205,19 +198,6 @@ const NierSettingPane = (
 
           current_page = 2;
         };
-        // let go_page4 = async (buttons, parent_button) => {
-        //   page3_selected = ensure_only_selected(
-        //     parent_button,
-        //     page3_selected
-        //   );
-        //   page4.child.children[1].children = buttons;
-        //   page4.child.classNames = arrremove(
-        //     page4.child.classNames,
-        //     "closing"
-        //   );
-
-        //   current_page = 3;
-        // };
 
         let page1 = NierButtonGroup({
           hexpand: false,
@@ -288,12 +268,6 @@ const NierSettingPane = (
                 });
               },
             }),
-            // Label({
-            //   hpack: "start",
-            //   label: "APPLICATIONS",
-            //   classNames: ["applications-heading"],
-            // }),
-            // AppLauncher({assetsDir:parentAssetsDir}),
           ],
         });
         self.pages = [page1, page2, page3, page4];
@@ -333,20 +307,6 @@ const NierSettingPane = (
                   "closing"
                 );
               });
-            //   print("closingbg")
-            //   execAsync(`ags -b bg_settings -r App.closeWindow("bg_settings")`).catch(print).then(print)
-            //   Utils.timeout(1100, () => {
-            //     execAsync(`ags -b bg_settings -q`).catch(print).then(print)
-            //   })              
-            //   self.classNames = arrremove(self.classNames, "opening");
-            //   self.classNames = arradd(self.classNames, "closing");
-            // } else {
-            //   print("openingbg")
-            //   execAsync(`ags -b bg_settings -q`).then(() => {
-            //     Utils.timeout(100, () => {
-            //       execAsync(`ags -b bg_settings -c ${parentConfigDir}/windows/settingsbg/settingsbg.js`)   
-            //     })
-            //   })   
               
               self.classNames = arradd(self.classNames, "closing");
                 Utils.timeout(500, () => {
@@ -371,7 +331,7 @@ const NierSettingPane = (
     margin: [0, 0, 0, 0],
     anchor: ["top", "left", "bottom"],
     // exclusivity: "exclusive", // Now causes Hyprland crash - first observed when updating to Hyprland 0.53
-    layer: "overlay",
+    layer: "top",
     visible: true,
     keymode: "exclusive",
     
@@ -477,7 +437,6 @@ const NierSettingPane = (
       
     }),
   });
-
 
   dark.connect("changed",() => {
     App.resetCss();
