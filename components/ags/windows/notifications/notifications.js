@@ -254,21 +254,8 @@ const holder = ({
     ]
 })
 
-const notify = () => Window({
-    name: "player",
-    classNames: ["player"],
-    margin: [0, 0, 0, 0],
-    anchor: ["top","left"],
-    exclusivity: "ignore",
-    layer: "top",
-    focusable: false,
-    visible: true,
-    child: holder({})
-});
-
 export default {
     style: css,
-
     windows: [
         notify()
     ],
