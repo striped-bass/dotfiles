@@ -445,6 +445,9 @@ const NierSettingPane = (
 
   export default {
     style: css,
+    closeWindowDelay: {
+        player: 1500,
+      },
     windows: [
       NierSettingPane({})
     ],
