@@ -51,7 +51,7 @@ const pos_mapper = (x,y,size1_x,size1_y,size2_x,size2_y) => {
 
 let dark = false
 
-await Utils.execAsync("ags -r dark.value").then((res) => {
+await Utils.execAsync("agsv1 -r dark.value").then((res) => {
   dark = res == "true";
 }).catch(() => {});
 

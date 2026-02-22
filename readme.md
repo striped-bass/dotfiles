@@ -30,8 +30,21 @@ A rice inspired by `NieR:Automata` ui
         > ```
         #### STTT
         > install from https://github.com/flick0/sttt
-        #### AGS (fork of v1.8.2 with patches)
-        > install from https://github.com/striped-bass/ags
+        #### AGS (v1.9.0 with patches)
+        > Get aylurs-gtk-shell package build
+        > ```sh
+        > paru -G aylurs-gtk-shell
+        > ```
+        > Copy package build files for  agsv1
+        > ```sh
+        > git clone https://github.com/striped-bass/PKGBUILDS.git
+        > cp -a PKGBUILDS/agsv1/. aylurs-gtk-shell/
+        > ```
+        > Install missing dependencies and agsv1 package
+        >```sh
+        > makepkg -si
+        > ```
+        
         #### Unimatrix (Angelic fork) 
         > install from https://github.com/striped-bass/unimatrix
     - ### Install and enable `hyprbars` plugin via `hyprpm`
@@ -65,9 +78,6 @@ A rice inspired by `NieR:Automata` ui
     > provided by [@cutie_230](https://discord.com/channels/@me/1193218215380254740) on discord
 
 ## ✨ Features
- - ### Music Widget
-   > https://github.com/flick0/dotfiles/assets/77581181/4c10b974-11e1-41c2-89fe-3a1cfb405fd6
-
  - ### Slurp clone made in ags
    > https://github.com/flick0/dotfiles/assets/77581181/efd9363e-47f4-4768-bdd9-3d8d15e5a9c4
 

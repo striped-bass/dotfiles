@@ -17,13 +17,13 @@ export const AppearanceGroup = ({
       useAssetsDir: passAssetsDir,
       label: capitalize_first_letter(dark.value?"dark":"light"),
       handleClick: async (self,event) => {
-        execAsync(`ags -b settings -r App.closeWindow("settings")`)
-        execAsync(`ags -b bg_settings -r App.closeWindow("bg_settings")`).catch(print).then(print)
+        execAsync(`agsv1 -b settings -r App.closeWindow("settings")`)
+        execAsync(`agsv1 -b bg_settings -r App.closeWindow("bg_settings")`).catch(print).then(print)
         Utils.timeout(1100, () => {
-          execAsync(`ags -b bg_settings -q`).catch(print).then(print)
+          execAsync(`agsv1 -b bg_settings -q`).catch(print).then(print)
         })
         await new Promise((r) => {setTimeout(r,1000)})
-        execAsync(`ags -b banner -c ${passConfigDir + "/windows/banner/banner.js"}`)
+        execAsync(`agsv1 -b banner -c ${passConfigDir + "/windows/banner/banner.js"}`)
       }
     })
   ];

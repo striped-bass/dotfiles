@@ -27,8 +27,7 @@ globalThis.WHICH = WHICH;
 
 let top_bar_height = 0;
 
-execAsync(`ags -b player -c ${App.configDir}/windows/player/player.js`);
-execAsync(`ags -b settings -c ${App.configDir}/windows/settings/settings.js`);
+execAsync(`agsv1 -b settings -c ${App.configDir}/windows/settings/settings.js`);
 
 dark.connect("changed", () => {
   print("dark changed",dark.value);
@@ -44,9 +43,8 @@ dark.connect("changed", () => {
     print("error",e);
   });
 
-  execAsync(`ags -b player -r dark.value=${dark.value}`).then(print);
-  execAsync(`ags -b notify -r dark.value=${dark.value}`).then(print);
-  execAsync(`ags -b settings -r dark.value=${dark.value}`).then(print);
+  execAsync(`agsv1 -b notify -r dark.value=${dark.value}`).then(print);
+  execAsync(`agsv1 -b settings -r dark.value=${dark.value}`).then(print);
 
   let hyprconf = Utils.readFile(`${themedir}/theme.conf`);
   if (dark.value) {
@@ -75,7 +73,7 @@ dark.connect("changed", () => {
   })
 }) 
 
-execAsync(["bash","-c",`pkill dunst;ags -b notify -c ${App.configDir}/windows/notifications/notifications.js`])
+execAsync(["bash","-c",`pkill dunst;agsv1 -b notify -c ${App.configDir}/windows/notifications/notifications.js`])
 
 const top = () =>
   Box({
@@ -151,7 +149,7 @@ const top = () =>
               })
             },
             onClicked: () => {
-              execAsync(`ags -b settings -t settings`)
+              execAsync(`agsv1 -b settings -t settings`)
             },
           }),
         ],
