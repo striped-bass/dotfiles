@@ -37,7 +37,7 @@ A rice inspired by `NieR:Automata` ui
         > ```
         > Copy package build files for  agsv1
         > ```sh
-        > git clone https://github.com/striped-bass/PKGBUILDS.git
+        > git clone https://github.com/kotontrion/PKGBUILDS.git
         > cp -a PKGBUILDS/agsv1/. aylurs-gtk-shell/
         > ```
         > Install missing dependencies and agsv1 package
