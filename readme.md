@@ -25,7 +25,7 @@ A rice inspired by `NieR:Automata` ui
     - ### Dependancies
         #### Arch
         > ```sh
-        > paru -S hyprland hyprlauncher hyprlock hypridle hyprpolkitagent foot grim fish theme.sh sassc starship ttf-ibmplex-mono-nerd imagemagick gnome-bluetooth wl-clipboard libdbusmenu-gtk3 gnome-bluetooth-3.0 xorg-xrandr cpio cmake git meson gcc
+        > paru -S hyprland hyprlauncher hyprlock hypridle hyprpolkitagent foot grim fish theme.sh sassc starship ttf-ibmplex-mono-nerd imagemagick gnome-bluetooth wl-clipboard libdbusmenu-gtk3 gnome-bluetooth-3.0 xorg-xrandr cpio cmake git meson gcc stow
         > ```
         #### STTT
         > install from https://github.com/flick0/sttt
@@ -52,12 +52,12 @@ A rice inspired by `NieR:Automata` ui
       > hyprpm add https://github.com/hyprwm/hyprland-plugins
       > hyprpm enable hyprbars
       > ```
-    - ### Clone to theme folder
+    - ### Clone Dotfiles and link with Stow
       ```sh
-      mkdir ~/.config/hypr/themes && git clone -b hyprland-yorha https://github.com/flick0/dotfiles ~/.config/hypr/themes/yorha
+      git clone -b hyprland-yorha https://github.com/striped-bass/dotfiles.git
+      cd ~/dotfiles
+      stow .
       ```
-   
-    
 
 ## ✨ Features
  - ### Slurp clone made in ags
