@@ -19,8 +19,7 @@ A rice inspired by `NieR:Automata` ui
 
 
 ## 📥 Installation
-> [!IMPORTANT]
-> you need to install the base config found in [master branch](https://github.com/flick0/dotfiles) before installing this (unless you are using the install script)
+
 
 - ## Manual
     - ### Dependancies
@@ -59,23 +58,6 @@ A rice inspired by `NieR:Automata` ui
       ```
    
     
-    - ### Apply theme
-      
-      - manual
-         > add this under the `$THEME` variable in `hyprland.conf`
-         > ```
-         > $yorha=$THEME/yorha
-         > source=$yorha/theme.conf
-         > ```
-      
-      - hyprtheme
-         > soon
-
-- ## ~~Install Script~~ (outdated, will fix soon)
-    ```sh
-    curl -s -L https://raw.githubusercontent.com/flick0/dotfiles/hyprland-yorha/install.sh | bash
-    ```
-    > provided by [@cutie_230](https://discord.com/channels/@me/1193218215380254740) on discord
 
 ## ✨ Features
  - ### Slurp clone made in ags
