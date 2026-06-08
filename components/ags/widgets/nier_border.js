@@ -1,15 +1,12 @@
 import { Widget } from "../imports.js"
-import { nier_border_size } from "../scaling.js";
-
-import { SCREEN_WIDTH, get_cursor, SCREEN_HEIGHT } from "../util.js"
+import { SCREEN_WIDTH, SCREEN_HEIGHT, get_cursor } from "../util.js"
 
 const { Box, Icon, Scrollable } = Widget
 const { round, abs } = Math
 
 export const NierBorder = ({
-    icon_width = nier_border_size,
+    icon_width = SCREEN_WIDTH / 25,
     ratio = 0.5,
-    y_axis = false,
     ...props
 }) => Scrollable({
     ...props,
@@ -26,14 +23,10 @@ export const NierBorder = ({
                 (self) => {
                     get_cursor()
                         .then((cursor) => {
-                            let [x,y] = cursor;
-                            if (y_axis) {
-                                ratio = y / SCREEN_HEIGHT;
-                            } else {
-                                ratio = x / SCREEN_WIDTH;
-                            }
+                            let [x,] = cursor;
+                            ratio = x / SCREEN_WIDTH;
+
                             let child_index = round((SCREEN_WIDTH/icon_width) * ratio);
-                            // print("child index",child_index)
                             self.children.forEach((child,j) => {
                                 if (abs(j-child_index) <= 1) {
                                     if (child.icon == `nier-border-full-symbolic`) {
