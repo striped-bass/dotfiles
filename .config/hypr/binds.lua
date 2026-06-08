@@ -9,6 +9,7 @@ local mod2 = "ALT"
 
 hl.bind(mod1 .. " + Super_L",   hl.dsp.exec_cmd(launcher))
 hl.bind(mod1 .. " + E",         hl.dsp.exec_cmd(fileManager))
+hl.bind(mod1 .. " + U",         hl.dsp.exec_cmd(unimatrixAngelic))
 hl.bind(mod1 .. " + SHIFT + S", hl.dsp.exec_cmd(screenshot))
 hl.bind(mod1 .. " + L",         hl.dsp.exec_cmd(lock))
 hl.bind(mod2 .. " + RETURN",    hl.dsp.exec_cmd(terminal))
