@@ -53,10 +53,10 @@ A rice inspired by `NieR:Automata` ui
       > hyprpm enable hyprbars
       > ```
     - ### Clone Dotfiles and link with Stow
-      ```sh
-      git clone -b hyprland-yorha https://github.com/striped-bass/dotfiles.git
-      cd ~/dotfiles
-      stow .
+      > ```sh
+      > git clone -b hyprland-yorha https://github.com/striped-bass/dotfiles.git
+      > cd ~/dotfiles
+      > stow .
       ```
 
 ## ✨ Features
