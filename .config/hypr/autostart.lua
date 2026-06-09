@@ -16,5 +16,5 @@ end);
 hl.exec_cmd('fish -c "set -Ux STARSHIP_CONFIG ~/.config/starship/starship.toml"');
 hl.exec_cmd('fish -c "set -Ux HYPRLAND_THEME ~/.config/hypr"');
 
-hl.exec_cmd("agsv1 -c ~/.config/hypr/components/ags/config.js");
+hl.exec_cmd("agsv1 -c ~/.config/agsv1/config.js");
 hl.exec_cmd(terminalServer);
