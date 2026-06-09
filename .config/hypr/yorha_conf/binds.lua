@@ -28,10 +28,11 @@ for i = 1, 10 do
     hl.bind(mod2 .. " + " .. key, hl.dsp.window.move({ workspace = i }))
 end
 
--- Bug: Not working yet
--- Switch workspaces 
-hl.bind(mod1 .. " +  left", hl.dsp.window.move({ direction = "left" }))
+-- Move active window within a workspace
+hl.bind(mod1 .. " +  left",  hl.dsp.window.move({ direction = "left" }))
 hl.bind(mod1 .. " +  right", hl.dsp.window.move({ direction = "right" }))
+hl.bind(mod1 .. " +  up",    hl.dsp.window.move({ direction = "up" }))
+hl.bind(mod1 .. " +  down",  hl.dsp.window.move({ direction = "down" }))
 
 hl.bind(mod1 .. " + M", hl.dsp.exec_cmd("hyprshutdown"))
 
