@@ -35,7 +35,7 @@ hl.config({
             passes  = 2,
             noise   = 0.05,
         },
-        screen_shader = "~/.config/hypr/components/gridlines.frag",
+        screen_shader = "~/.config/hypr/shaders/gridlines.frag",
     },
 
     animations = {
