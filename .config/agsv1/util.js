@@ -23,7 +23,8 @@ async function get_cursor() {
 }
 
 const home = `/home/${Utils.exec("whoami")}`;
-const themedir = App.configDir.split("/").slice(0, -2).join("/");
+// const themedir = App.configDir.split("/").slice(0, -2).join("/");
+const themedir = `${App.configDir.split("/").slice(0, -1).join("/")}/hypr`;
 
 const dark = Variable(false, {});
 

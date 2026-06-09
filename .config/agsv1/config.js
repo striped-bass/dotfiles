@@ -86,12 +86,6 @@ if (dark.value) {
     // execAsync(["bash","-c",`kill -SIGUSR2 $(pgrep -x foot) 2>/dev/null || true; notify-send "Light"`]);
     exec('bash -c "kill -SIGUSR2 $(pgrep -x foot) 2>/dev/null || true"');
   }
-// -- # Dark mode: SIGUSR1 switches to [colors] section
-// -- kill -SIGUSR1 $(pgrep -x foot) 2>/dev/null || true
-
-// -- # Light mode: SIGUSR2 switches to [colors2] section
-// -- kill -SIGUSR2 $(pgrep -x foot) 2>/dev/null || true
-
 
 execAsync(["bash","-c",`pkill dunst;agsv1 -b notify -c ${App.configDir}/windows/notifications/notifications.js`])
 
