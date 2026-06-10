@@ -1,5 +1,5 @@
 require("yorha_conf/programs")
-require("yorha_conf/colors_hypr_light")
+require("yorha_conf/colors_light")
 require("yorha_conf/monitors")
 require("yorha_conf/autostart")
 require("yorha_conf/theme")
