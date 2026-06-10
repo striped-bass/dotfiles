@@ -76,16 +76,14 @@ dark.connect("changed", () => {
   Utils.timeout(1000,() => {
     execAsync(`hyprctl eval "hl.monitor({ output = 'DP-1', reserved_area = { top = ${top_bar_height}, bottom = ${top_bar_height}, left = 0, right = 0 } })"`).then(print).catch(print);
   })
-}) 
-
-// Bug: not working
-if (dark.value) {
-    // execAsync(["bash","-c",`kill -SIGUSR1 $(pgrep -x foot) 2>/dev/null || true; notify-send "Dark"`]);
+  
+  if (dark.value) {
     exec('bash -c "kill -SIGUSR1 $(pgrep -x foot) 2>/dev/null || true"');
   } else {
-    // execAsync(["bash","-c",`kill -SIGUSR2 $(pgrep -x foot) 2>/dev/null || true; notify-send "Light"`]);
     exec('bash -c "kill -SIGUSR2 $(pgrep -x foot) 2>/dev/null || true"');
   }
+
+})
 
 execAsync(["bash","-c",`pkill dunst;agsv1 -b notify -c ${App.configDir}/windows/notifications/notifications.js`])
 
