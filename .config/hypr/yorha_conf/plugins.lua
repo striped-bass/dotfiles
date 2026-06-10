@@ -15,17 +15,17 @@ hl.config({
 })
 
 hl.plugin.hyprbars.add_button({
-    fg_color = "#000000",
+    fg_color = tan,
     bg_color = brown,
     size     = 30,
     icon     = "◬",
-    action   = "hyprctl dispatch killactive",
+    action   = "hyprctl dispatch killactive", -- Bug: Not working
 })
 
 hl.plugin.hyprbars.add_button({
-    fg_color = "#000000",
+    fg_color = tan,
     bg_color = brown,
     size     = 30,
     icon     = "▽",
-    action   = "hyprctl dispatch fullscreen 1",
+    action   = "hyprctl dispatch fullscreen 1", -- Bug: Not working
 })
