@@ -6,4 +6,6 @@ global terminalServer   = "foot -s"
 global unimatrixAngelic = terminal .. " -o  font=Angelic:size=12 unimatrix -c white -l a"
 global fileManager      = terminal .. " -e yazi"
 global lock             = "hyprlock"
-global screenshot       = 'grim -g "$(agsv1 -b geom -c ~/.config/agsv1/windows/geom/geom.js)" - | wl-copy && notify-send "Screenshot copied to clipboard"'
+global screenshot       = 'hyprshade off && grim -g "$(agsv1 -b geom -c ~/.config/agsv1/windows/geom/geom.js)" - | wl-copy && notify-send "Screenshot copied to clipboard" && hyprshade on gridlines'
+-- hyprshade off
+-- hyprshade on gridlines
