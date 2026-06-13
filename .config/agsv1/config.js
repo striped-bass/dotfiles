@@ -204,66 +204,6 @@ const BottomBar = ({ monitor } = {}) =>
     }),
   });
 
-const CircleTopOuter = ({ monitor } = {}) =>
-  Window({
-    name: "circle-top-outer",
-    monitor,
-    margin: [0, 0],
-    anchor: ["top", "left"],
-    exclusivity: "ignore",
-    layer: "background",
-    child: Icon({
-      icon: `circle-symbolic`,
-      size: SCREEN_HEIGHT / 2,
-      className: "circle-top-outer",
-    }),
-  });
-
-const CircleTopInner = ({ monitor } = {}) =>
-  Window({
-    name: "circle-top-inner",
-    monitor,
-    margin: [0, 0],
-    anchor: ["top", "left"],
-    exclusivity: "ignore",
-    layer: "background",
-    child: Icon({
-      icon: `circle-symbolic`,
-      size: SCREEN_HEIGHT / 2 * 0.97,
-      className: "circle-top-inner",
-    }),
-  });
-
-const CircleBottomOuter = ({ monitor } = {}) =>
-  Window({
-    name: "circle-bottom-outer",
-    monitor,
-    margin: [0, 0],
-    anchor: ["bottom", "right"],
-    exclusivity: "ignore",
-    layer: "background",
-    child: Icon({
-      icon: `circle-symbolic`,
-      size: SCREEN_HEIGHT / 2,
-      className: "circle-bottom-outer",
-    }),
-  });
-
-const CircleBottomInner = ({ monitor } = {}) =>
-  Window({
-    name: "circle-bottom-inner",
-    monitor,
-    margin: [0, 0],
-    anchor: ["bottom", "right"],
-    exclusivity: "ignore",
-    layer: "background",
-    child: Icon({
-      icon: `circle-symbolic`,
-      size: SCREEN_HEIGHT / 2 * 0.97,
-      className: "circle-bottom-inner",
-    }),
-  });
-
 const SingleLineTop = ({ monitor } = {}) =>
   Window({
     name: "single-line-top",
@@ -329,10 +269,6 @@ App.config({
   windows: [
     TopBar(),
     BottomBar(),
-    CircleTopOuter(),
-    CircleTopInner(),
-    CircleBottomOuter(),
-    CircleBottomInner(),
     SingleLineTop(),
     SingleLineBottom(),
     DualLineTop(),

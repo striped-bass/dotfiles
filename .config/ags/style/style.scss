@@ -1,0 +1,51 @@
+@use "colors_light.scss" as colors;
+
+@keyframes oscillate_top {
+  0% {
+    -gtk-icon-transform: translate(0);
+  }
+  100% {
+    -gtk-icon-transform: translate(-10px,-10px);
+  }
+}
+
+@keyframes oscillate_bottom {
+  0% {
+    -gtk-icon-transform: rotate(180deg) translate(0);
+  }
+  100% {
+    -gtk-icon-transform: rotate(180deg) translate(-10px,-10px);
+  }
+}
+
+window.CircleTopOuter {
+  image {
+    color: colors.$brown;
+    opacity: 0.25;
+    animation: oscillate_top 3s ease alternate infinite;
+  }
+}
+
+window.CircleTopInner {
+  image {
+    color: colors.$brown;
+    opacity: 0.25;
+    animation: oscillate_top 4s ease alternate infinite;
+  }
+}
+
+window.CircleBottomOuter {
+  image {
+    color: colors.$brown;
+    opacity: 0.25;
+    animation: oscillate_bottom 3s ease alternate infinite;
+  }
+}
+
+window.CircleBottomInner {
+  image {
+    color: colors.$brown;
+    opacity: 0.25;
+    animation: oscillate_bottom 4s ease alternate infinite;
+  }
+}
