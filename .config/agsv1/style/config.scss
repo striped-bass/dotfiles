@@ -47,36 +47,3 @@
     }
   }
 }
-
-.single-line {
-  color: $brown;
-}
-
-.dual-line-top {
-  color: $brown;
-  // animation: sway_top 5s ease alternate infinite;
-}
-
-.dual-line-bottom {
-  color: $brown;
-  -gtk-icon-transform: rotate(90deg) scaleX(-1);
-  // animation: sway_bottom 5s ease alternate infinite;
-}
-
-@keyframes slide_top {
-  0% {
-    -gtk-icon-transform: translate(0);
-  }
-  100% {
-    -gtk-icon-transform: translate(-10px,-10px);
-  }
-}
-
-@keyframes slide_bottom {
-  0% {
-    -gtk-icon-transform: rotate(180deg) translate(0);
-  }
-  100% {
-    -gtk-icon-transform: rotate(180deg) translate(-10px,-10px);
-  }
-}

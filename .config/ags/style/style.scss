@@ -49,3 +49,28 @@ window.CircleBottomInner {
     animation: oscillate_bottom 4s ease alternate infinite;
   }
 }
+
+window.LineTopOuter {
+  image {
+    color: colors.$brown;
+  }
+}
+
+window.LineTopInner {
+  image {
+    color: colors.$brown;
+  }
+}
+
+window.LineBottomOuter {
+  image {
+    color: colors.$brown;
+    -gtk-icon-transform: rotate(90deg) scaleX(-1);
+  }
+}
+
+window.LineBottomInner {
+  image {
+    color: colors.$brown;
+  }
+}

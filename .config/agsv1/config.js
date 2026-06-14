@@ -204,74 +204,10 @@ const BottomBar = ({ monitor } = {}) =>
     }),
   });
 
-const SingleLineTop = ({ monitor } = {}) =>
-  Window({
-    name: "single-line-top",
-    monitor,
-    margin: [0, 0],
-    anchor: ["top", "left"],
-    exclusivity: "ignore",
-    layer: "background",
-    child: Icon({
-      icon: `single-line-symbolic`,
-      size: SCREEN_WIDTH/2 * 1.1 * 1.1,
-      className: "single-line",
-    }),
-  });
-
-const SingleLineBottom = ({ monitor } = {}) =>
-  Window({
-    name: "single-line-bottom",
-    monitor,
-    margin: [0, 0],
-    anchor: ["bottom", "right"],
-    exclusivity: "ignore",
-    layer: "background",
-    child: Icon({
-      icon: `single-line-symbolic`,
-      size: SCREEN_WIDTH/2 * 1.1,
-      className: "single-line",
-    }),
-  });
-
-const DualLineTop = ({ monitor } = {}) =>
-  Window({
-    name: "dual-line-top",
-    monitor,
-    margin: [0, 0],
-    anchor: ["top", "left"],
-    exclusivity: "ignore",
-    layer: "background",
-    child: Icon({
-      icon: `dual-line-symbolic`,
-      size: SCREEN_WIDTH/2 * 1.1,
-      className: "dual-line-top",
-    }),
-  });
-
-const DualLineBottom = ({ monitor } = {}) =>
-  Window({
-    name: "dual-line-bottom",
-    monitor,
-    margin: [0, 0],
-    anchor: ["bottom", "right"],
-    exclusivity: "ignore",
-    layer: "background",
-    child: Icon({
-      icon: `dual-line-symbolic`,
-      size: SCREEN_WIDTH/2,
-      className: "dual-line-bottom",
-    }),
-  });
-
 App.config({
   style: css,
   windows: [
     TopBar(),
     BottomBar(),
-    SingleLineTop(),
-    SingleLineBottom(),
-    DualLineTop(),
-    DualLineBottom(),
   ],
 });
