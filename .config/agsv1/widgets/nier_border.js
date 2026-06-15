@@ -30,9 +30,13 @@ export const NierBorder = ({
                             self.children.forEach((child,j) => {
                             
                                 if (j == child_index) {
-                                    child.icon = `nier-border-symbolic`;
+                                    if (child.icon != `nier-border-symbolic`){
+                                        child.icon = `nier-border-symbolic`;
+                                    }
                                 } else {
-                                    child.icon = `nier-border-full-symbolic`;
+                                    if (child.icon != `nier-border-full-symbolic`){
+                                        child.icon = `nier-border-full-symbolic`;
+                                    }
                                 }
                             })
                     })
