@@ -28,16 +28,11 @@ export const NierBorder = ({
 
                             let child_index = round((SCREEN_WIDTH/icon_width) * ratio);
                             self.children.forEach((child,j) => {
-                                if (abs(j-child_index) <= 1) {
-                                    if (child.icon == `nier-border-full-symbolic`) {
-                                        return;
-                                    }
-                                    child.icon = `nier-border-full-symbolic`;
-                                } else {
-                                    if (child.icon == `nier-border-symbolic`) {
-                                        return;
-                                    }
+                            
+                                if (j == child_index) {
                                     child.icon = `nier-border-symbolic`;
+                                } else {
+                                    child.icon = `nier-border-full-symbolic`;
                                 }
                             })
                     })
