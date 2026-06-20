@@ -74,3 +74,17 @@ window.LineBottomInner {
     color: colors.$brown;
   }
 }
+
+window.BorderBottom {
+
+  .BorderBox {
+    border-top: 0.1rem solid colors.$brown;
+   
+    image {
+      color: colors.$brown;
+    }
+    image.RightCap {
+      -gtk-icon-transform: scaleX(-1);
+    }
+  }
+}
