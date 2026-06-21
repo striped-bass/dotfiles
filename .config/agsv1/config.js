@@ -10,7 +10,6 @@ App.addIcons(`${App.configDir}/assets`);
 
 import { arradd, arrremove, css, scss, dark, themedir,SCREEN_WIDTH, SCREEN_HEIGHT} from "./util.js";
 import { Workspaces } from "./widgets/workspace.js";
-import { NierBorder } from "./widgets/nier_border.js";
 import { top_icon_size, top_spacing } from "./scaling.js";
 
 const { exec, execAsync } = Utils;
@@ -166,9 +165,6 @@ const top = () =>
           }),
         ],
       }),
-      NierBorder({
-        classNames: ["under-workspaces"],
-      }),
     ],
     setup: (box) => Utils.timeout(1000,async() => {
       top_bar_height = box.get_allocation().height + 10;
@@ -191,23 +187,9 @@ const TopBar = ({ monitor } = {}) => {
   });
 };
 
-const BottomBar = ({ monitor } = {}) =>
-  Window({
-    name: "bottombar",
-    monitor,
-    margin: [0, 0],
-    anchor: ["bottom", "left", "right"],
-    exclusivity: "ignore",
-    layer: "bottom",
-    child: NierBorder({
-      classNames: ["bottombar"],
-    }),
-  });
-
 App.config({
   style: css,
   windows: [
     TopBar(),
-    // BottomBar(),
   ],
 });

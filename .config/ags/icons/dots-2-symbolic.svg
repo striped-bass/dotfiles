@@ -4,11 +4,15 @@
       .cls-1 {
         fill: #48463d;
       }
+      .cls-2 {
+        fill: #48463d;
+        fill-opacity: 0.25;
+      }
     </style>
   </defs>
   <rect class="cls-1" x="0" y="0" width="4.93" height="4.762"/>
   <rect class="cls-1" x="60.002" y="0" width="4.93" height="4.762"/>
   <circle class="cls-1" cx="28.05" cy="5.041" r="2.365"/>
   <circle class="cls-1" cx="36.739" cy="5.041" r="2.365"/>
-  <circle class="cls-1" cx="32.395" cy="12.394" r="2.365"/>
+  <circle style="fill: #48463d;fill-opacity: 0.25;" cx="32.395" cy="12.394" r="2.365" transform="translate(0)"/>
 </svg>

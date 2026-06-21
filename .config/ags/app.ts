@@ -2,7 +2,7 @@ import app from "ags/gtk4/app"
 import style from "./style/style.scss"
 import {CircleTopOuter, CircleTopInner, CircleBottomOuter, CircleBottomInner} from "./widgets/Circles"
 import {LineTopOuter, LineTopInner, LineBottomOuter, LineBottomInner} from "./widgets/Lines"
-import {BorderBottom} from "./widgets/Borders"
+import {BorderTop, BorderBottom} from "./widgets/Borders"
 
 app.start({
   css: style,
@@ -19,6 +19,7 @@ app.start({
       LineBottomOuter(monitor);
       LineBottomInner(monitor);
 
+      BorderTop(monitor);
       BorderBottom(monitor);
 		});
   },

@@ -21,7 +21,6 @@
 window.CircleTopOuter {
   image {
     color: colors.$brown;
-    opacity: 0.25;
     animation: oscillate_top 3s ease alternate infinite;
   }
 }
@@ -29,7 +28,6 @@ window.CircleTopOuter {
 window.CircleTopInner {
   image {
     color: colors.$brown;
-    opacity: 0.25;
     animation: oscillate_top 4s ease alternate infinite;
   }
 }
@@ -37,7 +35,6 @@ window.CircleTopInner {
 window.CircleBottomOuter {
   image {
     color: colors.$brown;
-    opacity: 0.25;
     animation: oscillate_bottom 3s ease alternate infinite;
   }
 }
@@ -45,7 +42,6 @@ window.CircleBottomOuter {
 window.CircleBottomInner {
   image {
     color: colors.$brown;
-    opacity: 0.25;
     animation: oscillate_bottom 4s ease alternate infinite;
   }
 }
@@ -75,11 +71,26 @@ window.LineBottomInner {
   }
 }
 
+window.BorderTop {
+
+  .BorderBox {
+    border-top: 0.1rem solid colors.$brown;
+
+    image {
+      color: colors.$brown;
+    }
+    image.RightCap {
+      -gtk-icon-transform: scaleX(-1);
+    }
+  }
+}
+
 window.BorderBottom {
 
   .BorderBox {
     border-top: 0.1rem solid colors.$brown;
-   
+    margin-bottom: -2rem;
+
     image {
       color: colors.$brown;
     }

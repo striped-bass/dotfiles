@@ -25,25 +25,3 @@
     }
   }
 }
-
-.under-workspaces {
-  margin-top: -2px;
-  min-width: 100px;
-  min-height: round($nier_border_size/3);
-  .nier-border-box {
-    .nier-border-icon {
-      color: $brown;
-    }
-  }
-}
-
-.bottombar {
-  margin-bottom: 65px;
-  min-width: 100px;
-  min-height: round($nier_border_size/3);
-  .nier-border-box {
-    .nier-border-icon {
-      color: $brown;
-    }
-  }
-}
