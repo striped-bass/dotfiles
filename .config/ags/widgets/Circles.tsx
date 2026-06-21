@@ -17,7 +17,7 @@ export function CircleTopOuter(gdkmonitor: Gdk.Monitor) {
       application={app}
     >
       <image
-        iconName={"circle-symbolic"}
+        iconName="circle-symbolic"
         pixelSize={(height/2)}
       />
     </window>
@@ -40,7 +40,7 @@ export function CircleBottomOuter(gdkmonitor: Gdk.Monitor) {
       application={app}
     >
       <image
-        iconName={"circle-symbolic"}
+        iconName="circle-symbolic"
         pixelSize={(height/2)}
       />
     </window>
@@ -63,7 +63,7 @@ export function CircleTopInner(gdkmonitor: Gdk.Monitor) {
       application={app}
     >
       <image
-        iconName={"circle-symbolic"}
+        iconName="circle-symbolic"
         pixelSize={(0.97*height/2)}
       />
     </window>
@@ -86,7 +86,7 @@ export function CircleBottomInner(gdkmonitor: Gdk.Monitor) {
       application={app}
     >
       <image
-        iconName={"circle-symbolic"}
+        iconName="circle-symbolic"
         pixelSize={(0.97*height/2)}
       />
     </window>
