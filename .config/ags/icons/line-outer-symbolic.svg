@@ -3,19 +3,14 @@
 
 <svg
    version="1.1"
-   id="svg1"
    width="440"
    height="440"
    viewBox="0 0 440 440"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
-  <defs
-     id="defs1" />
-  <g
-     id="g1">
+  <g>
     <rect
        style="fill:#48463d;fill-opacity:0.25"
-       id="rect1"
        width="563.91602"
        height="1.7694312"
        x="29.265059"
@@ -23,7 +18,6 @@
        transform="matrix(0.70709925,0.70711431,-0.7095049,0.7047005,0,0)" />
     <rect
        style="fill:#48463d;fill-opacity:0.25"
-       id="rect1-3"
        width="507.52438"
        height="1.5924884"
        x="28.984411"

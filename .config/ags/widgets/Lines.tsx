@@ -17,7 +17,7 @@ export function LineTopOuter(gdkmonitor: Gdk.Monitor) {
       application={app}
     >
       <image
-        iconName={"line-outer-symbolic"}
+        iconName="line-outer-symbolic"
         pixelSize={(width/2)*1.1}
       />
     </window>
@@ -40,7 +40,7 @@ export function LineTopInner(gdkmonitor: Gdk.Monitor) {
       application={app}
     >
       <image
-        iconName={"line-inner-symbolic"}
+        iconName="line-inner-symbolic"
         pixelSize={(width/2)*1.1*1.1}
       />
     </window>
@@ -63,7 +63,7 @@ export function LineBottomOuter(gdkmonitor: Gdk.Monitor) {
       application={app}
     >
       <image
-        iconName={"line-outer-symbolic"}
+        iconName="line-outer-symbolic"
         pixelSize={width/2}
       />
     </window>
@@ -86,7 +86,7 @@ export function LineBottomInner(gdkmonitor: Gdk.Monitor) {
       application={app}
     >
       <image
-        iconName={"line-inner-symbolic"}
+        iconName="line-inner-symbolic"
         pixelSize={(width/2)*1.1}
       />
     </window>

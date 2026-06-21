@@ -3,23 +3,16 @@
 
 <svg
    version="1.1"
-   id="svg1"
    width="480"
    height="480"
    viewBox="0 0 480 480"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
-  <defs
-     id="defs1" />
-  <g
-     id="g1">
-    <rect
-       style="fill:#48463d;fill-opacity:0.25;"
-       id="rect1-3-2"
-       width="676.69922"
-       height="1.5"
-       x="1.0616405"
-       y="-1.065277"
-       transform="matrix(0.70709923,0.70711433,-0.70950487,0.70470053,0,0)" />
-  </g>
+   <rect
+      style="fill:#48463d;fill-opacity:0.25;"
+      width="676.69922"
+      height="1.5"
+      x="1.0616405"
+      y="-1.065277"
+      transform="matrix(0.70709923,0.70711433,-0.70950487,0.70470053,0,0)" />
 </svg>
