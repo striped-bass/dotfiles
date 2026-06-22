@@ -18,6 +18,12 @@
   }
 }
 
+* {
+  font-family: FOT-Rodin Pro M, Roboto, sans-serif;
+}
+
+$small_font_size: 1rem;
+
 window.CircleTopOuter {
   image {
     color: colors.$brown;
@@ -72,6 +78,13 @@ window.LineBottomInner {
 }
 
 window.BorderTop {
+
+  .Bar {
+    label.Clock {
+      color: colors.$brown;
+      font-size: $small_font_size;
+    }
+  }
 
   .BorderBox {
     border-top: 0.1rem solid colors.$brown;

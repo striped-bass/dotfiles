@@ -1,10 +1,19 @@
 import app from "ags/gtk4/app"
 import { Astal, Gdk, Gtk } from "ags/gtk4"
+import { createPoll } from "ags/time"
+import Battery from "gi://AstalBattery"
+import { createBinding } from "ags"
 
 export function BorderTop(gdkmonitor: Gdk.Monitor) {
-  const { TOP, LEFT, RIGHT } = Astal.WindowAnchor
+  const { TOP, LEFT, RIGHT } = Astal.WindowAnchor;
   const count = 25;
   const width = gdkmonitor.get_geometry().width / count;
+  const time = createPoll("", 1000, () => Temporal.Now.plainDateTimeISO().toLocaleString("en-us", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  }));
+  const battery = Battery.get_default();
 
   return (
     <window
@@ -19,10 +28,28 @@ export function BorderTop(gdkmonitor: Gdk.Monitor) {
     >
       <box orientation={Gtk.Orientation.VERTICAL}>
         {/* To-do: Replace the image below with a centerbox for the top bar */}
-        <image
-          iconName="to-delete-symbolic"
-          pixelSize={width*1.3}
-        />
+        <box
+          class="Bar"
+          hexpand={true}
+          halign={Gtk.Align.END}
+        >
+          <image
+            iconName="to-delete-symbolic"
+            pixelSize={width*1.3}
+          />
+
+          <image
+            iconName={createBinding(battery, "batteryIconName")}
+						iconSize={Gtk.IconSize.NORMAL}
+						cssClasses={["icon"]}
+					/>
+
+          <label
+            class="Clock"
+            label={time} />
+            
+        </box>
+
         <centerbox class="BorderBox">
           <image
             $type="start"
@@ -83,7 +110,7 @@ export function BorderBottom(gdkmonitor: Gdk.Monitor) {
             halign={Gtk.Align.END}
           />
   {/* To-do: Dynamically update from dots-3-symbolic to dots-2-symbolic based on horizontal cursor*/}
-          <box $type = "center">
+          <box $type="center">
               {Array.from({length: count-2},(_,i) => <image
               iconName="dots-3-symbolic"
               pixelSize={width}

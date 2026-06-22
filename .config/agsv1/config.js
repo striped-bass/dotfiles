@@ -101,42 +101,6 @@ const top = () =>
             classNames: ["workspaces-scroll"],
             child:Workspaces({}),
           }),
-          
-          Label({
-            hpack: "end",
-            hexpand: true,
-            classNames: ["time"],
-            label: "00:00",
-            connections: [
-              [
-                1000,
-                (self) =>
-                  execAsync(["date", "+%I:%M"])
-                    .then((date) => (self.label = date))
-                    .catch(console.error),
-              ],
-            ],
-          }),
-
-          Label({
-            hpack: "end",
-            hexpand: true,
-            classNames: ["battery-percent"],
-            binds: [
-              'label',
-              Battery,
-              'percent',
-              percent => `${percent}%`,
-            ],
-            
-            connections: [
-                [
-                  Battery,
-                  (self) => self['label'] = `${Battery['percent']}%`,
-                  'notify::percent',
-                ],
-            ],
-          }),
 
           Button({
             hpack: "end",
