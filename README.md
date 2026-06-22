@@ -68,6 +68,6 @@ A rice inspired by `NieR:Automata` ui
 
 
 ## Thanks to
-- https://www.platinumgames.com/official-blog/article/9624 amazing blog by the creators of NieR:Automata
+- https://web.archive.org/web/20260130001110/https://www.platinumgames.com/official-blog/article/9624 (archived blog post by the creators of NieR:Automata)
 - https://codepen.io/RobotsPlay/pen/bGeNGdx (few svgs and for reference)
 - https://github.com/gigsoll/YoRHaLogo (yorha logo svg)
