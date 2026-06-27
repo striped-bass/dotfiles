@@ -34,7 +34,7 @@ hl.bind(mod1 .. " +  right", hl.dsp.window.move({ direction = "right" }))
 hl.bind(mod1 .. " +  up",    hl.dsp.window.move({ direction = "up" }))
 hl.bind(mod1 .. " +  down",  hl.dsp.window.move({ direction = "down" }))
 
-hl.bind(mod1 .. " + M", hl.dsp.exec_cmd("hyprshutdown"))
+hl.bind(mod1 .. " + M", hl.dsp.exec_cmd("hyprshutdown -t Logout..."))
 
 -- Manage windows
 hl.bind(mod1 .. " + Q", hl.dsp.window.close())

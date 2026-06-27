@@ -1,7 +1,7 @@
 import { NierButton } from "../nier/buttons.js";
 import { assetsDir } from "../util.js";
 
-const {exec} = Utils;
+const {exec, execAsync} = Utils;
 
 export const PowerGroup = ({
   go_to = async (buttons, parent_button) => {},
@@ -13,8 +13,8 @@ export const PowerGroup = ({
       useAssetsDir: passAssetsDir,
       label: "Shutdown",
       handleClick: () => {
-        exec(
-          `bash -c "poweroff"`
+        execAsync(
+          ["bash","-c","hyprctl dispatch 'hl.exec_cmd(\"hyprshutdown -t Shutdown... -p poweroff\")'"]
         )
       } 
     }),
@@ -22,8 +22,8 @@ export const PowerGroup = ({
         useAssetsDir: passAssetsDir,
         label: "Reboot",
         handleClick: () => {
-          exec(
-            `bash -c "reboot"`
+          execAsync(
+            ["bash","-c","hyprctl dispatch 'hl.exec_cmd(\"hyprshutdown -t Reboot... -p reboot\")'"]
           )
       }
     }),
@@ -31,8 +31,8 @@ export const PowerGroup = ({
         useAssetsDir: passAssetsDir,
         label: "Logout",
         handleClick: () => {
-          exec(
-            `hyprctl dispatch exit`
+          execAsync(
+            ["bash","-c","hyprctl dispatch 'hl.exec_cmd(\"hyprshutdown -t Logout...\")'"]
           )
       }
     }),
