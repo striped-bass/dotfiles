@@ -5,7 +5,6 @@ import { BluetoothGroup } from "../../widgets/bluetooth_group.js";
 import { AppearanceGroup } from "../../widgets/appearance_group.js";
 import { VolumeGroup } from "../../widgets/volume_group.js";
 import { WifiGroup } from "../../widgets/wifi_group.js";
-import { PowerGroup } from "../../widgets/power_menu.js";
 
 const { Window, Label, EventBox, Box, Overlay, Scrollable } = Widget;
 
@@ -39,11 +38,6 @@ const bluetooth_page = (
   }
 ) => {
   return BluetoothGroup({go_to,passAssetsDir:parentAssetsDir});
-};
-
-const power_page = (
-  go_to = (button) => {}) => {
-    return PowerGroup({go_to,passAssetsDir:parentAssetsDir});
 };
 
 const ensure_only_selected = (button, page_button) => {
@@ -257,15 +251,6 @@ const NierSettingPane = (
                     console.log(e);
                   }
                 );
-              },
-            }),
-            NierButton({
-              useAssetsDir: parentAssetsDir,
-              label: "Power",
-              handleClick: async (self, event) => {
-                await go_page2(power_page(), self).catch((e) => {
-                  console.log(e);
-                });
               },
             }),
           ],

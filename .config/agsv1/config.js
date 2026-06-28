@@ -154,6 +154,6 @@ const TopBar = ({ monitor } = {}) => {
 App.config({
   style: css,
   windows: [
-    TopBar(),
+    // TopBar(),
   ],
 });
