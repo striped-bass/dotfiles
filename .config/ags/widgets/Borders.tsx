@@ -5,8 +5,9 @@ import { createPoll } from "ags/time"
 import Battery from "gi://AstalBattery"
 import { createBinding } from "ags"
 
-function Border(width: number) {
+function Border({gdkmonitor}:{gdkmonitor: Gdk.Monitor}) {
   const count = 25;
+  const width = gdkmonitor.get_geometry().width / count;
 
   return(
     <centerbox class="BorderBox">
@@ -20,7 +21,7 @@ function Border(width: number) {
       />
 
       <box $type = "center">
-          {Array.from({length: count-2},(_,i) => <image
+          {Array.from({length: count - 2},(_,i) => <image
           iconName={"dots-3-symbolic"}
           pixelSize={width}
         />)}
@@ -40,8 +41,9 @@ function Border(width: number) {
 }
 
 function System() {
+
   return(
-    <popover>
+    <popover has-arrow={false}>
       <box orientation={Gtk.Orientation.VERTICAL}>
         <label label="SYSTEM"/>  
         <button>
@@ -56,10 +58,17 @@ function System() {
         <button>
           <label label="Bluetooth"/>
         </button>
-        <menubutton>
+        <menubutton direction={Gtk.ArrowType.RIGHT}>
           <label label="Power"/>
-            <popover>
+            <popover
+              has-arrow={false}
+            >
               <box orientation={Gtk.Orientation.VERTICAL}>
+                <button
+                  onClicked={() => execAsync(["bash","-c","hyprctl dispatch 'hl.exec_cmd(\"hyprshutdown -t Logout...\")'"])}
+                >
+                  <label label="Logout"/>
+                </button>
                 <button
                   onClicked={() => execAsync(["bash","-c","hyprctl dispatch 'hl.exec_cmd(\"hyprshutdown -t Shutdown... -p poweroff\")'"])}
                 >
@@ -69,11 +78,6 @@ function System() {
                   onClicked={() => execAsync(["bash","-c","hyprctl dispatch 'hl.exec_cmd(\"hyprshutdown -t Reboot... -p reboot\")'"])}
                 >
                   <label label="Reboot"/>
-                </button>
-                <button
-                  onClicked={() => execAsync(["bash","-c","hyprctl dispatch 'hl.exec_cmd(\"hyprshutdown -t Logout...\")'"])}
-                >
-                  <label label="Logout"/>
                 </button>
               </box>
             </popover>
@@ -95,10 +99,18 @@ function Bar() {
     <box
       class="Bar"
       hexpand={true}
+      $type="start"
+      valign={Gtk.Align.START}
     >
+      <menubutton halign={Gtk.Align.END}>
+        <box>
+          <label label="⏻"/>
+          <label label="SYSTEM"/>
+        </box>
+        <System/>
+      </menubutton>
 
       <Workspaces/>
-      
       <menubutton>
         <box>
           <label label="⧖"/>
@@ -121,15 +133,6 @@ function Bar() {
           )}/>
         </box>
       </menubutton>
-
-      <menubutton halign={Gtk.Align.END}>
-        <box>
-          <label label="⏻"/>
-          <label label="SYSTEM"/>
-        </box>
-        <System/>
-      </menubutton>
-
     </box>
   )
 }
@@ -148,8 +151,6 @@ function Workspaces() {
 
 export function BorderTop(gdkmonitor: Gdk.Monitor) {
   const { TOP, LEFT, RIGHT } = Astal.WindowAnchor;
-  const count = 25;
-  const width = gdkmonitor.get_geometry().width / count;
 
   return (
     <window
@@ -164,16 +165,14 @@ export function BorderTop(gdkmonitor: Gdk.Monitor) {
     >
       <box orientation={Gtk.Orientation.VERTICAL}>
         <Bar/>
-        {/* <Border width={width}/> */}
+        <Border gdkmonitor={gdkmonitor}/>
       </box>
     </window>
   )
 }
-2
+
 export function BorderBottom(gdkmonitor: Gdk.Monitor) {
   const { BOTTOM, LEFT, RIGHT } = Astal.WindowAnchor
-  const count = 25;
-  const width = gdkmonitor.get_geometry().width / count;
 
   return (
     <window
@@ -186,32 +185,8 @@ export function BorderBottom(gdkmonitor: Gdk.Monitor) {
       anchor={BOTTOM | LEFT | RIGHT}
       application={app}
     >
-      <centerbox class="BorderBox">
-          <image
-            $type = "start"
-            iconName="dots-0-symbolic"
-            class="LeftCap"
-            pixelSize={width}
-            hexpand={true}
-            halign={Gtk.Align.END}
-          />
-  {/* To-do: Dynamically update from dots-3-symbolic to dots-2-symbolic based on horizontal cursor*/}
-          <box $type="center">
-              {Array.from({length: count-2},(_,i) => <image
-              iconName="dots-3-symbolic"
-              pixelSize={width}
-            />)}
-          </box>
-          
-          <image
-            $type="end"
-            iconName="dots-0-symbolic"
-            class="RightCap"
-            pixelSize={width}
-            hexpand={true}
-            halign={Gtk.Align.START}
-          />
-      </centerbox>
+      <Border gdkmonitor={gdkmonitor}/>
+      
     </window>
   )
 }
