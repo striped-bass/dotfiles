@@ -6,8 +6,8 @@ import Battery from "gi://AstalBattery"
 import { createBinding } from "ags"
 
 function Border({gdkmonitor}:{gdkmonitor: Gdk.Monitor}) {
-  const count = 25;
-  const width = gdkmonitor.get_geometry().width / count;
+  const icon_count = 25;
+  const icon_width = gdkmonitor.get_geometry().width / icon_count;
 
   return(
     <centerbox class="BorderBox">
@@ -15,15 +15,15 @@ function Border({gdkmonitor}:{gdkmonitor: Gdk.Monitor}) {
         $type="start"
         iconName="dots-0-symbolic"
         class="LeftCap"
-        pixelSize={width}
+        pixelSize={icon_width}
         hexpand={true}
         halign={Gtk.Align.END}
       />
 
       <box $type = "center">
-          {Array.from({length: count - 2},(_,i) => <image
+          {Array.from({length: icon_count - 2},(_,i) => <image
           iconName={"dots-3-symbolic"}
-          pixelSize={width}
+          pixelSize={icon_width}
         />)}
       </box>
 
@@ -31,11 +31,10 @@ function Border({gdkmonitor}:{gdkmonitor: Gdk.Monitor}) {
         $type = "end"
         iconName="dots-0-symbolic"
         class="RightCap"
-        pixelSize={width}
+        pixelSize={icon_width}
         hexpand={true}
         halign={Gtk.Align.START}
       />
-
     </centerbox>
   )
 }
@@ -87,18 +86,22 @@ function System() {
   )
 }
 
-function Bar() {
+function Bar({gdkmonitor}:{gdkmonitor: Gdk.Monitor}) {
   const time = createPoll("", 1000, () => Temporal.Now.plainDateTimeISO().toLocaleString("en-us", {
     hour: "2-digit",
     minute: "2-digit",
     hour12: false,
   }));
   const battery = Battery.get_default();
+  // const button_count = 13;
+  // const button_width = 0.9*gdkmonitor.get_geometry().width / button_count;
 
   return(  
     <box
       class="Bar"
       hexpand={true}
+      homogeneous={true}
+      spacing={5}
     >
       <menubutton halign={Gtk.Align.END}>
         <box>
@@ -108,7 +111,18 @@ function Bar() {
         <System/>
       </menubutton>
 
-      <Workspaces/>
+      {/* <Workspaces/> */}
+      <button label="1"/>
+      <button label="2"/>
+      <button label="3"/>
+      <button label="4"/>
+      <button label="5"/>
+      <button label="6"/>
+      <button label="7"/>
+      <button label="8"/>
+      <button label="9"/>
+      <button label="10"/>
+
       <menubutton>
         <box>
           <label label="⧖"/>
@@ -149,8 +163,6 @@ function Workspaces() {
 
 export function BordersAndBar(gdkmonitor: Gdk.Monitor) {
   const { TOP, BOTTOM, LEFT, RIGHT} = Astal.WindowAnchor;
-  const count = 25;
-  const width = gdkmonitor.get_geometry().width / count;
   
   return (
     <window
@@ -171,13 +183,14 @@ export function BordersAndBar(gdkmonitor: Gdk.Monitor) {
           $type = "start"
           orientation = {Gtk.Orientation.VERTICAL}
         >
-          <Bar/>
+          <Bar gdkmonitor={gdkmonitor}/>
           <Gtk.Separator class="HorizontalSeparator"/>
           <Border gdkmonitor={gdkmonitor}/>
         </box>
         <box
           $type = "end"
           orientation = {Gtk.Orientation.VERTICAL}
+          class = "BottomBorder"
         >
           <Gtk.Separator class="HorizontalSeparator"/>
           <Border gdkmonitor={gdkmonitor}/>
