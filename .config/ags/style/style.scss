@@ -77,7 +77,7 @@ window.LineBottomInner {
   }
 }
 
-window.BorderTop {
+window.BordersAndBar {
 
   .Bar {
     label {
@@ -115,11 +115,6 @@ window.BorderTop {
           background-color: #cdc8b0;
         }
 
-        label:state(selected) {
-          color: pink;
-          background-color: purple;
-        }
-
         .today {
           border-radius: 0px;
           color: colors.$tan;
@@ -135,8 +130,6 @@ window.BorderTop {
   }
 
   .BorderBox {
-    border-top: 0.1rem solid colors.$brown;
-
     image {
       color: colors.$brown;
     }
@@ -144,19 +137,8 @@ window.BorderTop {
       -gtk-icon-transform: scaleX(-1);
     }
   }
-}
 
-window.BorderBottom {
-
-  .BorderBox {
-    border-top: 0.1rem solid colors.$brown;
-    margin-bottom: -2rem;
-
-    image {
-      color: colors.$brown;
-    }
-    image.RightCap {
-      -gtk-icon-transform: scaleX(-1);
-    }
+  .HorizontalSeparator {
+    background-color: colors.$brown;
   }
 }

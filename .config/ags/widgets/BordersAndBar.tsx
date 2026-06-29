@@ -99,8 +99,6 @@ function Bar() {
     <box
       class="Bar"
       hexpand={true}
-      $type="start"
-      valign={Gtk.Align.START}
     >
       <menubutton halign={Gtk.Align.END}>
         <box>
@@ -149,44 +147,42 @@ function Workspaces() {
   )
 }
 
-export function BorderTop(gdkmonitor: Gdk.Monitor) {
-  const { TOP, LEFT, RIGHT } = Astal.WindowAnchor;
-
+export function BordersAndBar(gdkmonitor: Gdk.Monitor) {
+  const { TOP, BOTTOM, LEFT, RIGHT} = Astal.WindowAnchor;
+  const count = 25;
+  const width = gdkmonitor.get_geometry().width / count;
+  
   return (
     <window
       visible
       layer={Astal.Layer.BACKGROUND}
-      name="border_top"
-      class="BorderTop"
+      name="borders_and_bar"
+      class="BordersAndBar"
       gdkmonitor={gdkmonitor}
       exclusivity={Astal.Exclusivity.IGNORE}
-      anchor={TOP | LEFT | RIGHT}
+      anchor={TOP | BOTTOM | LEFT | RIGHT}
       application={app}
     >
-      <box orientation={Gtk.Orientation.VERTICAL}>
-        <Bar/>
-        <Border gdkmonitor={gdkmonitor}/>
-      </box>
-    </window>
-  )
-}
-
-export function BorderBottom(gdkmonitor: Gdk.Monitor) {
-  const { BOTTOM, LEFT, RIGHT } = Astal.WindowAnchor
-
-  return (
-    <window
-      visible
-      layer={Astal.Layer.BACKGROUND}
-      name="border_bottom"
-      class="BorderBottom"
-      gdkmonitor={gdkmonitor}
-      exclusivity={Astal.Exclusivity.IGNORE}
-      anchor={BOTTOM | LEFT | RIGHT}
-      application={app}
-    >
-      <Border gdkmonitor={gdkmonitor}/>
-      
+      <centerbox
+        orientation={Gtk.Orientation.VERTICAL}
+        vexpand={true}
+      >
+        <box 
+          $type = "start"
+          orientation = {Gtk.Orientation.VERTICAL}
+        >
+          <Bar/>
+          <Gtk.Separator class="HorizontalSeparator"/>
+          <Border gdkmonitor={gdkmonitor}/>
+        </box>
+        <box
+          $type = "end"
+          orientation = {Gtk.Orientation.VERTICAL}
+        >
+          <Gtk.Separator class="HorizontalSeparator"/>
+          <Border gdkmonitor={gdkmonitor}/>
+        </box>
+      </centerbox>
     </window>
   )
 }
