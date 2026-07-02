@@ -23,66 +23,103 @@
 }
 
 $small_font_size: 1rem;
+$border_size: 4px;
+$border_dist: 3px;
 
-window.CircleTopOuter {
-  image {
+window.Wallpaper {
+  .LineTopInner {
+    color: colors.$brown;
+  }
+  .LineTopOuter {
+    color: colors.$brown;
+  }
+
+  .CircleTopOuter {
     color: colors.$brown;
     animation: oscillate_top 3s ease alternate infinite;
   }
-}
-
-window.CircleTopInner {
-  image {
+  .CircleTopInner {
     color: colors.$brown;
     animation: oscillate_top 4s ease alternate infinite;
   }
-}
 
-window.CircleBottomOuter {
-  image {
+  .LineBottomInner {
+    color: colors.$brown;
+  }
+  
+  .LineBottomOuter {
+    color: colors.$brown;
+    -gtk-icon-transform: rotate(90deg) scaleX(-1);
+  }
+
+  .CircleBottomOuter {
     color: colors.$brown;
     animation: oscillate_bottom 3s ease alternate infinite;
   }
-}
-
-window.CircleBottomInner {
-  image {
+  .CircleBottomInner {
     color: colors.$brown;
     animation: oscillate_bottom 4s ease alternate infinite;
   }
 }
 
-window.LineTopOuter {
-  image {
-    color: colors.$brown;
+window.BarAndBorders {
+  
+  .TopSeparator {
+    background-color: colors.$brown;
   }
-}
 
-window.LineTopInner {
-  image {
-    color: colors.$brown;
+  .BottomSeparator {
+    background-color: colors.$brown;
   }
-}
 
-window.LineBottomOuter {
-  image {
-    color: colors.$brown;
-    -gtk-icon-transform: rotate(90deg) scaleX(-1);
+  .WorkspaceButton {
+    border-radius: 0px;
+    background: linear-gradient(
+      to right,
+      rgba(colors.$brown, 0.25)  50%,
+      colors.$brown  50%);
+      background-size: 200%;
+      transition: background 0.1s cubic-bezier(0.15, 0.79, 0, 1);
+
+    .LeftLabel {
+      color: colors.$tan;
+      background-color: colors.$brown;
+    }
+    
+    .RightLabel {
+      color: colors.$brown;
+    }
+
   }
-}
 
-window.LineBottomInner {
-  image {
-    color: colors.$brown;
+  .WorkspaceButton:hover {
+
+    // margin-top: 0px;
+    // margin-bottom: 0px;
+    // padding-top: 0px;
+    // padding-bottom: 0px;
+    box-shadow: 7px 7px 3px rgba(colors.$brown, 0.25);
+    background-position: -100%;
+    transition: background 1s cubic-bezier(0.15, 0.79, 0, 1);
+
+    .LeftLabel {
+      color: colors.$brown;
+      background-color: colors.$tan;
+    }
+
+    .RightLabel {
+      color: colors.$tan;
+    }
   }
-}
-
-window.BordersAndBar {
 
   .Bar {
     label {
       color: colors.$brown;
       font-size: $small_font_size;
+    }
+
+    .Heading {
+      font-size: 3rem;
     }
 
     .Calendar {
