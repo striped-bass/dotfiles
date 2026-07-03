@@ -1,21 +1,12 @@
 @use "colors_light.scss" as colors;
 
 @keyframes oscillate_top {
-  0% {
-    -gtk-icon-transform: translate(0);
-  }
-  100% {
-    -gtk-icon-transform: translate(-10px,-10px);
-  }
+  to {transform: translate(-10px,-10px);}
 }
 
+
 @keyframes oscillate_bottom {
-  0% {
-    -gtk-icon-transform: rotate(180deg) translate(0);
-  }
-  100% {
-    -gtk-icon-transform: rotate(180deg) translate(-10px,-10px);
-  }
+  to {transform: translate(10px,10px);}
 }
 
 * {
@@ -35,11 +26,18 @@ window.Wallpaper {
   }
 
   .CircleTopOuter {
-    color: colors.$brown;
+    border-bottom: 2.5px solid colors.$brown;
+    border-right: 2.5px solid colors.$brown;
+    border-radius: 0 0 100% 0;
+    opacity: 0.25;
     animation: oscillate_top 3s ease alternate infinite;
   }
+
   .CircleTopInner {
-    color: colors.$brown;
+    border-bottom: 2.5px solid colors.$brown;
+    border-right: 2.5px solid colors.$brown;
+    border-radius: 0 0 100% 0;
+    opacity: 0.25;
     animation: oscillate_top 4s ease alternate infinite;
   }
 
@@ -53,13 +51,21 @@ window.Wallpaper {
   }
 
   .CircleBottomOuter {
-    color: colors.$brown;
+    border-top: 2.5px solid colors.$brown;
+    border-left: 2.5px solid colors.$brown;
+    border-radius: 100% 0 0 0;
+    opacity: 0.25;
     animation: oscillate_bottom 3s ease alternate infinite;
   }
+
   .CircleBottomInner {
-    color: colors.$brown;
+    border-top: 2.5px solid colors.$brown;
+    border-left: 2.5px solid colors.$brown;
+    border-radius: 100% 0 0 0;
+    opacity: 0.25;
     animation: oscillate_bottom 4s ease alternate infinite;
   }
+  
 }
 
 window.BarAndBorders {
