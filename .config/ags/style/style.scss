@@ -25,7 +25,7 @@ window.Wallpaper {
     color: colors.$brown;
   }
 
-  .CircleTopOuter {
+  .ArcTopOuter {
     border-bottom: 2.5px solid colors.$brown;
     border-right: 2.5px solid colors.$brown;
     border-radius: 0 0 100% 0;
@@ -33,7 +33,7 @@ window.Wallpaper {
     animation: oscillate_top 3s ease alternate infinite;
   }
 
-  .CircleTopInner {
+  .ArcTopInner {
     border-bottom: 2.5px solid colors.$brown;
     border-right: 2.5px solid colors.$brown;
     border-radius: 0 0 100% 0;
@@ -50,7 +50,7 @@ window.Wallpaper {
     -gtk-icon-transform: rotate(90deg) scaleX(-1);
   }
 
-  .CircleBottomOuter {
+  .ArcBottomOuter {
     border-top: 2.5px solid colors.$brown;
     border-left: 2.5px solid colors.$brown;
     border-radius: 100% 0 0 0;
@@ -58,7 +58,7 @@ window.Wallpaper {
     animation: oscillate_bottom 3s ease alternate infinite;
   }
 
-  .CircleBottomInner {
+  .ArcBottomInner {
     border-top: 2.5px solid colors.$brown;
     border-left: 2.5px solid colors.$brown;
     border-radius: 100% 0 0 0;

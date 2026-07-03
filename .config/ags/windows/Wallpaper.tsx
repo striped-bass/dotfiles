@@ -47,7 +47,7 @@ export function Wallpaper(gdkmonitor: Gdk.Monitor) {
 
         <box
           $type="overlay"
-          class="CircleTopOuter"
+          class="ArcTopOuter"
           halign={Gtk.Align.START}
           valign={Gtk.Align.START}
           widthRequest={height/2}
@@ -56,7 +56,7 @@ export function Wallpaper(gdkmonitor: Gdk.Monitor) {
 
         <box
           $type="overlay"
-          class="CircleTopInner"
+          class="ArcTopInner"
           halign={Gtk.Align.START}
           valign={Gtk.Align.START}
           widthRequest={0.96*height/2}
@@ -83,7 +83,7 @@ export function Wallpaper(gdkmonitor: Gdk.Monitor) {
 
         <box
           $type="overlay"
-          class="CircleBottomOuter"
+          class="ArcBottomOuter"
           halign={Gtk.Align.END}
           valign={Gtk.Align.END}
           widthRequest={height/2}
@@ -92,7 +92,7 @@ export function Wallpaper(gdkmonitor: Gdk.Monitor) {
 
         <box
           $type="overlay"
-          class="CircleBottomInner"
+          class="ArcBottomInner"
           halign={Gtk.Align.END}
           valign={Gtk.Align.END}
           widthRequest={0.96*height/2}
