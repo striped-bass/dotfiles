@@ -1,6 +1,10 @@
 import app from "ags/gtk4/app"
 import { Astal, Gdk, Gtk } from "ags/gtk4"
 
+// let dark = false
+// let color: [number, number, number, number];
+// color = dark?[218/255, 212/255, 187/255, 0.25]:[87/255, 84/255, 74/255, 0.25];
+
 export function Wallpaper(gdkmonitor: Gdk.Monitor) {
   const { TOP, BOTTOM, LEFT, RIGHT } = Astal.WindowAnchor
   const width = gdkmonitor.get_geometry().width;
@@ -95,6 +99,30 @@ export function Wallpaper(gdkmonitor: Gdk.Monitor) {
           pixelSize={(0.97*height/2)}
         />
 
+        {/* <drawingarea
+          $type="overlay"
+          halign={Gtk.Align.END}
+          valign={Gtk.Align.END}
+          widthRequest={height/2}
+          heightRequest={height/2}
+          $={(self) => {self.set_draw_func((_area, cr, _width, height) => {
+              const line_width = 3;
+            
+              const xc = height;
+              const yc = height;
+              const radius = height - line_width/2;
+              const angle1 = Math.PI;
+              const angle2 = (3 * Math.PI) / 2;
+
+              cr.setSourceRGBA(...color);
+
+              cr.setLineWidth(line_width)
+
+              cr.arc(xc, yc, radius, angle1, angle2);
+              cr.stroke()
+            });
+          }}
+        /> */}
       </overlay>
     </window>
   )
