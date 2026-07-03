@@ -1,7 +1,7 @@
 import app from "ags/gtk4/app"
 import style from "./style/style.scss"
-import {Wallpaper} from "./Wallpaper"
-import {BarAndBorders} from "./BarAndBorders"
+import {Wallpaper} from "./windows/Wallpaper"
+import {BarAndBorders} from "./windows/BarAndBorders"
 
 app.start({
   css: style,

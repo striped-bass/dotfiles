@@ -1,7 +1,7 @@
 import app from "ags/gtk4/app"
 import { Astal, Gdk, Gtk } from "ags/gtk4"
-import {Border} from "./widgets/Border"
-import {Bar} from "./widgets/bar/Bar"
+import {Border} from "../widgets/Border"
+import {Bar} from "../widgets/bar/Bar"
 
 export function BarAndBorders(gdkmonitor: Gdk.Monitor) {
   const { TOP, BOTTOM, LEFT, RIGHT} = Astal.WindowAnchor;
