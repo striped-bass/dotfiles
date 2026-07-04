@@ -1,0 +1,9 @@
+@use "../colors_light.scss" as colors;
+@use "../widgets/Border.scss";
+@use "../widgets/Bar.scss";
+
+window.BarAndBorders {
+    .BottomBorder {
+        margin-bottom: -30px;
+    }
+}

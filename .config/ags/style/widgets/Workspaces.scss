@@ -1,0 +1,52 @@
+@use "../colors_light.scss" as colors;
+
+$small_font_size: 1rem;
+$border_size: 4px;
+$border_dist: 3px;
+
+.TopSeparator {
+    background-color: colors.$brown;
+}
+
+.BottomSeparator {
+    background-color: colors.$brown;
+}
+
+.WorkspaceButton {
+    border-radius: 0px;
+    background: linear-gradient(
+        to right,
+        rgba(colors.$brown, 0.25)  50%,
+        colors.$brown  50%);
+        background-size: 200%;
+        transition: background 0.1s cubic-bezier(0.15, 0.79, 0, 1);
+
+    .LeftLabel {
+        color: colors.$tan;
+        background-color: colors.$brown;
+    }
+
+    .RightLabel {
+        color: colors.$brown;
+    }
+}
+
+.WorkspaceButton:hover {
+
+// margin-top: 0px;
+// margin-bottom: 0px;
+// padding-top: 0px;
+// padding-bottom: 0px;
+    box-shadow: 7px 7px 3px rgba(colors.$brown, 0.25);
+    background-position: -100%;
+    transition: background 1s cubic-bezier(0.15, 0.79, 0, 1);
+
+    .LeftLabel {
+        color: colors.$brown;
+        background-color: colors.$tan;
+    }
+
+    .RightLabel {
+        color: colors.$tan;
+    }
+}

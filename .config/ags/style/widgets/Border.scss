@@ -1,0 +1,14 @@
+@use "../colors_light.scss" as colors;
+
+.BorderBox {
+    image {
+        color: colors.$brown;
+    }
+    image.RightCap {
+        -gtk-icon-transform: scaleX(-1);
+    }
+}
+
+.HorizontalSeparator {
+    background-color: colors.$brown;
+}

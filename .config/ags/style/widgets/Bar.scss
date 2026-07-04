@@ -1,0 +1,56 @@
+@use "../colors_light.scss" as colors;
+@use "./Workspaces.scss";
+
+$small_font_size: 1rem;
+
+.Bar {
+    label {
+        color: colors.$brown;
+        font-size: $small_font_size;
+    }
+
+    .Heading {
+        font-size: 3rem;
+    }
+
+    .Calendar {
+    
+        header {
+            color: colors.$tan;
+            background-color: colors.$brown;
+
+            stack.month {
+                label {
+                    color: colors.$tan;
+                }
+            }
+            label.year {
+                color: colors.$tan;
+            }
+        }
+        grid {
+            background-color:colors.$tan;
+
+            label.day-name{
+                color: colors.$brown;
+                background-color: colors.$tan;
+            }
+
+            label {
+                color: colors.$brown;
+                background-color: #cdc8b0;
+            }
+
+            .today {
+                border-radius: 0px;
+                color: colors.$tan;
+                background-color: colors.$accent1;
+            }
+
+            .other-month {
+                color: colors.$brown;
+                background-color: #aca893;
+            }
+        }
+    }
+}
