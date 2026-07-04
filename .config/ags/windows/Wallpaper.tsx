@@ -1,14 +1,12 @@
 import app from "ags/gtk4/app"
 import { Astal, Gdk, Gtk } from "ags/gtk4"
 
-// let dark = false
-// let color: [number, number, number, number];
-// color = dark?[218/255, 212/255, 187/255, 0.25]:[87/255, 84/255, 74/255, 0.25];
-
 export function Wallpaper(gdkmonitor: Gdk.Monitor) {
   const { TOP, BOTTOM, LEFT, RIGHT } = Astal.WindowAnchor
   const width = gdkmonitor.get_geometry().width;
   const height = gdkmonitor.get_geometry().height;
+  const line_offset_ratio = 0.1;
+  const line_offset = line_offset_ratio*width/2;
 
   return (
     <window
@@ -27,22 +25,33 @@ export function Wallpaper(gdkmonitor: Gdk.Monitor) {
           vexpand={true}
         />
 
-        <image
+        <box
           $type="overlay"
-          class="LineTopInner"
+          class="LineTopShort"
           halign={Gtk.Align.START}
           valign={Gtk.Align.START}
-          iconName="line-inner-symbolic"
-          pixelSize={(width/2)*1.1*1.1}
+          widthRequest={(1-line_offset_ratio)*width/2}
+          heightRequest={(1-line_offset_ratio)*width/2}
+          css={["transform: translate(", line_offset.toString(),"px,0px);"].join("")}
         />
 
-        <image
+        <box
           $type="overlay"
-          class="LineTopOuter"
+          class="LineTopMed"
           halign={Gtk.Align.START}
           valign={Gtk.Align.START}
-          iconName="line-outer-symbolic"
-          pixelSize={(width/2)*1.1}
+          widthRequest={width/2}
+          heightRequest={width/2}
+          css={["transform: translate(0px,",line_offset.toString(),"px);"].join("")}
+        />
+
+        <box
+          $type="overlay"
+          class="LineTopLong"
+          halign={Gtk.Align.START}
+          valign={Gtk.Align.START}
+          widthRequest={(1+2*line_offset_ratio)*width/2}
+          heightRequest={(1+2*line_offset_ratio)*width/2}
         />
 
         <box
@@ -63,24 +72,35 @@ export function Wallpaper(gdkmonitor: Gdk.Monitor) {
           heightRequest={0.96*height/2}
         />
 
-        <image
+        <box
           $type="overlay"
-          class="LineBottomInner"
+          class="LineBottomShort"
           halign={Gtk.Align.END}
           valign={Gtk.Align.END}
-          iconName="line-inner-symbolic"
-          pixelSize={(width/2)*1.1}
+          widthRequest={(1-2*line_offset_ratio)*width/2}
+          heightRequest={(1-2*line_offset_ratio)*width/2}
+          css={["transform: translate(0px,",-line_offset.toString(),"px);"].join("")}
         />
 
-        <image
+        <box
           $type="overlay"
-          class="LineBottomOuter"
+          class="LineBottomMed"
           halign={Gtk.Align.END}
           valign={Gtk.Align.END}
-          iconName="line-outer-symbolic"
-          pixelSize={(width/2)}
+          widthRequest={(1-line_offset_ratio)*width/2}
+          heightRequest={(1-line_offset_ratio)*width/2}
+          css={["transform: translate(",-line_offset.toString(),"px,0px);"].join("")}
         />
 
+        <box
+          $type="overlay"
+          class="LineBottomLong"
+          halign={Gtk.Align.END}
+          valign={Gtk.Align.END}
+          widthRequest={(1+line_offset_ratio)*width/2}
+          heightRequest={(1+line_offset_ratio)*width/2}
+        />
+        
         <box
           $type="overlay"
           class="ArcBottomOuter"

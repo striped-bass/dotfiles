@@ -1,9 +1,18 @@
 @use "colors_light.scss" as colors;
 
+@mixin general_line {
+  background: linear-gradient(to top right,
+      transparent 0%,
+      transparent calc(50% - 2px),
+      colors.$brown 50%,
+      transparent calc(50% + 2px),
+      transparent 100%);
+  opacity: 0.3;
+}
+
 @keyframes oscillate_top {
   to {transform: translate(-10px,-10px);}
 }
-
 
 @keyframes oscillate_bottom {
   to {transform: translate(10px,10px);}
@@ -18,11 +27,16 @@ $border_size: 4px;
 $border_dist: 3px;
 
 window.Wallpaper {
-  .LineTopInner {
-    color: colors.$brown;
+  .LineTopShort {
+    @include general_line;
   }
-  .LineTopOuter {
-    color: colors.$brown;
+
+  .LineTopMed {
+    @include general_line;
+  }
+
+  .LineTopLong {
+    @include general_line;
   }
 
   .ArcTopOuter {
@@ -41,13 +55,16 @@ window.Wallpaper {
     animation: oscillate_top 4s ease alternate infinite;
   }
 
-  .LineBottomInner {
-    color: colors.$brown;
+  .LineBottomShort {
+    @include general_line;
   }
-  
-  .LineBottomOuter {
-    color: colors.$brown;
-    -gtk-icon-transform: rotate(90deg) scaleX(-1);
+
+  .LineBottomMed {
+    @include general_line;
+  }
+
+  .LineBottomLong {
+    @include general_line;
   }
 
   .ArcBottomOuter {
