@@ -1,10 +1,73 @@
 import { Gdk, Gtk } from "ags/gtk4"
-import { execAsync } from "ags/process"
+import { exec, execAsync } from "ags/process"
 import { createPoll } from "ags/time"
 import Battery from "gi://AstalBattery"
 import { createBinding } from "ags"
 import { ReverseFinalBarline } from "./ReverseFinalBarline"
 import { WorkspaceButton } from "./Workspaces"
+import app from "ags/gtk4/app"
+import { readFile, writeFile } from "ags/file"
+
+import { createState } from "ags"
+
+function LightButton() {
+
+  let colors_scss = readFile("./style/colors/colors.scss");
+  const [light, setLight] = createState(colors_scss.includes("light"))
+
+  function light_toggle() {
+    setLight((v) => !v)
+
+    exec(["bash","-c",`agsv1 -r dark.value=${!light()} && agsv1 -b banner -c ~/dotfiles/.config/agsv1/windows/banner/banner.js`]);
+
+    let colors_scss = readFile("./style/colors/colors.scss");
+    
+    if (light()) {
+      colors_scss = colors_scss.replaceAll("dark","light");
+    } else {
+      colors_scss = colors_scss.replaceAll("light","dark");
+    }
+
+    writeFile("./style/colors/colors.scss",colors_scss);
+    exec("sass ./style/style.scss ./style/style.css");
+    app.reset_css();
+    app.apply_css("./style/style.css");
+
+    if (light()) {
+      exec(["bash","-c","kill -SIGUSR2 $(pgrep -x foot) 2>/dev/null || true"]);
+    } else {
+      exec(["bash","-c","kill -SIGUSR1 $(pgrep -x foot) 2>/dev/null || true"]);
+    }
+
+     let hyprconf = readFile("../hypr/hyprland.lua");
+    
+     if (light()) {
+      hyprconf = hyprconf.replaceAll("dark","light");
+    } else {
+      hyprconf = hyprconf.replaceAll("light","dark");
+    }
+    writeFile("../hypr/hyprland.lua",hyprconf)
+    exec("hyprctl reload");
+
+    let hyprlockconf = readFile("../hypr/hyprlock.conf");
+    if (light()) {
+        hyprlockconf = hyprlockconf.replaceAll("dark","light");
+    } else {
+        hyprlockconf = hyprlockconf.replaceAll("light","dark");
+    }
+    writeFile("../hypr/hyprlock.conf",hyprlockconf)
+  }
+  const label = light((c) => light()?"Light":"Dark")
+
+  return (
+    
+    <button
+      onClicked={light_toggle}      
+    >
+      <label label={label}/>
+    </button>
+  )
+}
 
 export function Bar({gdkmonitor}:{gdkmonitor: Gdk.Monitor}) {
   const width = gdkmonitor.get_geometry().width;
@@ -96,13 +159,7 @@ function System() {
                 has-arrow={false}
               >
                 <box orientation={Gtk.Orientation.VERTICAL}>
-                  <box>
-                    <label label="Light Mode"/>
-                    <switch
-                      active={true}
-                      onNotifyActive={({active}) => print(active)}
-                    /> 
-                  </box>
+                  <LightButton/>
                   <button
                     onClicked={() => execAsync(["bash","-c","hyprshade toggle gridlines"])}
                   >

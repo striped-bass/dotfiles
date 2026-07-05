@@ -1,0 +1,170 @@
+@keyframes oscillate_top {
+  to {
+    transform: translate(-10px, -10px);
+  }
+}
+@keyframes oscillate_bottom {
+  to {
+    transform: translate(10px, 10px);
+  }
+}
+window.Wallpaper .LineTopShort {
+  background: linear-gradient(to top right, transparent 0%, transparent calc(50% - 2px), #48463d 50%, transparent calc(50% + 2px), transparent 100%);
+  opacity: 0.3;
+}
+window.Wallpaper .LineTopMed {
+  background: linear-gradient(to top right, transparent 0%, transparent calc(50% - 2px), #48463d 50%, transparent calc(50% + 2px), transparent 100%);
+  opacity: 0.3;
+}
+window.Wallpaper .LineTopLong {
+  background: linear-gradient(to top right, transparent 0%, transparent calc(50% - 2px), #48463d 50%, transparent calc(50% + 2px), transparent 100%);
+  opacity: 0.3;
+}
+window.Wallpaper .ArcTopOuter {
+  border-bottom: 2.5px solid #48463d;
+  border-right: 2.5px solid #48463d;
+  border-radius: 0 0 100% 0;
+  opacity: 0.25;
+  animation: oscillate_top 3s ease alternate infinite;
+}
+window.Wallpaper .ArcTopInner {
+  border-bottom: 2.5px solid #48463d;
+  border-right: 2.5px solid #48463d;
+  border-radius: 0 0 100% 0;
+  opacity: 0.25;
+  animation: oscillate_top 4s ease alternate infinite;
+}
+window.Wallpaper .LineBottomShort {
+  background: linear-gradient(to top right, transparent 0%, transparent calc(50% - 2px), #48463d 50%, transparent calc(50% + 2px), transparent 100%);
+  opacity: 0.3;
+}
+window.Wallpaper .LineBottomMed {
+  background: linear-gradient(to top right, transparent 0%, transparent calc(50% - 2px), #48463d 50%, transparent calc(50% + 2px), transparent 100%);
+  opacity: 0.3;
+}
+window.Wallpaper .LineBottomLong {
+  background: linear-gradient(to top right, transparent 0%, transparent calc(50% - 2px), #48463d 50%, transparent calc(50% + 2px), transparent 100%);
+  opacity: 0.3;
+}
+window.Wallpaper .ArcBottomOuter {
+  border-top: 2.5px solid #48463d;
+  border-left: 2.5px solid #48463d;
+  border-radius: 100% 0 0 0;
+  opacity: 0.25;
+  animation: oscillate_bottom 3s ease alternate infinite;
+}
+window.Wallpaper .ArcBottomInner {
+  border-top: 2.5px solid #48463d;
+  border-left: 2.5px solid #48463d;
+  border-radius: 100% 0 0 0;
+  opacity: 0.25;
+  animation: oscillate_bottom 4s ease alternate infinite;
+}
+
+.BorderBox image {
+  color: #48463d;
+}
+.BorderBox image.RightCap {
+  -gtk-icon-transform: scaleX(-1);
+}
+
+.HorizontalSeparator {
+  background-color: #48463d;
+}
+
+.TopSeparator {
+  background-color: #48463d;
+}
+
+.BottomSeparator {
+  background-color: #48463d;
+}
+
+.WorkspaceButton {
+  border-radius: 0px;
+  background: linear-gradient(to right, rgba(72, 70, 61, 0.25) 50%, #48463d 50%);
+  background-size: 200%;
+  transition: background 0.1s cubic-bezier(0.15, 0.79, 0, 1);
+}
+.WorkspaceButton .LeftLabel {
+  color: #c2bda6;
+  background-color: #48463d;
+}
+.WorkspaceButton .RightLabel {
+  color: #48463d;
+}
+
+.WorkspaceButton:hover {
+  box-shadow: 7px 7px 3px rgba(72, 70, 61, 0.25);
+  background-position: -100%;
+  transition: background 1s cubic-bezier(0.15, 0.79, 0, 1);
+}
+.WorkspaceButton:hover .LeftLabel {
+  color: #48463d;
+  background-color: #c2bda6;
+}
+.WorkspaceButton:hover .RightLabel {
+  color: #c2bda6;
+}
+
+.ReverseFinalBarline separator {
+  background-color: #48463d;
+  opacity: 0.25;
+}
+
+.Bar label {
+  color: #48463d;
+  font-size: 1rem;
+}
+.Bar .SystemPopover contents {
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
+}
+.Bar .Heading {
+  padding-top: 30px;
+  padding-bottom: 40px;
+  font-size: 3rem;
+  letter-spacing: 5px;
+  text-shadow: 6px 6px 1px rgba(72, 70, 61, 0.25);
+}
+.Bar .Calendar header {
+  color: #c2bda6;
+  background-color: #48463d;
+}
+.Bar .Calendar header stack.month label {
+  color: #c2bda6;
+}
+.Bar .Calendar header label.year {
+  color: #c2bda6;
+}
+.Bar .Calendar grid {
+  background-color: #c2bda6;
+}
+.Bar .Calendar grid label.day-name {
+  color: #48463d;
+  background-color: #c2bda6;
+}
+.Bar .Calendar grid label {
+  color: #48463d;
+  background-color: #cdc8b0;
+}
+.Bar .Calendar grid .today {
+  border-radius: 0px;
+  color: #c2bda6;
+  background-color: #cd664d;
+}
+.Bar .Calendar grid .other-month {
+  color: #48463d;
+  background-color: #aca893;
+}
+
+window.BarAndBorders .BottomBorder {
+  margin-bottom: -30px;
+}
+
+* {
+  font-family: FOT-Rodin Pro M, Roboto, sans-serif;
+}
+
+/*# sourceMappingURL=style.css.map */

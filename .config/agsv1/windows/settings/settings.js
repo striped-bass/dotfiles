@@ -2,7 +2,6 @@ import { Widget, App, Utils } from "../../imports.js";
 import { NierButtonGroup, NierButton } from "../../nier/buttons.js";
 import { SCREEN_WIDTH, SCREEN_HEIGHT, arradd, arrremove, get_cursor, css} from "../../util.js";
 import { BluetoothGroup } from "../../widgets/bluetooth_group.js";
-import { AppearanceGroup } from "../../widgets/appearance_group.js";
 import { VolumeGroup } from "../../widgets/volume_group.js";
 import { WifiGroup } from "../../widgets/wifi_group.js";
 
@@ -13,11 +12,6 @@ const { Gdk } = imports.gi;
 const parentConfigDir = App.configDir.split("/").slice(0,-2).join("/");
 
 const parentAssetsDir = () => `${parentConfigDir}/assets/${dark.value ? "dark" : "light"}`;
-
-const appearance_page = (
-  go_to = (button) => {}) => {
-    return AppearanceGroup({go_to,passAssetsDir:parentAssetsDir,passConfigDir:parentConfigDir});
-};
 
 const volume_page = (
   go_to = (buttons, parent_button) => {
@@ -210,17 +204,6 @@ const NierSettingPane = (
               hpack: "start",
               label: "SYSTEM",
               classNames: ["system-heading"],
-            }),
-            
-            NierButton({
-              useAssetsDir: parentAssetsDir,
-              label: "Appearance",
-              handleClick: async (self, event) => {
-                page1_selected = ensure_only_selected(self, page1_selected);
-                await go_page2(appearance_page(go_page3), self).catch((e) => {
-                  console.log(e);
-                });
-              },
             }),
             
             NierButton({
