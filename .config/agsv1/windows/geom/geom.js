@@ -226,7 +226,7 @@ const NierGeom = ({
     anchor: ["top", "left", "bottom", "right"],
     exclusivity: "ignore",
     layer: "overlay",
-    focusable: true,
+    keymode: true,
     setup: (self) =>
       Utils.timeout(1, () => {
         cell_grid.connect("draw", (self, context) => {
@@ -445,9 +445,9 @@ const NierGeom = ({
     }),
   });
 
-export default {
-    style: App.configDir + "/style.css",
-    windows: [
-        NierGeom({})
-    ]
-}
+App.config({
+  style: App.configDir + "/style.css",
+  windows: [
+    NierGeom({})
+  ],
+});
