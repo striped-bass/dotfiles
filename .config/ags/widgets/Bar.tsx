@@ -69,6 +69,32 @@ function LightButton() {
   )
 }
 
+
+function ShaderButton() {
+  const [shader, setShader] = createState(true)
+
+  function shader_toggle() {
+    setShader((v) => !v)
+    if (shader()) {
+      exec(["bash","-c","hyprshade on gridlines"]);
+    } else {
+      exec(["bash","-c","hyprshade off"]);
+    }
+
+  }
+
+  const label = shader((c) => shader()?"Shader On":"Shader Off")
+
+  return (
+    
+    <button
+      onClicked={shader_toggle}      
+    >
+      <label label={label}/>
+    </button>
+  )
+}
+
 export function Bar({gdkmonitor}:{gdkmonitor: Gdk.Monitor}) {
   const width = gdkmonitor.get_geometry().width;
   const quotient = Math.floor(width/25);
@@ -155,11 +181,7 @@ function System() {
               >
                 <box orientation={Gtk.Orientation.VERTICAL}>
                   <LightButton/>
-                  <button
-                    onClicked={() => execAsync(["bash","-c","hyprshade toggle gridlines"])}
-                  >
-                    <label label="Shader"/>
-                  </button>
+                  <ShaderButton/>
                 </box>
               </popover>
             </menubutton>
