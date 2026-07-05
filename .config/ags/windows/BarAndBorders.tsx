@@ -27,7 +27,7 @@ export function BarAndBorders(gdkmonitor: Gdk.Monitor) {
           $type = "start"
           orientation = {Gtk.Orientation.VERTICAL}
         >
-          <Bar/>
+          <Bar gdkmonitor={gdkmonitor}/>
           <Border gdkmonitor={gdkmonitor}/>
         </box>
         <box

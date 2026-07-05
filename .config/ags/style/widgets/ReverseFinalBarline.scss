@@ -1,0 +1,8 @@
+@use "../colors_light.scss" as colors;
+
+.ReverseFinalBarline {
+    separator {
+        background-color: colors.$brown;
+        opacity: 0.25;
+    }
+}
