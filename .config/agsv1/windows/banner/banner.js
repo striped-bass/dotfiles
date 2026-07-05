@@ -45,7 +45,6 @@ const pos_mapper = (x,y,size1_x,size1_y,size2_x,size2_y) => {
   return [x_ratio*size2_x,y_ratio*size2_y];
 }
 
-
 let dark = false
 
 await Utils.execAsync("agsv1 -r dark.value").then((res) => {
@@ -102,10 +101,6 @@ const draw_triangle = (context, center_x,center_y, width, height, color, inverte
         ypoint[1]+vector_y_left[1]/2+vector_y_right[1]/2
     ];
   } 
-
-  
-
-  
 
   context.moveTo(...leftpoint);
   context.lineTo(...rightpoint);
@@ -341,7 +336,7 @@ const NierGeom = ({
                 }
                 if (time_ratio > 1) { // this cud need changing
                     await new Promise((r) => setTimeout(r, 100));
-                    await execAsync(`agsv1 -r dark.value=${!dark}`)
+                    // await execAsync(`agsv1 -r dark.value=${!dark}`)
                     await new Promise((r) => setTimeout(r, 1500));
                     ////////////////////////////////////////////////////////////////////////////////////////////////////////
                     // third part
@@ -437,8 +432,8 @@ const NierGeom = ({
     }),
   });
 
-export default {
-    windows: [
-        NierGeom({})
-    ]
-}
+App.config({
+  windows: [
+    NierGeom({})
+  ],
+});
