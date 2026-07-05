@@ -22,7 +22,7 @@ end)
 
 -- Switch workspaces
 -- Move active window to a workspace
-for i = 1, 10 do
+for i = 1, 5 do
     local key = i % 10 -- 10 maps to key 0
     hl.bind(mod1 .. " + " .. key, hl.dsp.focus({ workspace = i}))
     hl.bind(mod2 .. " + " .. key, hl.dsp.window.move({ workspace = i }))

@@ -105,12 +105,7 @@ export function Bar({gdkmonitor}:{gdkmonitor: Gdk.Monitor}) {
         <WorkspaceButton workspace_id={3}/>
         <WorkspaceButton workspace_id={4}/>
         <WorkspaceButton workspace_id={5}/>
-        <WorkspaceButton workspace_id={6}/>
-        <WorkspaceButton workspace_id={7}/>
-        <WorkspaceButton workspace_id={8}/>
-        <WorkspaceButton workspace_id={9}/>
-        <WorkspaceButton workspace_id={10}/>
-
+        
         <menubutton>
           <box>
             <label label="⧗"/>
