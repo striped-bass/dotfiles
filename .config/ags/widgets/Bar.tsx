@@ -90,9 +90,27 @@ function System() {
         <box>
           <ReverseFinalBarline/>
           <box orientation={Gtk.Orientation.VERTICAL}>
-            <button>
+            <menubutton direction={Gtk.ArrowType.RIGHT}>
               <label label="⬛ Appearance"/>
-            </button>
+              <popover
+                has-arrow={false}
+              >
+                <box orientation={Gtk.Orientation.VERTICAL}>
+                  <box>
+                    <label label="Light Mode"/>
+                    <switch
+                      active={true}
+                      onNotifyActive={({active}) => print(active)}
+                    /> 
+                  </box>
+                  <button
+                    onClicked={() => execAsync(["bash","-c","hyprshade toggle gridlines"])}
+                  >
+                    <label label="Shader"/>
+                  </button>
+                </box>
+              </popover>
+            </menubutton>
             <button>
               <label label="⬛ Sound"/>
             </button>
@@ -104,27 +122,27 @@ function System() {
             </button>
             <menubutton direction={Gtk.ArrowType.RIGHT}>
               <label label="⬛ Power"/>
-                <popover
-                  has-arrow={false}
-                >
-                  <box orientation={Gtk.Orientation.VERTICAL}>
-                    <button class="WorkspaceButton"
-                      onClicked={() => execAsync(["bash","-c","hyprctl dispatch 'hl.exec_cmd(\"hyprshutdown -t Logout...\")'"])}
-                    >
-                      <label label="Logout"/>
-                    </button>
-                    <button
-                      onClicked={() => execAsync(["bash","-c","hyprctl dispatch 'hl.exec_cmd(\"hyprshutdown -t Shutdown... -p poweroff\")'"])}
-                    >
-                      <label label="Shutdown"/>
-                    </button>
-                    <button
-                      onClicked={() => execAsync(["bash","-c","hyprctl dispatch 'hl.exec_cmd(\"hyprshutdown -t Reboot... -p reboot\")'"])}
-                    >
-                      <label label="Reboot"/>
-                    </button>
-                  </box>
-                </popover>
+              <popover
+                has-arrow={false}
+              >
+                <box orientation={Gtk.Orientation.VERTICAL}>
+                  <button class="WorkspaceButton"
+                    onClicked={() => execAsync(["bash","-c","hyprctl dispatch 'hl.exec_cmd(\"hyprshutdown -t Logout...\")'"])}
+                  >
+                    <label label="Logout"/>
+                  </button>
+                  <button
+                    onClicked={() => execAsync(["bash","-c","hyprctl dispatch 'hl.exec_cmd(\"hyprshutdown -t Shutdown... -p poweroff\")'"])}
+                  >
+                    <label label="Shutdown"/>
+                  </button>
+                  <button
+                    onClicked={() => execAsync(["bash","-c","hyprctl dispatch 'hl.exec_cmd(\"hyprshutdown -t Reboot... -p reboot\")'"])}
+                  >
+                    <label label="Reboot"/>
+                  </button>
+                </box>
+              </popover>
             </menubutton>
           </box>
         </box>
