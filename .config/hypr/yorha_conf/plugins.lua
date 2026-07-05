@@ -9,7 +9,7 @@ hl.config({
             bar_text_font  = "FOT-Rodin Pro M",
             bar_text_align = "left",
             bar_color      = brown,
-            -- col.text = brown, -- Bug: Not sure how to specify key for Lua
+            ["col.text"]   = tan,
         },
     },
 })
