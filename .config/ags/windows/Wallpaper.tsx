@@ -32,8 +32,18 @@ export function Wallpaper(gdkmonitor: Gdk.Monitor) {
           valign={Gtk.Align.START}
           widthRequest={(1-line_offset_ratio)*width/2}
           heightRequest={(1-line_offset_ratio)*width/2}
-          css={["transform: translate(", line_offset.toString(),"px,0px);"].join("")}
+          margin-start={line_offset}
         />
+
+        {/* <Gtk.Separator
+          $type="overlay"
+          class="Test"
+          halign={Gtk.Align.START}
+          valign={Gtk.Align.START}
+          widthRequest={3}
+          heightRequest={500}
+          css="background-color:red;transform:rotate(-45deg) translateX(250px) translateY(250px) ;"
+        /> */}
 
         <box
           $type="overlay"
@@ -42,7 +52,7 @@ export function Wallpaper(gdkmonitor: Gdk.Monitor) {
           valign={Gtk.Align.START}
           widthRequest={width/2}
           heightRequest={width/2}
-          css={["transform: translate(0px,",line_offset.toString(),"px);"].join("")}
+          margin-top={line_offset}
         />
 
         <box
@@ -79,7 +89,7 @@ export function Wallpaper(gdkmonitor: Gdk.Monitor) {
           valign={Gtk.Align.END}
           widthRequest={(1-2*line_offset_ratio)*width/2}
           heightRequest={(1-2*line_offset_ratio)*width/2}
-          css={["transform: translate(0px,",-line_offset.toString(),"px);"].join("")}
+          margin-bottom={line_offset}
         />
 
         <box
@@ -89,7 +99,7 @@ export function Wallpaper(gdkmonitor: Gdk.Monitor) {
           valign={Gtk.Align.END}
           widthRequest={(1-line_offset_ratio)*width/2}
           heightRequest={(1-line_offset_ratio)*width/2}
-          css={["transform: translate(",-line_offset.toString(),"px,0px);"].join("")}
+          margin-end={line_offset}
         />
 
         <box
