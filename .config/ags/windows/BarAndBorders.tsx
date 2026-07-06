@@ -5,6 +5,8 @@ import {Bar} from "../widgets/Bar"
 
 export function BarAndBorders(gdkmonitor: Gdk.Monitor) {
   const { TOP, BOTTOM, LEFT, RIGHT} = Astal.WindowAnchor;
+  const width = gdkmonitor.get_geometry().width;
+  const border_offset = -(Math.floor(width/25)/2);
   
   return (
     <window
@@ -34,6 +36,7 @@ export function BarAndBorders(gdkmonitor: Gdk.Monitor) {
           $type = "end"
           orientation = {Gtk.Orientation.VERTICAL}
           class = "BottomBorder"
+          css={`margin-bottom:${border_offset}px;`}
         >
           <Border gdkmonitor={gdkmonitor}/>
         </box>
