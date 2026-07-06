@@ -159,10 +159,6 @@ window.Wallpaper .ArcBottomInner {
   background-color: #aca893;
 }
 
-window.BarAndBorders .BottomBorder {
-  margin-bottom: -30px;
-}
-
 * {
   font-family: FOT-Rodin Pro M, Roboto, sans-serif;
 }
