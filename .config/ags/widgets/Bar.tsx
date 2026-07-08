@@ -107,10 +107,15 @@ export function Bar({gdkmonitor}:{gdkmonitor: Gdk.Monitor}) {
 
   return(  
     <box class="Bar">
-      <label
-          widthRequest={cap_width}
-          label={time}
-      />
+      <centerbox widthRequest={cap_width}>
+        <image
+            $type="center"
+            iconName={createBinding(battery, "batteryIconName")}
+            cssClasses={["icon"]}
+            // $={(self) => {self.set_tooltip_text(createBinding(battery, "percentage").as(
+                // (p) => `${Math.floor(p * 100)}%`)}}
+        />
+      </centerbox>
       
       <ReverseFinalBarline/>
 
@@ -141,15 +146,11 @@ export function Bar({gdkmonitor}:{gdkmonitor: Gdk.Monitor}) {
         <WorkspaceButton workspace_id={5}/>
             
       </box>
-        <centerbox widthRequest={cap_width}>
-          <image
-              $type="center"
-              iconName={createBinding(battery, "batteryIconName")}
-              cssClasses={["icon"]}
-              // $={(self) => {self.set_tooltip_text(createBinding(battery, "percentage").as(
-                  // (p) => `${Math.floor(p * 100)}%`)}}
-          />
-        </centerbox>
+      <label
+          widthRequest={cap_width}
+          label={time}
+      />
+        
     </box>
   )
 }
