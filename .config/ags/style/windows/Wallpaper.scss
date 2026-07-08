@@ -36,7 +36,7 @@ window.Wallpaper {
     border-right: 2.5px solid colors.$brown;
     border-radius: 0 0 100% 0;
     opacity: 0.25;
-    animation: oscillate_top 3s ease alternate infinite;
+    animation: oscillate_top 6s ease alternate infinite;
   }
 
   .ArcTopInner {
@@ -44,7 +44,7 @@ window.Wallpaper {
     border-right: 2.5px solid colors.$brown;
     border-radius: 0 0 100% 0;
     opacity: 0.25;
-    animation: oscillate_top 4s ease alternate infinite;
+    animation: oscillate_top 8s ease alternate infinite;
   }
 
   .LineBottomShort {
@@ -64,7 +64,7 @@ window.Wallpaper {
     border-left: 2.5px solid colors.$brown;
     border-radius: 100% 0 0 0;
     opacity: 0.25;
-    animation: oscillate_bottom 3s ease alternate infinite;
+    animation: oscillate_bottom 6s ease alternate infinite;
   }
 
   .ArcBottomInner {
@@ -72,7 +72,7 @@ window.Wallpaper {
     border-left: 2.5px solid colors.$brown;
     border-radius: 100% 0 0 0;
     opacity: 0.25;
-    animation: oscillate_bottom 4s ease alternate infinite;
+    animation: oscillate_bottom 8s ease alternate infinite;
   }
   
 }
