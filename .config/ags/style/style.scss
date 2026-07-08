@@ -1,6 +1,8 @@
 @use "windows/Wallpaper.scss";
-@use "windows/BarAndBorders.scss";
+@use "widgets/Bar.scss";
+@use "widgets/Border.scss";
+
 
 * {
-  font-family: FOT-Rodin Pro M, Roboto, sans-serif;
+  font-family: FOT-Rodin Pro M, sans-serif;
 }

@@ -1,14 +1,12 @@
+import app from "ags/gtk4/app"
 import { Gdk, Gtk } from "ags/gtk4"
 import { exec, execAsync } from "ags/process"
 import { createPoll } from "ags/time"
 import Battery from "gi://AstalBattery"
-import { createBinding } from "ags"
+import { createBinding, createState } from "ags"
 import { ReverseFinalBarline } from "./ReverseFinalBarline"
 import { WorkspaceButton } from "./Workspaces"
-import app from "ags/gtk4/app"
 import { readFile, writeFile } from "ags/file"
-
-import { createState } from "ags"
 
 function LightButton() {
 
@@ -76,9 +74,9 @@ function ShaderButton() {
   function shader_toggle() {
     setShader((v) => !v)
     if (shader()) {
-      exec(["bash","-c","hyprshade on gridlines"]);
+      execAsync(["bash","-c","hyprshade on gridlines"]);
     } else {
-      exec(["bash","-c","hyprshade off"]);
+      execAsync(["bash","-c","hyprshade off"]);
     }
 
   }
@@ -99,29 +97,39 @@ export function Bar({gdkmonitor}:{gdkmonitor: Gdk.Monitor}) {
   const width = gdkmonitor.get_geometry().width;
   const quotient = Math.floor(width/25);
   const remainder = width % quotient;
-  const barline_offset = quotient - remainder/2;
+  const cap_width = quotient + remainder/2;
 
   const time = createPoll("", 1000, () => Temporal.Now.plainDateTimeISO().toLocaleString("en-us", {
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: false,
-  }));
+    hour: "numeric",
+    minute: "numeric",
+  }).replace(/ AM| PM/,"") );
   const battery = Battery.get_default();
 
   return(  
-    <box margin-start={barline_offset}>
-      <ReverseFinalBarline/>
+    <box class="Bar">
+      <label
+          widthRequest={cap_width}
+          label={time}
+      />
       
+      <ReverseFinalBarline/>
+
       <box
-        class="Bar"
-        hexpand={true}
-        homogeneous={true}
-        spacing={5}
+          hexpand={true}
+          homogeneous={true}
+          spacing={25}
       >
-        <menubutton halign={Gtk.Align.START}>
-          <box>
-            <label label="⏻"/>
-            <label label="SYSTEM"/>
+        <menubutton>
+          <box class="WorkspaceButton">
+            <label
+              class="LeftLabel"
+              label="⏻"
+              width-chars={3}
+            />
+            <label
+              class="RightLabel"
+              label="SYSTEM"
+            />
           </box>
           <System/>
         </menubutton>
@@ -131,30 +139,17 @@ export function Bar({gdkmonitor}:{gdkmonitor: Gdk.Monitor}) {
         <WorkspaceButton workspace_id={3}/>
         <WorkspaceButton workspace_id={4}/>
         <WorkspaceButton workspace_id={5}/>
-        
-        <menubutton>
-          <box>
-            <label label="⧗"/>
-            <label label={time}/>
-          </box>
-          <popover>
-            <Gtk.Calendar class="Calendar"/>
-          </popover>
-        </menubutton>
-        
-        <menubutton>
-          <box>
-            <image
-              iconName={createBinding(battery, "batteryIconName")}
-              iconSize={Gtk.IconSize.NORMAL}
-              cssClasses={["icon"]}
-            />
-            <label label={createBinding(battery, "percentage").as(
-              (p) => `${Math.floor(p * 100)}%`,
-            )}/>
-          </box>
-        </menubutton>
+            
       </box>
+        <centerbox widthRequest={cap_width}>
+          <image
+              $type="center"
+              iconName={createBinding(battery, "batteryIconName")}
+              cssClasses={["icon"]}
+              // $={(self) => {self.set_tooltip_text(createBinding(battery, "percentage").as(
+                  // (p) => `${Math.floor(p * 100)}%`)}}
+          />
+        </centerbox>
     </box>
   )
 }

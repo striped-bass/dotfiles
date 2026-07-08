@@ -25,14 +25,14 @@ window.Wallpaper .ArcTopOuter {
   border-right: 2.5px solid #48463d;
   border-radius: 0 0 100% 0;
   opacity: 0.25;
-  animation: oscillate_top 3s ease alternate infinite;
+  animation: oscillate_top 6s ease alternate infinite;
 }
 window.Wallpaper .ArcTopInner {
   border-bottom: 2.5px solid #48463d;
   border-right: 2.5px solid #48463d;
   border-radius: 0 0 100% 0;
   opacity: 0.25;
-  animation: oscillate_top 4s ease alternate infinite;
+  animation: oscillate_top 8s ease alternate infinite;
 }
 window.Wallpaper .LineBottomShort {
   background: linear-gradient(to top right, transparent 0%, transparent calc(50% - 2px), #48463d 50%, transparent calc(50% + 2px), transparent 100%);
@@ -51,25 +51,14 @@ window.Wallpaper .ArcBottomOuter {
   border-left: 2.5px solid #48463d;
   border-radius: 100% 0 0 0;
   opacity: 0.25;
-  animation: oscillate_bottom 3s ease alternate infinite;
+  animation: oscillate_bottom 6s ease alternate infinite;
 }
 window.Wallpaper .ArcBottomInner {
   border-top: 2.5px solid #48463d;
   border-left: 2.5px solid #48463d;
   border-radius: 100% 0 0 0;
   opacity: 0.25;
-  animation: oscillate_bottom 4s ease alternate infinite;
-}
-
-.BorderBox image {
-  color: #48463d;
-}
-.BorderBox image.RightCap {
-  -gtk-icon-transform: scaleX(-1);
-}
-
-.HorizontalSeparator {
-  background-color: #48463d;
+  animation: oscillate_bottom 8s ease alternate infinite;
 }
 
 .TopSeparator {
@@ -112,6 +101,10 @@ window.Wallpaper .ArcBottomInner {
   opacity: 0.25;
 }
 
+.Bar {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
 .Bar label {
   color: #48463d;
   font-size: 1rem;
@@ -159,8 +152,19 @@ window.Wallpaper .ArcBottomInner {
   background-color: #aca893;
 }
 
+.BorderBox image {
+  color: #48463d;
+}
+.BorderBox image.RightCap {
+  -gtk-icon-transform: scaleX(-1);
+}
+
+.HorizontalSeparator {
+  background-color: #48463d;
+}
+
 * {
-  font-family: FOT-Rodin Pro M, Roboto, sans-serif;
+  font-family: FOT-Rodin Pro M, sans-serif;
 }
 
 /*# sourceMappingURL=style.css.map */
