@@ -93,11 +93,18 @@ function ShaderButton() {
   )
 }
 
-export function Bar({gdkmonitor}:{gdkmonitor: Gdk.Monitor}) {
+export function Bar({
+  gdkmonitor,
+  border_unit_count,
+  }:{
+  gdkmonitor: Gdk.Monitor
+  border_unit_count: number
+  }) {
+
   const width = gdkmonitor.get_geometry().width;
-  const quotient = Math.floor(width/25);
-  const remainder = width % quotient;
-  const cap_width = quotient + remainder/2;
+  const border_unit_size = Math.floor(width/border_unit_count);
+  const remainder = width % border_unit_size;
+  const border_cap_width = border_unit_size + remainder/2;
 
   const time = createPoll("", 1000, () => Temporal.Now.plainDateTimeISO().toLocaleString("en-us", {
     hour: "numeric",
@@ -107,7 +114,7 @@ export function Bar({gdkmonitor}:{gdkmonitor: Gdk.Monitor}) {
 
   return(  
     <box class="Bar">
-      <centerbox widthRequest={cap_width}>
+      <centerbox widthRequest={border_cap_width}>
         <image
             $type="center"
             iconName={createBinding(battery, "batteryIconName")}
@@ -147,7 +154,7 @@ export function Bar({gdkmonitor}:{gdkmonitor: Gdk.Monitor}) {
             
       </box>
       <label
-          widthRequest={cap_width}
+          widthRequest={border_cap_width}
           label={time}
       />
         

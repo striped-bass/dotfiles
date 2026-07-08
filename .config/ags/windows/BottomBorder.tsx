@@ -1,11 +1,14 @@
 import app from "ags/gtk4/app"
-import { Astal, Gdk, Gtk } from "ags/gtk4"
+import { Astal, Gdk } from "ags/gtk4"
 import {Border} from "../widgets/Border"
 
 export function BottomBorder(gdkmonitor: Gdk.Monitor) {
   const {BOTTOM, LEFT, RIGHT} = Astal.WindowAnchor;
+  const border_unit_count = 25;
   const width = gdkmonitor.get_geometry().width;
-  const border_offset = -0.7*(Math.floor(width/25));
+  const border_offset_ratio = 0.7;
+  const border_unit_size = Math.floor(width/border_unit_count);
+  const border_offset = -border_offset_ratio*border_unit_size;
   
   return (
     <window
@@ -18,9 +21,11 @@ export function BottomBorder(gdkmonitor: Gdk.Monitor) {
       anchor={BOTTOM | LEFT | RIGHT}
       application={app}
     >
-      <box css={`margin-bottom:${border_offset}px;`}>
-        <Border gdkmonitor={gdkmonitor}/>
-      </box>
+      <Border
+        gdkmonitor={gdkmonitor}
+        border_unit_count={border_unit_count}
+        css={`margin-bottom:${border_offset}px;`}
+      />
     </window>
   )
 }
