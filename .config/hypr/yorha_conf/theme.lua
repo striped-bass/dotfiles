@@ -24,7 +24,7 @@ hl.config({
         shadow = {
             range          = 1,
             render_power   = 1,
-            offset         = { 20, 20 },
+            offset         = { 10, 10 },
             color          = brown .. opacityHi,
             color_inactive = brown .. opacityLo,
         },
