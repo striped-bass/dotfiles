@@ -58,7 +58,6 @@ function LightButton() {
   const label = light((c) => light()?"Light":"Dark")
 
   return (
-    
     <button
       onClicked={light_toggle}      
     >
@@ -66,7 +65,6 @@ function LightButton() {
     </button>
   )
 }
-
 
 function ShaderButton() {
   const [shader, setShader] = createState(true)
@@ -78,13 +76,11 @@ function ShaderButton() {
     } else {
       execAsync(["bash","-c","hyprshade off"]);
     }
-
   }
 
   const label = shader((c) => shader()?"Shader On":"Shader Off")
 
   return (
-    
     <button
       onClicked={shader_toggle}      
     >
@@ -106,18 +102,10 @@ export function Bar({
   const remainder = width % border_unit_size;
   const border_cap_width = border_unit_size + Math.floor(remainder/2);
 
-  const battery = Battery.get_default();
-
   return(  
     <box class="Bar">
       <centerbox widthRequest={border_unit_size}>
-        <image
-            $type="center"
-            iconName={createBinding(battery, "batteryIconName")}
-            cssClasses={["icon"]}
-            // $={(self) => {self.set_tooltip_text(createBinding(battery, "percentage").as(
-                // (p) => `${Math.floor(p * 100)}%`)}}
-        />
+        <BatteryStatus/>
       </centerbox>
       
       <ReverseFinalBarline/>
@@ -151,6 +139,19 @@ export function Bar({
       </box>
       <Clock width={border_cap_width}/>
     </box>
+  )
+}
+
+function BatteryStatus() {
+  const battery = Battery.get_default();
+  return (
+    <image
+      $type="center"
+      iconName={createBinding(battery, "batteryIconName")}
+      cssClasses={["icon"]}
+      // $={(self) => {self.set_tooltip_text(createBinding(battery, "percentage").as(
+      // (p) => `${Math.floor(p * 100)}%`)}}
+    />
   )
 }
 
