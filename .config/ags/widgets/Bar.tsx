@@ -106,10 +106,6 @@ export function Bar({
   const remainder = width % border_unit_size;
   const border_cap_width = border_unit_size + Math.floor(remainder/2);
 
-  const time = createPoll("", 1000, () => Temporal.Now.plainDateTimeISO().toLocaleString("en-us", {
-    hour: "numeric",
-    minute: "numeric",
-  }).replace(/ AM| PM/,"") );
   const battery = Battery.get_default();
 
   return(  
@@ -153,11 +149,23 @@ export function Bar({
         <WorkspaceButton workspace_id={5}/>
             
       </box>
-      <label
-          widthRequest={border_cap_width}
-          label={time}
-      />
+      <Clock width={border_cap_width}/>
     </box>
+  )
+}
+
+function Clock({width}:{width:number}) {
+  const time = createPoll("", 1000, () => Temporal.Now.plainDateTimeISO().toLocaleString("en-us", {
+    hour: "numeric",
+    minute: "numeric",
+  }).replace(/ AM| PM/,"") );
+
+  return(
+    <label
+      widthRequest={width}
+      class="Clock"
+      label={time}
+    />
   )
 }
 

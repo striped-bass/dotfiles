@@ -8,6 +8,10 @@ $small_font_size: 1rem;
     padding-top: 10px;
     padding-bottom: 10px;
 
+    .Clock {
+        font-weight:bold;
+    }
+
     label {
         color: colors.$brown;
         font-size: $small_font_size;
