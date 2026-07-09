@@ -1,7 +1,11 @@
 @use "../colors/colors.scss" as colors;
 
 .ReverseFinalBarline {
-    separator {
+    .ThickBarline {
+        background-color: colors.$brown;
+        opacity: 0.25;
+    }
+    .ThinBarline {
         background-color: colors.$brown;
         opacity: 0.25;
     }

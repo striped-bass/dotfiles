@@ -104,7 +104,7 @@ export function Bar({
   const width = gdkmonitor.get_geometry().width;
   const border_unit_size = Math.floor(width/border_unit_count);
   const remainder = width % border_unit_size;
-  const border_cap_width = border_unit_size + remainder/2;
+  const border_cap_width = border_unit_size + Math.floor(remainder/2);
 
   const time = createPoll("", 1000, () => Temporal.Now.plainDateTimeISO().toLocaleString("en-us", {
     hour: "numeric",
@@ -114,7 +114,7 @@ export function Bar({
 
   return(  
     <box class="Bar">
-      <centerbox widthRequest={border_cap_width}>
+      <centerbox widthRequest={border_unit_size}>
         <image
             $type="center"
             iconName={createBinding(battery, "batteryIconName")}
@@ -157,7 +157,6 @@ export function Bar({
           widthRequest={border_cap_width}
           label={time}
       />
-        
     </box>
   )
 }
@@ -167,7 +166,7 @@ function System() {
     <popover 
       has-arrow={false}
       class="SystemPopover"
-      $={(self) => {self.set_offset(-2,0)}}
+      $={(self) => {self.set_offset(-45,0)}}
     >
       <box orientation={Gtk.Orientation.VERTICAL}>
         <label

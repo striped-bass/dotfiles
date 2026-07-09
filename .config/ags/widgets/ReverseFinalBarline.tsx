@@ -2,17 +2,16 @@ import { Gtk } from "ags/gtk4"
 
 export function ReverseFinalBarline() {
     return(  
-        <box 
+        <box
             class="ReverseFinalBarline"
-            widthRequest={60}
+            widthRequest={50}
             >
             <Gtk.Separator
-                class="Barline"
+                class="ThickBarline"
                 widthRequest={12}
-                marginStart={10}
             />
             <Gtk.Separator
-                class="Barline"
+                class="ThinBarline"
                 widthRequest={3}
                 marginStart={5}
             />
