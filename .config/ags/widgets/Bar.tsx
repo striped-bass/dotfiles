@@ -6,19 +6,18 @@ import Battery from "gi://AstalBattery"
 import { createBinding, createState } from "ags"
 import { ReverseFinalBarline } from "./ReverseFinalBarline"
 import { WorkspaceButton } from "./Workspaces"
-import { readFile, writeFile } from "ags/file"
+import { readFile, readFileAsync, writeFileAsync } from "ags/file"
 
 function LightButton() {
 
   let colors_scss = readFile("./style/colors/colors.scss");
   const [light, setLight] = createState(colors_scss.includes("light"))
 
-  function light_toggle() {
+  async function light_toggle() {
     setLight((v) => !v)
-
     exec(["bash","-c",`agsv1 -r dark.value=${!light()} && agsv1 -b banner -c ~/dotfiles/.config/agsv1/windows/banner/banner.js`]);
 
-    let colors_scss = readFile("./style/colors/colors.scss");
+    let colors_scss = await readFileAsync("./style/colors/colors.scss");
     
     if (light()) {
       colors_scss = colors_scss.replaceAll("dark","light");
@@ -26,34 +25,34 @@ function LightButton() {
       colors_scss = colors_scss.replaceAll("light","dark");
     }
 
-    writeFile("./style/colors/colors.scss",colors_scss);
-    exec("sass ./style/style.scss ./style/style.css");
+    await writeFileAsync("./style/colors/colors.scss",colors_scss);
+    await execAsync("sass ./style/style.scss ./style/style.css");
     app.reset_css();
     app.apply_css("./style/style.css");
 
     if (light()) {
-      exec(["bash","-c","kill -SIGUSR2 $(pgrep -x foot) 2>/dev/null || true"]);
+      await execAsync(["bash","-c","kill -SIGUSR2 $(pgrep -x foot) 2>/dev/null || true"]);
     } else {
-      exec(["bash","-c","kill -SIGUSR1 $(pgrep -x foot) 2>/dev/null || true"]);
+      await execAsync(["bash","-c","kill -SIGUSR1 $(pgrep -x foot) 2>/dev/null || true"]);
     }
 
-     let hyprconf = readFile("../hypr/hyprland.lua");
+    let hyprconf = await readFileAsync("../hypr/hyprland.lua");
     
-     if (light()) {
+    if (light()) {
       hyprconf = hyprconf.replaceAll("dark","light");
     } else {
       hyprconf = hyprconf.replaceAll("light","dark");
     }
-    writeFile("../hypr/hyprland.lua",hyprconf)
-    exec("hyprctl reload");
+    await writeFileAsync("../hypr/hyprland.lua",hyprconf)
+    await execAsync("hyprctl reload");
 
-    let hyprlockconf = readFile("../hypr/hyprlock.conf");
+    let hyprlockconf = await readFileAsync("../hypr/hyprlock.conf");
     if (light()) {
         hyprlockconf = hyprlockconf.replaceAll("dark","light");
     } else {
         hyprlockconf = hyprlockconf.replaceAll("light","dark");
     }
-    writeFile("../hypr/hyprlock.conf",hyprlockconf)
+    await writeFileAsync("../hypr/hyprlock.conf",hyprlockconf)
   }
   const label = light((c) => light()?"Light":"Dark")
 
