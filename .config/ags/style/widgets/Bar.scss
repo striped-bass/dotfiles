@@ -32,45 +32,4 @@ $small_font_size: 1rem;
         letter-spacing: 5px;
         text-shadow: 6px 6px 1px rgba(72, 70, 61, 0.25);
     }
-
-    .Calendar {
-    
-        header {
-            color: colors.$tan;
-            background-color: colors.$brown;
-
-            stack.month {
-                label {
-                    color: colors.$tan;
-                }
-            }
-            label.year {
-                color: colors.$tan;
-            }
-        }
-        grid {
-            background-color:colors.$tan;
-
-            label.day-name{
-                color: colors.$brown;
-                background-color: colors.$tan;
-            }
-
-            label {
-                color: colors.$brown;
-                background-color: #cdc8b0;
-            }
-
-            .today {
-                border-radius: 0px;
-                color: colors.$tan;
-                background-color: colors.$accent1;
-            }
-
-            .other-month {
-                color: colors.$brown;
-                background-color: #aca893;
-            }
-        }
-    }
 }
