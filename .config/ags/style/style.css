@@ -132,36 +132,6 @@ window.Wallpaper .ArcBottomInner {
   letter-spacing: 5px;
   text-shadow: 6px 6px 1px rgba(72, 70, 61, 0.25);
 }
-.Bar .Calendar header {
-  color: #c2bda6;
-  background-color: #48463d;
-}
-.Bar .Calendar header stack.month label {
-  color: #c2bda6;
-}
-.Bar .Calendar header label.year {
-  color: #c2bda6;
-}
-.Bar .Calendar grid {
-  background-color: #c2bda6;
-}
-.Bar .Calendar grid label.day-name {
-  color: #48463d;
-  background-color: #c2bda6;
-}
-.Bar .Calendar grid label {
-  color: #48463d;
-  background-color: #cdc8b0;
-}
-.Bar .Calendar grid .today {
-  border-radius: 0px;
-  color: #c2bda6;
-  background-color: #cd664d;
-}
-.Bar .Calendar grid .other-month {
-  color: #48463d;
-  background-color: #aca893;
-}
 
 .BorderBox image {
   color: #48463d;
