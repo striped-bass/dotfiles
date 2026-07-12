@@ -3,10 +3,14 @@
 .ReverseFinalBarline {
     .ThickBarline {
         background-color: colors.$brown;
+        padding-right: 12px;
         opacity: 0.25;
     }
     .ThinBarline {
+        margin-left: 5px;
+        margin-right: 31px;
         background-color: colors.$brown;
+        padding-right: 2px;
         opacity: 0.25;
     }
 }
