@@ -1,4 +1,26 @@
 import { Gdk, Gtk } from "ags/gtk4"
+// import Hyprland from "gi://AstalHyprland"
+// import { createBinding, createState } from "ags"
+
+// // https://aylur.github.io/libastal/hyprland/method.Position.get_x.html
+// function x_position() {
+//   const [shader, setShader] = createState(true)
+
+//   const position = Hyprland.position
+//   const x_position = position.get_x()
+
+//   const label = shader((c) => shader()?"Shader On":"Shader Off")
+
+//   return (
+//       <label label={label}/>
+//   )
+// }
+
+// async function get_cursor() {
+//   return Hyprland.sendMessage("cursorpos").then((res) => {
+//     return res.split(",").map((n) => Number(n));
+//   });
+// }
 
 export function Border({
   gdkmonitor,

@@ -123,12 +123,13 @@ export function Bar({
             />
             <label
               class="RightLabel"
-              label="SYSTEM"
+              label="System"
             />
           </box>
           <System/>
         </menubutton>
 
+        {/* <WorkspacesPanelButton/> */}
         <WorkspaceButton workspace_id={1}/>
         <WorkspaceButton workspace_id={2}/>
         <WorkspaceButton workspace_id={3}/>
