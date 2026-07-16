@@ -10,12 +10,8 @@
   opacity: 0.3;
 }
 
-@keyframes oscillate_top {
-  to {transform: translate(-10px,-10px);}
-}
-
-@keyframes oscillate_bottom {
-  to {transform: translate(10px,10px);}
+@keyframes shrink {
+  to {transform: scale(0.97);}
 }
 
 window.Wallpaper {
@@ -32,19 +28,21 @@ window.Wallpaper {
   }
 
   .ArcTopOuter {
+    transform-origin: 0% 0%;
     border-bottom: 2.5px solid colors.$brown;
     border-right: 2.5px solid colors.$brown;
     border-radius: 0 0 100% 0;
     opacity: 0.25;
-    animation: oscillate_top 6s ease alternate infinite;
+    animation: shrink 6s ease alternate infinite;
   }
 
   .ArcTopInner {
+    transform-origin: 0% 0%;
     border-bottom: 2.5px solid colors.$brown;
     border-right: 2.5px solid colors.$brown;
     border-radius: 0 0 100% 0;
     opacity: 0.25;
-    animation: oscillate_top 8s ease alternate infinite;
+    animation: shrink 8s ease alternate infinite;
   }
 
   .LineBottomShort {
@@ -60,19 +58,20 @@ window.Wallpaper {
   }
 
   .ArcBottomOuter {
+    transform-origin: 100% 100%;
     border-top: 2.5px solid colors.$brown;
     border-left: 2.5px solid colors.$brown;
     border-radius: 100% 0 0 0;
     opacity: 0.25;
-    animation: oscillate_bottom 6s ease alternate infinite;
+    animation: shrink 6s ease alternate infinite;
   }
 
   .ArcBottomInner {
+    transform-origin: 100% 100%;
     border-top: 2.5px solid colors.$brown;
     border-left: 2.5px solid colors.$brown;
     border-radius: 100% 0 0 0;
     opacity: 0.25;
-    animation: oscillate_bottom 8s ease alternate infinite;
+    animation: shrink 8s ease alternate infinite;
   }
-  
 }
