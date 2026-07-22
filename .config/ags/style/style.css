@@ -1,11 +1,6 @@
-@keyframes oscillate_top {
+@keyframes shrink {
   to {
-    transform: translate(-10px, -10px);
-  }
-}
-@keyframes oscillate_bottom {
-  to {
-    transform: translate(10px, 10px);
+    transform: scale(0.97);
   }
 }
 window.Wallpaper .LineTopShort {
@@ -21,18 +16,20 @@ window.Wallpaper .LineTopLong {
   opacity: 0.3;
 }
 window.Wallpaper .ArcTopOuter {
+  transform-origin: 0% 0%;
   border-bottom: 2.5px solid #48463d;
   border-right: 2.5px solid #48463d;
   border-radius: 0 0 100% 0;
   opacity: 0.25;
-  animation: oscillate_top 6s ease alternate infinite;
+  animation: shrink 6s ease alternate infinite;
 }
 window.Wallpaper .ArcTopInner {
+  transform-origin: 0% 0%;
   border-bottom: 2.5px solid #48463d;
   border-right: 2.5px solid #48463d;
   border-radius: 0 0 100% 0;
   opacity: 0.25;
-  animation: oscillate_top 8s ease alternate infinite;
+  animation: shrink 8s ease alternate infinite;
 }
 window.Wallpaper .LineBottomShort {
   background: linear-gradient(to top right, transparent 0%, transparent calc(50% - 2px), #48463d 50%, transparent calc(50% + 2px), transparent 100%);
@@ -47,18 +44,20 @@ window.Wallpaper .LineBottomLong {
   opacity: 0.3;
 }
 window.Wallpaper .ArcBottomOuter {
+  transform-origin: 100% 100%;
   border-top: 2.5px solid #48463d;
   border-left: 2.5px solid #48463d;
   border-radius: 100% 0 0 0;
   opacity: 0.25;
-  animation: oscillate_bottom 6s ease alternate infinite;
+  animation: shrink 6s ease alternate infinite;
 }
 window.Wallpaper .ArcBottomInner {
+  transform-origin: 100% 100%;
   border-top: 2.5px solid #48463d;
   border-left: 2.5px solid #48463d;
   border-radius: 100% 0 0 0;
   opacity: 0.25;
-  animation: oscillate_bottom 8s ease alternate infinite;
+  animation: shrink 8s ease alternate infinite;
 }
 
 .TopSeparator {
@@ -81,6 +80,8 @@ window.Wallpaper .ArcBottomInner {
 }
 .WorkspaceButton .RightLabel {
   color: #48463d;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
 }
 
 .WorkspaceButton:hover {
@@ -130,6 +131,7 @@ window.Wallpaper .ArcBottomInner {
   padding-bottom: 40px;
   font-size: 3rem;
   letter-spacing: 5px;
+  text-transform: uppercase;
   text-shadow: 6px 6px 1px rgba(72, 70, 61, 0.25);
 }
 

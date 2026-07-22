@@ -1,0 +1,19 @@
+@use "../colors/colors.scss" as colors;
+
+.SystemMenu {
+    .Heading {
+        color: colors.$brown;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        font-size: 3rem;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        text-shadow: 6px 6px 1px rgba(72, 70, 61, 0.25);
+    }
+    .MenuContents {
+        .button {
+            color: colors.$tan;
+            background-color: colors.$brown;
+        }
+    }
+}

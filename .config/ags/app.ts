@@ -4,6 +4,7 @@ import {Wallpaper} from "./windows/Wallpaper"
 import { TopBar } from "./windows/TopBar"
 import { TopBorder } from "./windows/TopBorder"
 import { BottomBorder } from "./windows/BottomBorder"
+import { LeftSystemMenu } from "./windows/LeftSystemMenu"
 
 app.start({
   css: style,
@@ -14,6 +15,7 @@ app.start({
       TopBar(monitor);
       TopBorder(monitor);
       BottomBorder(monitor);
+      LeftSystemMenu(monitor);
 		});
   },
 })
