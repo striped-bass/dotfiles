@@ -14,11 +14,12 @@ hl.bind(mod1 .. " + SHIFT + S", hl.dsp.exec_cmd(screenshot))
 hl.bind(mod1 .. " + L",         hl.dsp.exec_cmd(lock))
 hl.bind(mod2 .. " + RETURN",    hl.dsp.exec_cmd(terminal))
 
+hl.bind(mod1 .. " + SPACE",     hl.dsp.exec_cmd(systemMenu))
 -- -- Bug: Opacity toggle isn't working as expected
-hl.bind(mod1 .. " + SPACE", function ()
-    hl.dispatch(hl.dsp.window.set_prop({match = { class = ".*" }, prop = "opaque", value = "false"}))
-    hl.exec_cmd("agsv1 -b settings -t settings")
-end)
+-- hl.bind(mod1 .. " + SPACE", function ()
+--     hl.dispatch(hl.dsp.window.set_prop({match = { class = ".*" }, prop = "opaque", value = "false"}))
+--     hl.exec_cmd("agsv1 -b settings -t settings")
+-- end)
 
 -- Switch workspaces
 -- Move active window to a workspace
