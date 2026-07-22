@@ -149,6 +149,9 @@ export function SystemMenu({
                 </box>
               </popover>
             </menubutton>
+            <button onClicked={() => app.get_window("LeftSystemMenu").visible = false}>
+              <label label="⬛ Back"/>
+          </button>
           </box>
       </box>
     </box>
