@@ -7,4 +7,4 @@ global unimatrixAngelic = terminal .. " -o  font=Angelic:size=12 unimatrix -c wh
 global fileManager      = terminal .. " -e yazi"
 global lock             = "hyprlock"
 global screenshot       = 'grim -g "$(agsv1 -b geom -c ~/.config/agsv1/windows/geom/geom.js)" - | wl-copy && notify-send "Screenshot copied to clipboard"'
-global systemMenu   = "ags toggle LeftSystemMenu"
+global systemMenu       = "ags toggle LeftSystemMenu"
