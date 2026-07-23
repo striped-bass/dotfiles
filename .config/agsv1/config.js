@@ -26,7 +26,7 @@ globalThis.WHICH = WHICH;
 
 let top_bar_height = 0;
 
-execAsync(`agsv1 -b settings -c ${App.configDir}/windows/settings/settings.js`);
+// execAsync(`agsv1 -b settings -c ${App.configDir}/windows/settings/settings.js`);
 
 dark.connect("changed", () => {
   print("dark changed",dark.value);
