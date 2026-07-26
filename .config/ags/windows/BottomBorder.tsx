@@ -4,9 +4,9 @@ import {Border} from "../widgets/Border"
 
 export function BottomBorder(gdkmonitor: Gdk.Monitor) {
   const {BOTTOM, LEFT, RIGHT} = Astal.WindowAnchor;
-  const border_unit_count = 25;
+  const border_unit_count = 27;
   const width = gdkmonitor.get_geometry().width;
-  const border_offset_ratio = 0.7;
+  const border_offset_ratio = 0.5;
   const border_unit_size = Math.floor(width/border_unit_count);
   const border_offset = -border_offset_ratio*border_unit_size;
   

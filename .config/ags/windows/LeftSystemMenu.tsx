@@ -16,7 +16,7 @@ export function LeftSystemMenu(gdkmonitor: Gdk.Monitor) {
       anchor={TOP | LEFT}
       application={app}
     >
-      <SystemMenu gdkmonitor={gdkmonitor} border_unit_count={25}/>
+      <SystemMenu gdkmonitor={gdkmonitor} border_unit_count={27}/>
     </window>
   )
 }

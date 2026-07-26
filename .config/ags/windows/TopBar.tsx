@@ -4,7 +4,7 @@ import { Bar } from "../widgets/Bar"
 
 export function TopBar(gdkmonitor: Gdk.Monitor) {
   const { TOP, LEFT, RIGHT} = Astal.WindowAnchor;
-  const border_unit_count = 25;
+  const border_unit_count = 27;
 
   return(  
     <window

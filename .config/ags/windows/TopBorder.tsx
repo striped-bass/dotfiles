@@ -4,7 +4,7 @@ import {Border} from "../widgets/Border"
 
 export function TopBorder(gdkmonitor: Gdk.Monitor) {
   const {TOP, LEFT, RIGHT} = Astal.WindowAnchor;
-  const border_unit_count = 25;
+  const border_unit_count = 27;
   const width = gdkmonitor.get_geometry().width;
   const border_unit_size = Math.floor(width/border_unit_count);
   
