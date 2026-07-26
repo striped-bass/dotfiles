@@ -121,19 +121,6 @@ window.Wallpaper .ArcBottomInner {
   color: #48463d;
   font-size: 1rem;
 }
-.Bar .SystemPopover contents {
-  background-color: transparent;
-  box-shadow: none;
-  border: none;
-}
-.Bar .Heading {
-  padding-top: 30px;
-  padding-bottom: 40px;
-  font-size: 3rem;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  text-shadow: 6px 6px 1px rgba(72, 70, 61, 0.25);
-}
 
 .BorderBox image {
   color: #48463d;
@@ -143,6 +130,20 @@ window.Wallpaper .ArcBottomInner {
 }
 
 .HorizontalSeparator {
+  background-color: #48463d;
+}
+
+.SystemMenu .Heading {
+  color: #48463d;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  font-size: 3rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  text-shadow: 6px 6px 1px rgba(72, 70, 61, 0.25);
+}
+.SystemMenu .MenuContents .button {
+  color: #c2bda6;
   background-color: #48463d;
 }
 

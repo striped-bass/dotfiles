@@ -12,7 +12,8 @@ function LightButton() {
 
   async function light_toggle() {
     setLight((v) => !v)
-    exec(["bash","-c",`t -r dark.value=${!light()} && agsv1 -b banner -c ~/dotfiles/.config/agsv1/windows/banner/banner.js`]);
+    // To-do: Add banner animation
+    // exec(["bash","-c",`t -r dark.value=${!light()} && agsv1 -b banner -c ~/dotfiles/.config/agsv1/windows/banner/banner.js`]);
 
     let colors_scss = await readFileAsync("./style/colors/colors.scss");
     
