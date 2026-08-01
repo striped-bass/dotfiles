@@ -82,7 +82,7 @@ Install the fonts below per the [Arch wiki](https://wiki.archlinux.org/title/Fon
 |Sound effects|Not started|Add in-game sound effects|
 
 ## Thanks to
-- [Archived blog post]((https://web.archive.org/web/20260130001110/https://www.platinumgames.com/official-blog/article/9624)) by the PlatinumGames on UI design of NieR: Automata
+- [Archived blog post](https://web.archive.org/web/20260130001110/https://www.platinumgames.com/official-blog/article/9624) by the PlatinumGames on UI design of NieR: Automata
 - [NieR: Automata settings menu](https://codepen.io/RobotsPlay/pen/bGeNGdx) on CodePen
 - [SVG](https://github.com/gigsoll/YoRHaLogo) for YoRHA logo
 - [Let's Play archive](https://lparchive.org/NieR-Automata/) for NieR: Automata
