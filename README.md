@@ -20,8 +20,10 @@ Note: Migration from AGSv1 to v3 is in progress. Upon completion of this migrati
     > `paru -G aylurs-gtk-shell`
 
 2. Copy package build files for `agsv1`
-    > `git clone https://github.com/kotontrion/PKGBUILDS.git`
+    > ```sh
+    > git clone https://github.com/kotontrion/PKGBUILDS.git`
     > cp -a PKGBUILDS/agsv1/. aylurs-gtk-shell/
+    > ```
 
 3. Install missing dependencies and `agsv1` package
     > `makepkg -si`
@@ -35,8 +37,8 @@ Install the fonts below per the [Arch wiki](https://wiki.archlinux.org/title/Fon
 |Angelic|  [Angelic-Regular.otf](https://github.com/NMeliksah/NierAngelicTMP/blob/main/Assets/Nier-Angelic/Angelic-Regular.otf)|
 
 
-### Required Fish Dependency
-- [Solution to your Terminal Transition Tribulation (STTT)](https://github.com/flick0/sttt) that's used by `config.fish`
+### Required `config.fish` Dependency
+- [Solution to your Terminal Transition Tribulation (STTT)](https://github.com/flick0/sttt)
 
 ### Optional NieR: Automata Themes
 - [Hyprcursor](https://github.com/striped-bass/NieR-Cursors)
