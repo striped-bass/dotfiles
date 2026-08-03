@@ -43,7 +43,7 @@ Install the fonts below per the [Arch wiki](https://wiki.archlinux.org/title/Fon
 ### Optional NieR: Automata Themes
 - [Hyprcursor](https://github.com/striped-bass/NieR-Cursors)
 - SDDM
-- Grub
+- [Grub](https://github.com/striped-bass/yorha-grub-theme)
 - [Trilium](https://github.com/Nriver/NieR-Automata-Trilium-Theme)
 - [Obsidian](https://github.com/exloseur3d/nier-theme)
 - [VS Code](https://github.com/Darius-Stone/vscode-nier-automata-tweaked)
